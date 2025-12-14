@@ -1,0 +1,119 @@
+.rehab-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.rehab-container {
+  background: #fdfdfd;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.rehab-container h2 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  border-bottom: 2px solid #d4af37;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.dropdowns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+button[mat-raised-button] {
+  background-color: #d4af37;
+  color: #111;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #b08a2a;
+}
+
+.plan-section {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 5px solid #d4af37;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.plan-section h4 {
+  font-size: 1.3rem;
+  color: #d4af37;
+  margin-bottom: 0.75rem;
+}
+
+.exercise-card {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.exercise-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2a4d69;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.disclaimer-btn {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.disclaimer-btn button {
+  border: 2px solid #d4af37;
+  background: #fff;
+  color: #d4af37;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.disclaimer-btn button:hover {
+  background: #d4af37;
+  color: #fff;
+}

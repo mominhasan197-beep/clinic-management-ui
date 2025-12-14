@@ -1,0 +1,99 @@
+<div class="min-h-screen bg-primary flex items-center justify-center py-12 px-4">
+    <div class="w-full max-w-md">
+        <!-- Logo/Header -->
+        <div class="text-center mb-8">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-gold p-1">
+                <div class="w-full h-full rounded-full bg-primary flex items-center justify-center">
+                    <span class="text-gold-foil font-serif text-3xl font-bold">C</span>
+                </div>
+            </div>
+            <h1 class="text-4xl font-serif font-bold mb-2">
+                <span class="text-gold-foil">Doctor Portal</span>
+            </h1>
+            <p class="text-gray-light text-lg">Sign in to access your dashboard</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="bg-surface/60 backdrop-blur-xl border border-accent/10 rounded-2xl shadow-lg p-8 mb-8">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+                <!-- Username Field -->
+                <div>
+                    <label for="username" class="block text-sm font-semibold text-gray-light mb-2">
+                        Username
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="username" formControlName="username"
+                            class="w-full px-4 py-3 bg-surface/30 border border-white/10 rounded-lg text-off-white placeholder:text-gray-500 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                            placeholder="Enter your username" />
+                    </div>
+                    <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid"
+                        class="mt-1 text-red-400 text-xs">
+                        Username is required
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-light mb-2">
+                        Password
+                    </label>
+                    <div class="relative">
+                        <input type="password" id="password" formControlName="password"
+                            class="w-full px-4 py-3 bg-surface/30 border border-white/10 rounded-lg text-off-white placeholder:text-gray-500 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50"
+                            placeholder="Enter your password" />
+                    </div>
+                    <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                        class="mt-1 text-red-400 text-xs">
+                        Password is required
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember-me" name="remember-me" type="checkbox"
+                            class="w-4 h-4 rounded border-white/10 bg-surface/30 text-accent focus:ring-accent/30 focus:ring-2" />
+                        <label for="remember-me" class="ml-2 block text-sm text-gray-light">
+                            Remember me
+                        </label>
+                    </div>
+                    <div class="text-sm">
+                        <a href="#" class="text-accent hover:text-gold-200 transition-colors">
+                            Forgot password?
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Error Message -->
+                <div *ngIf="errorMessage" class="bg-red-500/20 border border-red-500/50 rounded-lg p-3 text-red-300 text-sm">
+                    {{ errorMessage }}
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" [disabled]="loginForm.invalid || isLoading"
+                    class="w-full bg-gradient-gold text-primary font-bold tracking-wider uppercase text-sm rounded-full transition-all duration-300 hover:shadow-gold-glow hover:bg-gradient-gold-hover transform hover:-translate-y-0.5 border border-accent/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed py-3">
+                    <svg *ngIf="!isLoading" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    <div *ngIf="isLoading" class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    {{ isLoading ? 'Signing In...' : 'Sign In to Dashboard' }}
+                </button>
+            </form>
+
+            <!-- Additional Info -->
+            <div class="mt-6 pt-6 border-t border-white/10">
+                <p class="text-center text-sm text-gray-500">
+                    Need access? Contact your administrator
+                </p>
+            </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="text-center">
+            <p class="text-xs text-gray-500">
+                🔒 Secure connection • Your data is encrypted
+            </p>
+        </div>
+    </div>
+</div>

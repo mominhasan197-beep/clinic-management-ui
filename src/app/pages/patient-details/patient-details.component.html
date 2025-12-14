@@ -1,0 +1,205 @@
+<div class="min-h-screen bg-primary pt-24 pb-12" style="background-color: #050505;">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <!-- Header -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+            <div class="mb-4 md:mb-0">
+                <button (click)="goBack()"
+                    class="flex items-center gap-2 text-gray-400 hover:text-off-white mb-4 transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    Back to Dashboard
+                </button>
+                <h1 class="text-4xl md:text-5xl font-serif font-bold mb-2">
+                    <span class="text-gold-foil">Patient Details</span>
+                </h1>
+                <p class="text-gray-light text-lg" *ngIf="patient">
+                    {{ patient.name }} - Complete Medical History
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button (click)="downloadPdf()" [disabled]="isDownloadingPdf || !patientId"
+                    class="lux-card__cta lux-card__cta--ghost disabled:opacity-50">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    {{ isDownloadingPdf ? 'Downloading...' : 'Download PDF' }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage"
+            class="bg-red-500/20 border border-red-500/50 rounded-lg p-3 text-red-300 text-sm mb-6">
+            {{ errorMessage }}
+        </div>
+
+        <!-- Loading Spinner -->
+        <div *ngIf="isLoading" class="flex flex-col items-center justify-center p-12">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-400 mb-4"></div>
+            <p class="text-gray-light">Loading patient history...</p>
+        </div>
+
+        <!-- Patient Information -->
+        <div *ngIf="!isLoading && patient" class="lux-card lux-card--standard mb-8">
+            <h3 class="lux-card__heading mb-6">Patient Information</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div>
+                    <p class="text-sm text-gray-400 mb-1">Name</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.name }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-400 mb-1">Age</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.age || 'N/A' }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-400 mb-1">Gender</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.gender || 'N/A' }}</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-400 mb-1">Mobile</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.mobile }}</p>
+                </div>
+                <div *ngIf="patient.email">
+                    <p class="text-sm text-gray-400 mb-1">Email</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.email }}</p>
+                </div>
+                <div *ngIf="patient.bloodGroup">
+                    <p class="text-sm text-gray-400 mb-1">Blood Group</p>
+                    <p class="text-lg font-semibold text-off-white">{{ patient.bloodGroup }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Appointment Data Entry -->
+        <div *ngIf="!isLoading && currentAppointment" class="lux-card lux-card--standard mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="lux-card__heading">Current Appointment - Data Entry</h3>
+                <span class="px-3 py-1 bg-gold-400/20 text-gold-300 rounded text-sm font-medium">
+                    Current Appointment
+                </span>
+            </div>
+            <form [formGroup]="editForm" (ngSubmit)="saveAppointmentData()"
+                class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2">
+                    <label class="block text-sm text-gray-400 mb-2">Diagnosis / Issue</label>
+                    <input type="text" formControlName="diagnosis"
+                        class="w-full bg-surface border border-white/10 rounded-lg p-3 text-off-white focus:outline-none focus:border-accent/50"
+                        placeholder="Enter diagnosis or issue">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm text-gray-400 mb-2">Treatment Given</label>
+                    <textarea rows="3" formControlName="treatment"
+                        class="w-full bg-surface border border-white/10 rounded-lg p-3 text-off-white focus:outline-none focus:border-accent/50"
+                        placeholder="Enter treatment details"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-2">Fees</label>
+                    <input type="number" step="0.01" formControlName="fees"
+                        class="w-full bg-surface border border-white/10 rounded-lg p-3 text-off-white focus:outline-none focus:border-accent/50"
+                        placeholder="0.00">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm text-gray-400 mb-2">Patient-facing Remarks</label>
+                    <textarea rows="2" formControlName="remarks"
+                        class="w-full bg-surface border border-white/10 rounded-lg p-3 text-off-white focus:outline-none focus:border-accent/50"
+                        placeholder="Remarks visible to patient"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                    <label class="block text-sm text-gray-400 mb-2">Doctor Notes (Internal)</label>
+                    <textarea rows="3" formControlName="doctorNotes"
+                        class="w-full bg-surface border border-white/10 rounded-lg p-3 text-off-white focus:outline-none focus:border-accent/50"
+                        placeholder="Internal notes for doctor reference"></textarea>
+                </div>
+                <div class="md:col-span-2 flex justify-end gap-3">
+                    <button type="submit" [disabled]="isSaving"
+                        class="px-6 py-3 bg-gradient-gold text-primary font-bold rounded-lg disabled:opacity-50 hover:shadow-gold-glow transition-all">
+                        {{ isSaving ? 'Saving...' : 'Save Changes' }}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- History Filters -->
+        <div *ngIf="!isLoading && patient" class="mb-6">
+            <div class="flex flex-wrap gap-3">
+                <button *ngFor="let filter of filters" (click)="onFilterChange($any(filter.key))"
+                    [ngClass]="selectedFilter === filter.key ? 'bg-accent/20 text-accent' : 'bg-surface/30 text-gray-300'"
+                    class="px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-accent/30">
+                    {{ filter.label }}
+                </button>
+            </div>
+        </div>
+
+        <!-- Patient History -->
+        <div *ngIf="!isLoading && patient" class="lux-card lux-card--standard">
+            <h3 class="lux-card__heading mb-6">Appointment History</h3>
+
+            <div *ngIf="filteredHistory.length === 0" class="text-center py-12 text-gray-500">
+                <p>No history found for selected filter.</p>
+            </div>
+
+            <div *ngIf="filteredHistory.length > 0" class="space-y-4">
+                <div *ngFor="let item of filteredHistory"
+                    [ngClass]="{'bg-gold-400/10 border-gold-400/30': isCurrentAppointment(item)}"
+                    class="border border-white/10 rounded-lg p-6 hover:border-accent/30 transition-colors">
+
+                    <!-- Current Appointment Badge -->
+                    <div *ngIf="isCurrentAppointment(item)" class="mb-4">
+                        <span class="px-3 py-1 bg-gold-400/20 text-gold-300 rounded text-xs font-medium">
+                            Current Appointment
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Date</p>
+                            <p class="text-sm font-semibold text-off-white">
+                                {{ formatDate(item.visitDate || item.appointmentDate) }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Time</p>
+                            <p class="text-sm font-semibold text-off-white">
+                                {{ item.visitTime || item.appointmentTime || '-' }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Location</p>
+                            <p class="text-sm font-semibold text-off-white">
+                                {{ item.locationName || '-' }}
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Fees</p>
+                            <p class="text-sm font-semibold text-off-white">
+                                {{ item.fees ? '₹' + item.fees.toFixed(2) : '-' }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Diagnosis</p>
+                            <p class="text-sm text-off-white">{{ item.diagnosis || '-' }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Treatment</p>
+                            <p class="text-sm text-off-white">{{ item.treatment || '-' }}</p>
+                        </div>
+                        <div *ngIf="item.remarks">
+                            <p class="text-xs text-gray-400 mb-1">Remarks</p>
+                            <p class="text-sm text-off-white">{{ item.remarks }}</p>
+                        </div>
+                        <div *ngIf="item.notes || item.doctorNotes">
+                            <p class="text-xs text-gray-400 mb-1">Doctor Notes</p>
+                            <p class="text-sm text-off-white">{{ item.notes || item.doctorNotes }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,390 @@
+/* Touch-friendly and mobile-responsive styles */
+
+.touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure minimum tappable area (48x48px for accessibility) */
+button,
+.cursor-pointer {
+    min-height: 48px;
+    min-width: 48px;
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Larger touch targets on mobile */
+    button {
+        min-height: 52px;
+        font-size: 1rem;
+    }
+
+    /* Doctor grid tweaks for narrow phones: switch to single column for better readability */
+    .doctors-grid-mobile-2cols {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* single column layout on small phones */
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+        grid-auto-rows: minmax(120px, auto);
+        /* ensure rows grow to fit content */
+        align-items: start;
+    }
+
+    /* Slightly smaller cards and text for small screens when in 2 columns */
+    .doctors-grid-mobile-2cols .lux-card {
+        padding: 1rem;
+        border-radius: 12px;
+        /* rounded corners for a premium look */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        /* subtle shadow */
+        min-height: 140px;
+        /* ensure cards feel spacious */
+        display: flex;
+        flex-direction: column;
+        /* stacked layout on mobile */
+        align-items: stretch;
+        /* stretch to fill width */
+        text-align: center;
+        overflow: hidden;
+        /* keep decorative elements contained */
+        position: relative;
+    }
+
+    /* Selected checkmark badge */
+    .doctors-grid-mobile-2cols .selected-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #fff, #f6f0d6);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.12) inset;
+        border: 2px solid rgba(212, 175, 55, 0.9);
+        z-index: 15;
+        transform: scale(0.7);
+        opacity: 0;
+        transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 200ms ease, opacity 160ms ease;
+    }
+
+    .doctors-grid-mobile-2cols .selected-badge svg {
+        display: block;
+    }
+
+    .doctors-grid-mobile-2cols .lux-card.selected .selected-badge {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    .doctors-grid-mobile-2cols h3 {
+        font-size: 1.2rem;
+        line-height: 1.15;
+        margin-bottom: 0.35rem;
+    }
+
+    .doctors-grid-mobile-2cols p {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
+
+    /* 'View slots' button - improved prominence on mobile */
+    .btn-view-slots {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0.9rem;
+        background: linear-gradient(90deg, #d4af37, #f3e5ab);
+        color: #050505;
+        font-weight: 700;
+        border-radius: 9999px;
+        box-shadow: 0 8px 20px rgba(212, 175, 55, 0.16);
+        transition: transform 140ms ease, box-shadow 140ms ease, opacity 160ms ease;
+        border: none;
+        margin-top: 1rem;
+    }
+
+    .btn-view-slots:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 28px rgba(212, 175, 55, 0.22);
+    }
+
+    .btn-view-slots:active {
+        transform: translateY(0);
+        opacity: 0.95;
+    }
+
+    /* Ensure the doctor's meta area spaces to the left and the button sits at the bottom */
+    .doctors-grid-mobile-2cols .flex-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* centralize content on mobile */
+    }
+
+    /* Ensure specialization text wraps and doesn't overflow */
+    .doctor-card .doctor-specializations {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Make card visuals consistent on all screens */
+.doctors-grid-mobile-2cols .lux-card {
+    background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(12, 12, 12, 0.94));
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.doctors-grid-mobile-2cols .lux-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(212, 175, 55, 0.06);
+    border-color: rgba(212, 175, 55, 0.08);
+}
+
+/* Ensure buttons and interactive elements have accessible sizes */
+.doctors-grid-mobile-2cols .lux-card button,
+.doctors-grid-mobile-2cols .lux-card a {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Upgrade small-screen truncation so text wraps properly instead of overflowing */
+.doctors-grid-mobile-2cols .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Prevent text selection on touch devices */
+.lux-card {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Mobile overlay animations */
+@keyframes mobileSlideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes mobileSlideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.mobile-panel-enter {
+    animation: mobileSlideIn 320ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.mobile-panel-exit {
+    animation: mobileSlideOut 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Backdrop for mobile overlay */
+.mobile-overlay-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+}
+
+/* Selected state for doctor card */
+.doctors-grid-mobile-2cols .lux-card.selected {
+    border: 2px solid rgba(212, 175, 55, 0.9);
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.6), 0 4px 14px rgba(212, 175, 55, 0.06);
+    transform: translateY(-6px);
+}
+
+/* Make sure selected card stands out on mobile as well */
+@media (max-width: 640px) {
+    .doctors-grid-mobile-2cols .lux-card.selected {
+        border-width: 1px;
+    }
+}
+
+/* Focus state for keyboard users */
+.doctors-grid-mobile-2cols .lux-card:focus {
+    outline: 3px solid rgba(212, 175, 55, 0.14);
+    outline-offset: 3px;
+    transform: translateY(-3px);
+}
+
+/* Extra narrow phones (approx 430px width) specific fixes */
+@media (max-width: 430px) {
+    .doctors-grid-mobile-2cols {
+        gap: 1.5rem;
+        /* extra gap on very narrow devices */
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .doctors-grid-mobile-2cols .lux-card {
+        min-height: 160px;
+        padding: 1.5rem;
+        padding-top: 1.35rem;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 0.6rem;
+        /* extra safety margin to avoid overlap */
+    }
+
+    /* Reduce avatar for narrow screens so it doesn't push card height out */
+    .doctors-grid-mobile-2cols .w-20 {
+        width: 56px !important;
+        height: 56px !important;
+    }
+
+    /* Slightly smaller 'selected' badge on very narrow screens */
+    .doctors-grid-mobile-2cols .selected-badge {
+        width: 28px;
+        height: 28px;
+        top: 8px;
+        right: 8px;
+    }
+
+    /* Increase the button prominence on super narrow devices */
+    .doctors-grid-mobile-2cols .btn-view-slots {
+        padding: 10px 14px;
+        font-size: 1rem;
+    }
+}
+
+/* Doctor-card specific styles for consistent layout */
+.doctor-card {
+    position: relative;
+    display: block;
+    border-radius: 12px;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(18, 18, 18, 0.92), rgba(10, 10, 10, 0.96));
+    min-height: 140px;
+}
+
+.doctor-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.doctor-avatar {
+    flex: 0 0 auto;
+}
+
+/* Display avatar and center content on small screens */
+@media (max-width: 640px) {
+    .doctor-card-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .doctor-avatar {
+        margin-bottom: 6px;
+    }
+
+    .doctor-card .doctor-avatar .w-20 {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* Doctor CTA and actions */
+.doctor-actions .btn-view-slots {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    min-width: 110px;
+}
+
+/* Make the button larger and full-width on tiny screens */
+@media (max-width: 430px) {
+    .doctor-actions .btn-view-slots {
+        width: 100%;
+        min-width: 0;
+        padding: 0.75rem 0.75rem;
+    }
+}
+
+.doctor-card .doctor-details {
+    width: 100%;
+    min-width: 0;
+    /* allows truncation */
+}
+
+/* Make specializations wrap and clamp to 2 lines */
+.doctor-card .doctor-specializations {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Ensure the selected-badge sits inside the card and doesn't overlap outside */
+.doctor-card .selected-badge {
+    right: 12px;
+    top: 12px;
+}
+
+/* Small-screen tuning for 430px width */
+@media (max-width: 430px) {
+    .doctor-card {
+        min-height: 160px;
+    }
+
+    .doctor-card .doctor-avatar .w-20 {
+        width: 56px;
+        height: 56px;
+    }
+}

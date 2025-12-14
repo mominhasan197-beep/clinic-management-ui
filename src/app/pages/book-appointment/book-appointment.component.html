@@ -1,0 +1,371 @@
+<div class="min-h-screen bg-primary pt-24 pb-12">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h1 class="text-3xl md:text-5xl font-serif font-bold mb-4">
+        <span class="text-gold-foil">Book Your Appointment</span>
+      </h1>
+      <p class="text-gray-light text-lg">
+        <span *ngIf="currentStep === 1">Step 1: Select Location</span>
+        <span *ngIf="currentStep === 2">Step 2: Choose Doctor</span>
+        <span *ngIf="currentStep === 3">Step 3: Select Time</span>
+        <span *ngIf="currentStep === 4">Step 4: Confirm Details</span>
+      </p>
+    </div>
+
+    <!-- Success Message Toast -->
+    <div *ngIf="showSuccess" class="fixed top-24 right-4 z-50 animate-fade-in-down max-w-sm w-full shadow-2xl">
+      <div class="bg-green-600 text-white p-4 rounded-lg shadow-lg border-2 border-green-400 relative overflow-hidden">
+        <!-- Progress bar animation could go here -->
+        <div class="flex items-start">
+          <svg class="w-6 h-6 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <div>
+            <h4 class="font-bold text-lg mb-1">Success!</h4>
+            <p class="text-sm">{{ successMessage }}</p>
+            <p class="text-xs mt-2 text-green-200">Redirecting to home in 3s...</p>
+          </div>
+          <button class="ml-auto text-green-200 hover:text-white" (click)="showSuccess = false">
+             ✕
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Error Message Toast -->
+    <div *ngIf="errorMessage" class="fixed top-24 right-4 z-50 animate-fade-in-down max-w-sm w-full shadow-2xl">
+       <div class="bg-red-900/95 text-white p-4 rounded-lg shadow-lg border-l-4 border-red-500 relative">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 mr-3 flex-shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div>
+               <h4 class="font-bold text-white mb-1">Error</h4>
+               <p class="text-sm text-red-100">{{ errorMessage }}</p>
+            </div>
+            <button class="ml-auto text-red-300 hover:text-white" (click)="errorMessage = ''">
+               ✕
+            </button>
+          </div>
+       </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="flex justify-center mb-8">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-400"></div>
+    </div>
+
+    <!-- Progress Steps -->
+    <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+      <div class="flex items-center space-x-1 sm:space-x-2 md:space-x-4 overflow-x-auto px-2 scrollbar-hide">
+        <!-- Step 1 -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="currentStep > 1 ? currentStep = 1 : null">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300"
+            [ngClass]="currentStep >= 1 ? 'bg-gradient-gold text-primary' : 'bg-surface border border-accent/30 text-gray-light'">
+            1
+          </div>
+          <span class="text-xs mt-2" [ngClass]="currentStep >= 1 ? 'text-accent' : 'text-gray-500'">Location</span>
+        </div>
+        <div class="w-8 md:w-16 h-0.5" [ngClass]="currentStep >= 2 ? 'bg-accent' : 'bg-accent/30'"></div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="currentStep > 2 ? currentStep = 2 : null">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300"
+            [ngClass]="currentStep >= 2 ? 'bg-gradient-gold text-primary' : 'bg-surface border border-accent/30 text-gray-light'">
+            2
+          </div>
+          <span class="text-xs mt-2" [ngClass]="currentStep >= 2 ? 'text-accent' : 'text-gray-500'">Doctor</span>
+        </div>
+        <div class="w-8 md:w-16 h-0.5" [ngClass]="currentStep >= 3 ? 'bg-accent' : 'bg-accent/30'"></div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col items-center cursor-pointer" (click)="currentStep > 3 ? currentStep = 3 : null">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300"
+            [ngClass]="currentStep >= 3 ? 'bg-gradient-gold text-primary' : 'bg-surface border border-accent/30 text-gray-light'">
+            3
+          </div>
+          <span class="text-xs mt-2" [ngClass]="currentStep >= 3 ? 'text-accent' : 'text-gray-500'">Schedule</span>
+        </div>
+        <div class="w-8 md:w-16 h-0.5" [ngClass]="currentStep >= 4 ? 'bg-accent' : 'bg-accent/30'"></div>
+
+        <!-- Step 4 -->
+        <div class="flex flex-col items-center">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300"
+            [ngClass]="currentStep >= 4 ? 'bg-gradient-gold text-primary' : 'bg-surface border border-accent/30 text-gray-light'">
+            4
+          </div>
+          <span class="text-xs mt-2" [ngClass]="currentStep >= 4 ? 'text-accent' : 'text-gray-500'">Confirm</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 1: Location Selection -->
+    <div *ngIf="currentStep === 1" class="animate-fade-in">
+      <div *ngIf="locations.length > 0; else noLocations" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div *ngFor="let location of locations" (click)="selectLocation(location)"
+          class="lux-card lux-card--featured cursor-pointer group hover:scale-105 transition-transform duration-300">
+          <div class="text-center">
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-gold p-1">
+              <div class="w-full h-full rounded-full bg-primary flex items-center justify-center">
+                <svg class="w-10 h-10 text-gold-foil" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+            </div>
+            <h3 class="lux-card__heading mb-3">{{ location.locationName }}</h3>
+            <p class="lux-card__subheading mb-4">Select this location</p>
+            <button class="lux-card__cta lux-card__cta--primary w-full">Select {{ location.locationName }}</button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noLocations>
+        <div class="text-center text-gray-400 py-12" *ngIf="!isLoading">
+          <p class="text-lg">No clinic locations found.</p>
+          <p class="text-sm">Please try again later.</p>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Step 2: Doctor Selection -->
+    <div *ngIf="currentStep === 2" class="grid grid-cols-1 gap-3 animate-fade-in doctors-grid-mobile-2cols">
+      <span class="sr-only" aria-live="polite">{{ selectedDoctor ? (selectedDoctor.name + ' selected') : ''
+        }}</span>
+
+      <ng-container *ngIf="doctors.length > 0; else noDoctors">
+        <div *ngFor="let doctor of doctors" class="lux-card doctor-card p-3 sm:p-4 cursor-pointer transition-shadow"
+          (click)="selectDoctor(doctor)" tabindex="0" (keydown.enter)="selectDoctor(doctor)" role="button"
+          [attr.aria-pressed]="selectedDoctor?.doctorId === doctor.doctorId">
+          <div *ngIf="selectedDoctor?.doctorId === doctor.doctorId" class="selected-badge" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" stroke="#041014" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <div class="doctor-card-inner">
+            <div class="doctor-avatar">
+              <div class="w-16 h-16 rounded-full bg-gradient-gold p-1">
+                <div class="w-full h-full rounded-full bg-primary flex items-center justify-center overflow-hidden">
+                  <span class="text-accent font-serif text-2xl font-bold">{{ doctor.name.charAt(0) }}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="doctor-details">
+              <h3 class="text-lg font-bold text-gold-foil mb-1 truncate">{{ doctor.name }}</h3>
+              <p class="text-sm text-gray-light mb-1 truncate">{{ doctor.qualifications }}</p>
+              <p class="text-xs text-accent doctor-specializations mb-1">{{ doctor.specializations?.join(', ') }}
+              </p>
+            </div>
+
+            <div class="doctor-actions">
+              <button type="button" [attr.aria-label]="'View available slots for ' + doctor.name"
+                (click)="showDoctorSlotsMobile(doctor); $event.stopPropagation()" class="btn-view-slots">View
+                slots</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noDoctors>
+        <div class="text-center text-gray-400 py-8">No doctors available at this location currently.</div>
+      </ng-template>
+
+      <div class="text-center mt-6">
+        <button (click)="back()" class="text-gray-400 hover:text-white underline">Back to Locations</button>
+      </div>
+    </div>
+
+    <!-- Mobile overlay for slots (visible only on small screens) -->
+    <div *ngIf="showMobileDoctorPanel" class="sm:hidden fixed inset-0 z-50 flex items-end justify-center">
+      <div class="absolute inset-0 bg-black/40" (click)="closeDoctorSlotsMobile()" aria-hidden="true"></div>
+      <div (click)="$event.stopPropagation()"
+        [ngClass]="{ 'mobile-panel-enter': mobileOverlayState === 'enter', 'mobile-panel-exit': mobileOverlayState === 'exit' }"
+        class="w-full bg-surface/95 rounded-t-2xl p-4 max-h-[85vh] overflow-auto shadow-xl border-t border-accent/20">
+        <div class="flex items-center justify-between mb-4">
+          <div>
+            <h4 class="text-lg font-bold text-gold-foil">{{ selectedDoctor?.name }}</h4>
+            <p class="text-xs text-gray-light">{{ selectedDoctor?.qualifications }}</p>
+          </div>
+          <button (click)="closeDoctorSlotsMobile()" class="text-gray-400 hover:text-white">Close</button>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-sm text-gray-400 mb-2">Select Date</label>
+          <input type="date" [min]="minDate" [value]="selectedDate" (change)="onDateChange($event)"
+            class="w-full bg-surface border border-accent/30 text-white rounded p-3 focus:outline-none focus:border-accent relative z-10">
+        </div>
+
+        <div *ngIf="availableSlots.length > 0" class="grid grid-cols-3 gap-2 mb-4">
+          <button *ngFor="let slot of availableSlots" type="button" (click)="selectSlot(slot)"
+            [class.bg-accent]="selectedSlot === slot" [class.text-primary]="selectedSlot === slot"
+            [class.bg-surface]="selectedSlot !== slot" [class.border-accent]="selectedSlot !== slot"
+            class="p-3 rounded text-center border hover:bg-accent hover:text-primary transition-colors cursor-pointer text-xs">
+            {{ slot }}
+          </button>
+        </div>
+
+        <div class="flex gap-3 mt-4">
+          <button (click)="closeDoctorSlotsMobile()"
+            class="px-4 py-2 border border-accent text-accent rounded">Cancel</button>
+          <button (click)="proceedFromMobileOverlay()" class="px-4 py-2 bg-gradient-gold text-primary rounded font-bold"
+            [disabled]="!selectedSlot">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Slot Selection -->
+  <div *ngIf="currentStep === 3" class="animate-fade-in max-w-2xl mx-auto">
+    <!-- Back button for mobile to return to doctor selection -->
+    <div class="mb-4">
+      <button (click)="currentStep = 2" class="text-sm text-accent hover:text-gold-200">← Back to Doctors</button>
+    </div>
+    <div class="lux-card p-6">
+      <h3 class="text-xl font-bold text-center mb-6">Select Date & Time for {{ selectedDoctor?.name }}</h3>
+
+      <div class="mb-6">
+        <label class="block text-sm text-gray-400 mb-2">Select Date</label>
+        <input type="date" [min]="minDate" [value]="selectedDate" (change)="onDateChange($event)"
+          class="w-full bg-surface border border-accent/30 text-white rounded p-3 focus:outline-none focus:border-accent relative z-10">
+      </div>
+
+      <div *ngIf="availableSlots.length > 0" class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
+        <button *ngFor="let slot of availableSlots" type="button" (click)="selectSlot(slot)"
+          [class.bg-accent]="selectedSlot === slot" [class.text-primary]="selectedSlot === slot"
+          [class.bg-surface]="selectedSlot !== slot" [class.border-accent]="selectedSlot !== slot"
+          class="p-3 rounded text-center border hover:bg-accent hover:text-primary transition-colors cursor-pointer touch-manipulation min-h-[48px]">
+          {{ slot }}
+        </button>
+      </div>
+
+      <!-- Remaining slots indicator -->
+      <div *ngIf="remainingSlotsForDay !== undefined && availableSlots.length > 0"
+        class="text-center text-sm text-gray-400 mb-4">
+        <span class="inline-block px-3 py-1 bg-accent/20 rounded-full">
+          {{ remainingSlotsForDay }} slots remaining today
+        </span>
+      </div>
+
+      <div *ngIf="availableSlots.length === 0 && !isLoading && selectedDate"
+        class="text-center p-6 bg-surface/50 rounded-lg border border-accent/30 mb-8">
+        <svg class="w-16 h-16 mx-auto mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-lg font-semibold text-gray-300 mb-2">No slots available</p>
+        <p class="text-sm text-gray-400">No appointments available for <span class="text-accent">{{
+            selectedDoctor?.name }}</span> on <span class="text-accent">{{ selectedDate }}</span></p>
+        <p class="text-sm text-gray-500 mt-2">Please try selecting a different date or doctor.</p>
+      </div>
+
+      <div class="flex justify-between mt-4">
+        <button (click)="back()"
+          class="px-6 py-2 border border-accent text-accent rounded hover:bg-accent/10">Back</button>
+        <button [disabled]="!selectedSlot" (click)="goToStep4()"
+          class="px-6 py-2 bg-gradient-gold text-primary font-bold rounded disabled:opacity-50 disabled:cursor-not-allowed">
+          Continue to Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Patient Details -->
+  <div *ngIf="currentStep === 4" class="animate-fade-in max-w-2xl mx-auto">
+    <form [formGroup]="bookingForm" (ngSubmit)="confirmBooking()" class="lux-card p-6 space-y-4">
+      <h3 class="text-xl font-bold text-center mb-6">Patient Details</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Patient Name *</label>
+          <input type="text" formControlName="patientName"
+            class="w-full bg-surface border border-accent/30 rounded p-2 text-white">
+          <div *ngIf="bookingForm.get('patientName')?.touched && bookingForm.get('patientName')?.invalid"
+            class="text-red-400 text-xs mt-1">
+            <span *ngIf="bookingForm.get('patientName')?.errors?.['required']">Patient Name is required.</span>
+            <span *ngIf="bookingForm.get('patientName')?.errors?.['pattern']">Patient name must contain only letters
+              and spaces. Numbers or special characters are not allowed.</span>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Age *</label>
+          <input type="number" formControlName="age"
+            class="w-full bg-surface border border-accent/30 rounded p-2 text-white">
+          <span *ngIf="bookingForm.get('age')?.touched && bookingForm.get('age')?.invalid"
+            class="text-red-400 text-xs">Required</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Mobile Number *</label>
+          <input type="tel" formControlName="mobile" maxlength="10"
+            (keypress)="($event.charCode >= 48 && $event.charCode <= 57)"
+            class="w-full bg-surface border border-accent/30 rounded p-2 text-white">
+          <div *ngIf="bookingForm.get('mobile')?.touched && bookingForm.get('mobile')?.invalid"
+            class="text-red-400 text-xs mt-1">
+            <span *ngIf="bookingForm.get('mobile')?.errors?.['required']">Mobile number is required.</span>
+            <span *ngIf="bookingForm.get('mobile')?.errors?.['pattern']">Mobile number must be exactly 10
+              digits.</span>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1">Email</label>
+          <input type="email" formControlName="email"
+            class="w-full bg-surface border border-accent/30 rounded p-2 text-white">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Blood Group</label>
+        <select formControlName="bloodGroup" class="w-full bg-surface border border-accent/30 rounded p-2 text-white">
+          <option value="">Select</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-400 mb-1">Remarks / Symptoms</label>
+        <textarea formControlName="remarks" rows="3"
+          class="w-full bg-surface border border-accent/30 rounded p-2 text-white"></textarea>
+      </div>
+
+      <div class="bg-surface/50 p-4 rounded mt-4 border border-accent/10">
+        <h4 class="text-accent text-sm font-bold mb-2">Booking Summary</h4>
+        <p class="text-sm text-gray-300">Location: {{ selectedLocation?.locationName }}</p>
+        <p class="text-sm text-gray-300">Doctor: {{ selectedDoctor?.name }}</p>
+        <p class="text-sm text-gray-300">Date/Time: {{ selectedDate | date }} at {{ selectedSlot }}</p>
+      </div>
+
+      <div class="flex justify-between mt-6">
+        <button type="button" (click)="back()"
+          class="px-6 py-2 border border-accent text-accent rounded hover:bg-accent/10">Back</button>
+        <button type="submit" [disabled]="bookingForm.invalid || isLoading"
+          class="px-8 py-3 bg-gradient-gold text-primary font-bold rounded shadow-lg hover:shadow-xl disabled:opacity-50">
+          {{ isLoading ? 'Booking...' : 'Confirm Appointment' }}
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Contact Link -->
+  <div class="mt-12 text-center" *ngIf="currentStep === 1">
+    <p class="text-gray-500 text-sm">
+      Need help choosing? <a routerLink="/contact" class="text-accent hover:text-gold-200 transition-colors">Contact
+        us</a> for assistance.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="min-h-screen pt-24 pb-12 bg-primary relative overflow-hidden">
+  <!-- Background Elements -->
+  <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Treatments Section -->
+    <section class="mb-20">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-serif font-bold text-off-white mb-4">Treatments We <span
+            class="text-gold-foil drop-shadow-sm">Offer</span></h1>
+        <p class="text-gray-400 max-w-2xl mx-auto">Advanced therapeutic solutions tailored to your recovery needs.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div *ngFor="let treatment of treatments; let i = index"
+          class="card-glass group overflow-hidden p-0 block h-full" data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+          <div class="relative h-56 overflow-hidden">
+            <img [src]="treatment.image" [alt]="treatment.title"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300">
+            </div>
+            <div
+              class="absolute top-4 right-4 bg-accent text-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              {{ treatment.category }}
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-serif font-bold text-off-white mb-2 group-hover:text-accent transition-colors">
+              {{ treatment.title }}
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">{{ treatment.description }}</p>
+
+            <div class="space-y-2">
+              <div *ngFor="let benefit of treatment.benefits.slice(0, 2)" class="flex items-start gap-2">
+                <span class="text-accent text-xs mt-1">✓</span>
+                <span class="text-gray-500 text-xs">{{ benefit }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

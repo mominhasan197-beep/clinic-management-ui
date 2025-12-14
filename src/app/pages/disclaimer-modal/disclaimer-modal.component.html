@@ -1,0 +1,23 @@
+<div class="modal-backdrop" *ngIf="show" aria-modal="true" role="dialog">
+  <div class="modal-card" role="document">
+    <h3>{{ title }}</h3>
+    <div class="content">
+      <p>
+        The AI recommendations provided are <strong>informational only</strong> and
+        not a substitute for professional advice.
+      </p>
+      <p *ngIf="extraNote">{{ extraNote }}</p>
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" [(ngModel)]="agreeChecked" />
+      I understand and agree.
+    </label>
+
+    <div class="actions">
+      <button class="btn primary" [disabled]="!agreeChecked" (click)="onAccept()">
+        I Understand
+      </button>
+    </div>
+  </div>
+</div>

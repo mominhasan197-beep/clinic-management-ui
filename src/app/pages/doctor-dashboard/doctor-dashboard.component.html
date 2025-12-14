@@ -1,0 +1,364 @@
+<div class="min-h-screen bg-primary pt-24 pb-12" style="background-color: #050505;">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+
+        <!-- DASHBOARD VIEW -->
+        <div *ngIf="viewMode === 'dashboard'" data-aos="fade-in">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold mb-2">
+                        <span class="text-gold-foil">Doctor Dashboard</span>
+                    </h1>
+                    <p class="text-gray-light text-lg">Welcome back, Dr. Salim</p>
+                    <p class="text-sm text-gray-500 mt-1">Doctor ID: {{ doctorId }}</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-3">
+                    <button (click)="logout()" class="lux-card__cta lux-card__cta--ghost">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Today's Appointments -->
+                <div class="lux-card lux-card--compact group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs text-gray-500">Today</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-gold-foil mb-1">{{ stats?.today ||
+                        stats?.appointmentsToday || 0 }}</h3>
+                    <p class="text-sm text-gray-light">Appointments Today</p>
+                </div>
+
+                <!-- Total Patients (This Month) -->
+                <div (click)="openMonthView()"
+                    class="lux-card lux-card--compact group cursor-pointer hover:border-accent transition-all"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs text-gray-500">View Details</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-gold-foil mb-1">{{ stats?.thisMonth ||
+                        stats?.totalPatients || 0 }}</h3>
+                    <p class="text-sm text-gray-light">This Month</p>
+                </div>
+
+                <!-- Total Appointments -->
+                <div class="lux-card lux-card--compact group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <span class="text-xs text-gray-500">All Time</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-gold-foil mb-1">{{ stats?.thisYear ||
+                        stats?.totalAppointments || 0 }}</h3>
+                    <p class="text-sm text-gray-light">Total Appointments</p>
+                </div>
+
+                <!-- Mock Data (Yearly) -->
+                <div class="lux-card lux-card--compact group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <span class="text-xs text-gray-500">This Year</span>
+                    </div>
+                    <h3 class="text-3xl font-serif font-bold text-gold-foil mb-1">2,145</h3>
+                    <p class="text-sm text-gray-light">Yearly Total</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Appointments Table -->
+                <div class="lg:col-span-2">
+                    <div class="lux-card lux-card--standard" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                            <div>
+                                <h3 class="lux-card__heading">Today's Appointments</h3>
+                                <span class="text-sm text-gray-500">{{ appointments.length }} Appointment{{
+                                    appointments.length !== 1 ? 's' : '' }} for {{ selectedDate | date:'MMM dd, yyyy'
+                                    }}</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <label class="text-sm text-gray-400">Date</label>
+                                <input type="date" [value]="selectedDate"
+                                    (change)="onDateChange($any($event.target).value)"
+                                    class="bg-surface border border-white/10 rounded px-3 py-2 text-off-white">
+                            </div>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div *ngIf="errorMessage"
+                            class="bg-red-500/20 border border-red-500/50 rounded-lg p-3 text-red-300 text-sm mb-4">
+                            {{ errorMessage }}
+                        </div>
+
+                        <!-- Loading Spinner -->
+                        <div *ngIf="isLoading" class="flex flex-col items-center justify-center p-12">
+                            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-400 mb-4"></div>
+                            <p class="text-gray-light">Loading dashboard data...</p>
+                        </div>
+
+                        <!-- Appointments Table -->
+                        <div *ngIf="!isLoading && appointments.length > 0" class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-white/10">
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Time</th>
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Patient
+                                            Name</th>
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Age /
+                                            Gender</th>
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Mobile
+                                        </th>
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Location
+                                        </th>
+                                        <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Status
+                                        </th>
+                                        <th class="text-right py-3 px-4 text-sm font-semibold text-gray-light">Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/5">
+                                    <tr *ngFor="let apt of appointments"
+                                        class="hover:bg-accent/10 transition-colors cursor-pointer">
+                                        <td (click)="startEdit(apt)"
+                                            class="py-4 px-4 text-sm text-off-white font-medium">{{ apt.appointmentTime
+                                            }}</td>
+                                        <td (click)="startEdit(apt)"
+                                            class="py-4 px-4 text-sm text-off-white font-semibold">{{ apt.patientName }}
+                                        </td>
+                                        <td (click)="startEdit(apt)" class="py-4 px-4 text-sm text-gray-light">
+                                            {{ apt.age || 'N/A' }}{{ apt.gender ? ' / ' + apt.gender : '' }}
+                                        </td>
+                                        <td (click)="startEdit(apt)" class="py-4 px-4 text-sm text-gray-light">{{
+                                            apt.mobile }}</td>
+                                        <td (click)="startEdit(apt)" class="py-4 px-4 text-sm text-gray-light">{{
+                                            apt.locationName }}</td>
+                                        <td (click)="startEdit(apt)" class="py-4 px-4">
+                                            <span class="px-2 py-1 rounded text-xs font-medium" [ngClass]="{
+                                                    'bg-green-500/20 text-green-400': apt.status === 'Upcoming' || apt.status === 'Confirmed',
+                                                    'bg-blue-500/20 text-blue-400': apt.status === 'Completed',
+                                                    'bg-red-500/20 text-red-400': apt.status === 'Cancelled',
+                                                    'bg-gray-500/20 text-gray-400': !apt.status
+                                                }">
+                                                {{ apt.status || 'Upcoming' }}
+                                            </span>
+                                        </td>
+                                        <td class="py-4 px-4 text-right">
+                                            <button (click)="navigateToPatientDetails(apt.patientId, apt.appointmentId)"
+                                                class="text-xs text-accent hover:text-white underline mr-2">
+                                                History
+                                            </button>
+                                            <button (click)="startEdit(apt)"
+                                                class="text-xs text-gold-400 hover:text-white underline">
+                                                Edit
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div *ngIf="!isLoading && appointments.length === 0" class="text-center py-12 text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-gray-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <p class="text-lg font-medium mb-2">No appointments scheduled</p>
+                            <p class="text-sm">No appointments found for {{ selectedDate | date:'MMM dd, yyyy' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions & Analytics -->
+                <div class="space-y-6">
+                    <!-- Quick Actions -->
+                    <div class="lux-card lux-card--standard" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="lux-card__heading mb-6">Quick Actions</h3>
+                        <div class="space-y-3">
+                            <button [routerLink]="['/patient-search']"
+                                class="w-full lux-card__cta lux-card__cta--primary">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                Search Patient
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Overview Chart Placeholder -->
+                    <div class="lux-card lux-card--standard" data-aos="fade-up" data-aos-delay="700">
+                        <h3 class="lux-card__heading mb-6">Monthly Overview</h3>
+                        <div
+                            class="h-48 flex items-center justify-center bg-surface/30 rounded-lg border border-white/5">
+                            <div class="text-center">
+                                <svg class="w-12 h-12 text-accent mx-auto mb-3" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                                <p class="text-sm text-gray-light">Chart Integration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MONTH VIEW -->
+        <div *ngIf="viewMode === 'month'" data-aos="fade-in">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h1 class="text-3xl font-serif font-bold text-gold-foil mb-2">Appointments for {{ currentMonthName
+                        }}</h1>
+                    <p class="text-gray-light">List of all appointments for the current month.</p>
+                </div>
+                <button (click)="backToDashboard()" class="lux-card__cta lux-card__cta--secondary">
+                    &larr; Back to Dashboard
+                </button>
+            </div>
+
+            <div class="lux-card lux-card--standard">
+                <div *ngIf="isLoading" class="flex justify-center p-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-gold-400 mb-4"></div>
+                </div>
+
+                <div *ngIf="!isLoading && currentMonthAppointments.length > 0" class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-white/10">
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Date</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Time</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Patient Name</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Mobile</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-light">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr *ngFor="let apt of currentMonthAppointments"
+                                class="hover:bg-accent/10 transition-colors">
+                                <td class="py-4 px-4 text-sm text-gray-light">{{ apt.appointmentDate | date:'MMM dd,
+                                    yyyy' }}</td>
+                                <td class="py-4 px-4 text-sm text-off-white font-medium">{{ apt.appointmentTime }}</td>
+                                <td class="py-4 px-4 text-sm text-off-white font-semibold">{{ apt.patientName }}</td>
+                                <td class="py-4 px-4 text-sm text-gray-light">{{ apt.mobile }}</td>
+                                <td class="py-4 px-4">
+                                    <span class="px-2 py-1 rounded text-xs font-medium" [ngClass]="{
+                                            'bg-green-500/20 text-green-400': apt.status === 'Upcoming' || apt.status === 'Confirmed',
+                                            'bg-blue-500/20 text-blue-400': apt.status === 'Completed',
+                                            'bg-red-500/20 text-red-400': apt.status === 'Cancelled',
+                                            'bg-gray-500/20 text-gray-400': !apt.status
+                                        }">
+                                        {{ apt.status || 'Upcoming' }}
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div *ngIf="!isLoading && currentMonthAppointments.length === 0"
+                    class="text-center py-12 text-gray-500">
+                    <p>No appointments found for this month.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Form Modal (Floating) -->
+        <div *ngIf="editingAppointment" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+            data-aos="fade-in">
+            <div class="lux-card lux-card--standard w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                    <h3 class="lux-card__heading">Update Appointment</h3>
+                    <button (click)="cancelEdit()" class="text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mb-4 bg-accent/5 p-4 rounded border border-accent/10">
+                    <div class="flex flex-col sm:flex-row justify-between gap-2 text-sm text-gray-300">
+                        <p><span class="text-accent font-semibold">Patient:</span> {{ editingAppointment.patientName }}
+                        </p>
+                        <p><span class="text-accent font-semibold">Date:</span> {{ editingAppointment.appointmentDate ?
+                            (editingAppointment.appointmentDate | date:'MMM dd, yyyy') : (selectedDate | date:'MMM dd,
+                            yyyy') }} at {{ editingAppointment.appointmentTime }}</p>
+                    </div>
+                </div>
+
+                <form [formGroup]="editForm" (ngSubmit)="saveEdit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-1">Status</label>
+                        <select formControlName="status"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none">
+                            <option value="Upcoming">Upcoming</option>
+                            <option value="Confirmed">Confirmed</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-1">Fees (₹)</label>
+                        <input type="number" step="0.01" formControlName="fees"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-gray-400 mb-1">Diagnosis / Issue</label>
+                        <input type="text" formControlName="diagnosis" placeholder="Enter diagnosis"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-gray-400 mb-1">Treatment Given</label>
+                        <textarea rows="2" formControlName="treatment" placeholder="Enter treatment details"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-gray-400 mb-1">Doctor Notes (Internal)</label>
+                        <textarea rows="3" formControlName="doctorNotes" placeholder="Private notes for the doctor"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm text-gray-400 mb-1">Patient Remarks (Visible on History)</label>
+                        <textarea rows="2" formControlName="remarks" placeholder="Remarks for the patient"
+                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2 flex justify-end gap-3 mt-4 pt-4 border-t border-white/10">
+                        <button type="button" (click)="cancelEdit()"
+                            class="px-4 py-2 border border-white/10 rounded text-gray-300 hover:text-off-white hover:bg-white/5 transition-colors">Cancel</button>
+                        <button type="submit" [disabled]="isSaving"
+                            class="px-6 py-2 bg-gradient-gold text-primary font-bold rounded disabled:opacity-50 hover:shadow-lg transition-shadow">
+                            {{ isSaving ? 'Saving...' : 'Save Changes' }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

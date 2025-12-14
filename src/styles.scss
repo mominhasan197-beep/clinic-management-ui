@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Import Luxury Component System */
+@import 'lux-cards.scss';
+
+@layer base {
+  body {
+    @apply bg-primary text-off-white font-sans antialiased selection:bg-accent selection:text-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-off-white;
+  }
+}
+
+@layer components {
+  .text-gold-foil {
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-gradient-gold text-primary font-bold tracking-wider uppercase text-sm rounded-full transition-all duration-300 hover:shadow-gold-glow hover:bg-gradient-gold-hover transform hover:-translate-y-0.5 border border-accent/20;
+  }
+
+  .btn-outline {
+    @apply px-8 py-3 border border-accent/60 text-accent font-semibold tracking-wider uppercase text-sm rounded-full transition-all duration-300 hover:bg-accent hover:text-primary hover:shadow-gold-glow;
+  }
+
+  .card-glass {
+    @apply bg-surface/60 backdrop-blur-xl border border-accent/10 rounded-[20px] shadow-glass p-8 transition-all duration-500 hover:border-accent/30 hover:shadow-gold-glow hover:bg-surface/80;
+  }
+
+  .input-field {
+    @apply w-full bg-surface/30 border border-white/5 rounded-xl px-4 py-3 text-off-white placeholder:text-gray-500 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50 transition-all duration-300 backdrop-blur-sm;
+  }
+
+  .section-padding {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+}

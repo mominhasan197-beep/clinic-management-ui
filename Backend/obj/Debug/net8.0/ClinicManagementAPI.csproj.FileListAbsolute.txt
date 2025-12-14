@@ -1,0 +1,247 @@
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\appsettings.Development.json
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\appsettings.json
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Black.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Bold.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Italic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Light.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Medium.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Regular.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Thin.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\LatoFont\OFL.txt
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.exe
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.deps.json
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.runtimeconfig.json
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.pdb
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Azure.Core.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Azure.Identity.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Dapper.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\QuestPDF.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.ClientModel.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\System.Text.Json.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-arm64\native\libqpdf.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libqpdf.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\linux-x64\native\libqpdf.so
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\osx-arm64\native\libqpdf.dylib
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\osx-x64\native\libqpdf.dylib
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libstdc++-6.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libwinpthread-1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\qpdf.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\zlib1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libstdc++-6.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libwinpthread-1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\qpdf.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+D:\Project\Angular\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.csproj.AssemblyReference.cache
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.AssemblyInfoInputs.cache
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.AssemblyInfo.cs
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.csproj.CoreCompileInputs.cache
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets.build.json
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets.development.json
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets\msbuild.ClinicManagementAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets\msbuild.build.ClinicManagementAPI.props
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ClinicManagementAPI.props
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ClinicManagementAPI.props
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\staticwebassets.pack.json
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\scopedcss\bundle\ClinicManagementAPI.styles.css
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicMa.40D12058.Up2Date
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.dll
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\refint\ClinicManagementAPI.dll
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.pdb
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.genruntimeconfig.cache
+D:\Project\Angular\Practice\Backend\obj\Debug\net8.0\ref\ClinicManagementAPI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\appsettings.Development.json
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\appsettings.json
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.staticwebassets.endpoints.json
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Black.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-BlackItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Bold.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-BoldItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraBold.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraBoldItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraLight.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ExtraLightItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Italic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Light.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-LightItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Medium.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-MediumItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Regular.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-SemiBold.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-SemiBoldItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-Thin.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\Lato-ThinItalic.ttf
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\LatoFont\OFL.txt
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.exe
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.deps.json
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.runtimeconfig.json
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ClinicManagementAPI.pdb
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Azure.Core.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Azure.Identity.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Dapper.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\QuestPDF.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.ClientModel.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.Memory.Data.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\cs\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\de\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\es\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\fr\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\it\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ja\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ko\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\pl\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\ru\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\tr\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\unix\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-arm64\native\libqpdf.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-musl-x64\native\libqpdf.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\linux-x64\native\libqpdf.so
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\osx-arm64\native\libqpdf.dylib
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\osx-x64\native\libqpdf.dylib
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libgcc_s_seh-1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libstdc++-6.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\libwinpthread-1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\qpdf.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x64\native\zlib1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libgcc_s_dw2-1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libstdc++-6.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\libwinpthread-1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\qpdf.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win-x86\native\zlib1.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+F:\salim bhai\new 2\Practice\Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.csproj.AssemblyReference.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\rpswa.dswa.cache.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.GeneratedMSBuildEditorConfig.editorconfig
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.AssemblyInfoInputs.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.AssemblyInfo.cs
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.csproj.CoreCompileInputs.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.MvcApplicationPartsAssemblyInfo.cs
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.MvcApplicationPartsAssemblyInfo.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\rjimswa.dswa.cache.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\scopedcss\bundle\ClinicManagementAPI.styles.css
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\staticwebassets.build.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\staticwebassets.build.json.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\staticwebassets.development.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicMa.40D12058.Up2Date
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.dll
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\refint\ClinicManagementAPI.dll
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.pdb
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ClinicManagementAPI.genruntimeconfig.cache
+F:\salim bhai\new 2\Practice\Backend\obj\Debug\net8.0\ref\ClinicManagementAPI.dll

@@ -1,0 +1,218 @@
+/* ============================
+   Keyframe Animations - Subtle & Clean
+   ============================ */
+
+@keyframes floatingAnimation {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+  }
+}
+
+/* ============================
+   Smooth Hover Effects (No Overlapping)
+   ============================ */
+
+/* Card Glass Hover Effects */
+.card-glass {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+  }
+
+  /* Icon/Avatar Floating */
+  .w-12,
+  .w-10,
+  .w-32 {
+    transition: all 0.3s ease;
+  }
+
+  &:hover .w-12,
+  &:hover .w-10,
+  &:hover .w-32 {
+    animation: floatingAnimation 2s ease-in-out infinite;
+  }
+}
+
+/* Subtle Title Animations */
+h1, h2, h3 {
+  transition: color 0.3s ease;
+}
+
+.card-glass:hover h3 {
+  color: #d4af37;
+}
+
+/* Button Smooth Effects */
+.btn-primary,
+.btn-outline {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Link Hover Effects */
+a:not(.btn-primary):not(.btn-outline) {
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: #d4af37;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Floating Icons in Doctor Cards */
+.w-32 {
+  transition: all 0.4s ease;
+}
+
+.card-glass:hover .w-32 {
+  animation: floatingAnimation 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
+}
+
+/* Smooth Icon/Text Transitions */
+.group-hover\:bg-accent {
+  transition: background-color 0.3s ease;
+}
+
+/* Section Smooth Fade In */
+section {
+  transition: all 0.6s ease;
+}
+
+/* Testimonial Card Styling */
+.card-glass {
+  .text-accent {
+    transition: color 0.3s ease;
+    font-size: 3rem;
+  }
+
+  p.italic {
+    transition: color 0.3s ease;
+  }
+}
+
+/* Gold Text Shimmer Effect (Subtle) */
+.text-gold-foil {
+  transition: text-shadow 0.3s ease;
+
+  &:hover {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* Prevent Layout Shifts */
+* {
+  box-sizing: border-box;
+}
+
+/* Background Elements - Gentle Float */
+.absolute.rounded-full.blur-3xl {
+  animation: floatingAnimation 8s ease-in-out infinite;
+  
+  &:nth-child(2) {
+    animation-delay: 2s;
+  }
+}
+
+/* Ensure links inside card don't overflow */
+.card-glass > a,
+.card-glass a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+  flex-wrap: wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.card-glass > a span {
+  flex: 0 0 auto;
+}
+
+/* Golden frame border for cards */
+.card-glass {
+  border: 2px solid transparent !important;
+  border-image: linear-gradient(135deg, #d4af37, #f3e5ab) 1;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 10px rgba(212,175,55,0.06) inset;
+}
+
+/* Slightly stronger frame on hover */
+.card-glass:hover {
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45), 0 0 20px rgba(212,175,55,0.09) inset;
+}
+
+/* Testimonial section specific fixes to prevent overlap */
+.testimonials {
+  .grid {
+    /* Ensure grid gap is enforced on all screen sizes */
+    gap: 1.25rem;
+  }
+
+  .card-glass {
+    position: relative;
+    z-index: 0; /* keep cards on a single z-layer */
+    overflow: visible; /* allow inner decorations but ensure they don't escape */
+    min-height: 160px; /* avoid variable card heights causing odd overlaps */
+    padding: 1.25rem;
+
+    .text-accent {
+      /* Limit decorative quote size to prevent overlapping neighbor content */
+      font-size: 2.75rem;
+      line-height: 0.9;
+      margin-bottom: 0.5rem;
+      display: block;
+      pointer-events: none;
+    }
+  }
+
+  /* Reduce quote size & spacing on small screens to avoid print overlap */
+  @media (max-width: 768px) {
+    .card-glass {
+      min-height: 0;
+      padding: 1rem;
+      .text-accent {
+        font-size: 1.75rem;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}

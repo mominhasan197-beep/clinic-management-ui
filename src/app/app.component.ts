@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Practice';
+  title = 'physio-clinic';
+  isMenuOpen: boolean = false; // renamed for clarity
+
+  // Toggle hamburger menu
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  // Optional: close menu when navigating
+  closeMenu() {
+    this.isMenuOpen = false;
+  }
 }

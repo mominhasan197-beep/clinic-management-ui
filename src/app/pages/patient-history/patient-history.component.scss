@@ -1,0 +1,64 @@
+/* Component specific styles */
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Touch-friendly and mobile-responsive styles */
+.touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure minimum tappable area (48x48px for accessibility) */
+button,
+.cursor-pointer {
+    min-height: 48px;
+    min-width: 48px;
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Larger touch targets on mobile */
+    button {
+        min-height: 52px;
+        font-size: 1rem;
+    }
+}

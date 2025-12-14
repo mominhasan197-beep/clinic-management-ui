@@ -1,0 +1,80 @@
+/* ============================================
+   MOBILE-SPECIFIC ENHANCEMENTS
+   ============================================ */
+
+@media (max-width: 640px) {
+
+    /* Reduce font sizes for mobile */
+    .lux-card__heading {
+        font-size: 1.25rem;
+    }
+
+    .lux-card__subheading {
+        font-size: 0.75rem;
+    }
+
+    .lux-card__text {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    /* Adjust button sizing */
+    .lux-card__cta {
+        padding: 10px 20px;
+        font-size: 0.75rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Reduce card padding further on small screens */
+    .lux-card {
+        padding: 12px;
+    }
+
+    .lux-card--compact {
+        padding: 10px;
+    }
+
+    .lux-card--standard {
+        padding: 14px;
+    }
+
+    .lux-card--featured {
+        padding: 16px;
+    }
+
+    .lux-card--image .lux-card__content {
+        padding: 14px;
+    }
+
+    /* Reduce divider margins */
+    .lux-divider {
+        margin: 24px 0;
+    }
+
+    .lux-divider__emblem {
+        width: 6px;
+        height: 6px;
+        margin: 0 12px;
+    }
+
+    /* Disable hover transforms on mobile */
+    .lux-card:hover {
+        transform: translateY(0);
+    }
+
+    .lux-card__cta:hover {
+        transform: translateY(0);
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .lux-card__heading {
+        font-size: 1.375rem;
+    }
+
+    .lux-card__cta {
+        padding: 11px 24px;
+    }
+}

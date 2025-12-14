@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lux Card Examples</title>
+    <link rel="stylesheet" href="lux-cards.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background: #050505;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: #F9F9F9;
+            font-size: 2rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Compact Cards -->
+        <h2 class="section-title">Compact Cards</h2>
+        <div class="grid">
+            <div class="lux-card lux-card--compact">
+                <p class="lux-card__subheading">Quick Info</p>
+                <h3 class="lux-card__heading" style="font-size: 1.25rem;">Expert Experience</h3>
+                <p class="lux-card__text">Over a decade of hands-on physiotherapy experience.</p>
+            </div>
+
+            <div class="lux-card lux-card--compact">
+                <p class="lux-card__subheading">Feature</p>
+                <h3 class="lux-card__heading" style="font-size: 1.25rem;">Evidence-Based</h3>
+                <p class="lux-card__text">Treatments using the latest scientific research.</p>
+            </div>
+
+            <div class="lux-card lux-card--compact">
+                <p class="lux-card__subheading">Benefit</p>
+                <h3 class="lux-card__heading" style="font-size: 1.25rem;">Personal Attention</h3>
+                <p class="lux-card__text">Dedicated care at every stage of recovery.</p>
+            </div>
+        </div>
+
+        <div class="lux-divider"></div>
+
+        <!-- Standard Cards -->
+        <h2 class="section-title">Standard Cards</h2>
+        <div class="grid">
+            <div class="lux-card lux-card--standard">
+                <p class="lux-card__subheading">Treatment</p>
+                <h3 class="lux-card__heading">Manual Therapy</h3>
+                <p class="lux-card__text">Hands-on techniques to relieve pain, improve mobility, and promote natural
+                    healing through expert manipulation.</p>
+                <a href="#" class="lux-card__cta lux-card__cta--ghost">Learn More →</a>
+            </div>
+
+            <div class="lux-card lux-card--standard">
+                <p class="lux-card__subheading">Treatment</p>
+                <h3 class="lux-card__heading">Electrotherapy</h3>
+                <p class="lux-card__text">Advanced electrical stimulation therapies designed to reduce inflammation and
+                    accelerate recovery.</p>
+                <a href="#" class="lux-card__cta lux-card__cta--ghost">Learn More →</a>
+            </div>
+
+            <div class="lux-card lux-card--standard">
+                <p class="lux-card__subheading">Treatment</p>
+                <h3 class="lux-card__heading">Exercise Therapy</h3>
+                <p class="lux-card__text">Personalized exercise programs to restore strength, flexibility, and
+                    functional movement.</p>
+                <a href="#" class="lux-card__cta lux-card__cta--ghost">Learn More →</a>
+            </div>
+        </div>
+
+        <div class="lux-divider lux-divider--emblem">
+            <div class="lux-divider__emblem"></div>
+        </div>
+
+        <!-- Featured Cards with Images -->
+        <h2 class="section-title">Featured Cards (with Images)</h2>
+        <div class="grid">
+            <div class="lux-card lux-card--featured lux-card--image">
+                <div class="lux-card__image-wrapper" style="height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop"
+                        alt="Physiotherapy session" class="lux-card__image">
+                </div>
+                <div class="lux-card__content">
+                    <p class="lux-card__subheading">Expert Care</p>
+                    <h3 class="lux-card__heading">Dr. Tahoora Momin</h3>
+                    <p class="lux-card__text">BPT, MPT (Orthopedics) - Specializing in sports injuries and post-surgical
+                        rehabilitation with over 10 years of experience.</p>
+                    <a href="#" class="lux-card__cta lux-card__cta--primary">Book Appointment</a>
+                </div>
+            </div>
+
+            <div class="lux-card lux-card--featured lux-card--image">
+                <div class="lux-card__image-wrapper" style="height: 200px;">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop"
+                        alt="Modern clinic" class="lux-card__image">
+                </div>
+                <div class="lux-card__content">
+                    <p class="lux-card__subheading">Facility</p>
+                    <h3 class="lux-card__heading">State-of-the-Art Equipment</h3>
+                    <p class="lux-card__text">Our clinic features the latest therapeutic technology and equipment for
+                        optimal patient outcomes.</p>
+                    <a href="#" class="lux-card__cta lux-card__cta--primary">Explore Services</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="lux-divider lux-divider--thick"></div>
+
+        <!-- Divider Variations -->
+        <h2 class="section-title">Divider Variations</h2>
+        <p style="color: #B0B0B0; text-align: center; margin-bottom: 40px;">Different separator styles for section
+            breaks</p>
+
+        <div class="lux-divider"></div>
+        <p style="color: #6B6B6B; text-align: center; margin: 20px 0;">Standard Divider</p>
+
+        <div class="lux-divider lux-divider--thick"></div>
+        <p style="color: #6B6B6B; text-align: center; margin: 20px 0;">Thick Divider</p>
+
+        <div class="lux-divider lux-divider--emblem">
+            <div class="lux-divider__emblem"></div>
+        </div>
+        <p style="color: #6B6B6B; text-align: center; margin: 20px 0;">Divider with Emblem</p>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<div class="symptom-checker-page">
+  <h2>🩺 Symptom Checker</h2>
+
+  <!-- Step 1: Select location -->
+  <!-- Step 1: Select location -->
+<div *ngIf="step === 1">
+  <h3>Select the area where you feel discomfort:</h3>
+  <div class="options">
+    <div
+      class="option-card"
+      *ngFor="let part of symptomData"
+      (click)="selectLocation(part.location)">
+      <h4>{{ part.location }}</h4>
+      <p>{{ part.symptoms.slice(0, 3).join(', ') }}</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Step 2: Select symptoms -->
+  <div *ngIf="step === 2">
+    <h3>Select your symptoms:</h3>
+    <div class="options">
+      <div
+        class="option-card"
+        *ngFor="let symptom of filteredSymptoms"
+        [class.selected]="selectedSymptoms.includes(symptom)"
+        (click)="toggleSymptom(symptom)">
+        <h4>{{ symptom }}</h4>
+      </div>
+    </div>
+    <div class="actions">
+      <button (click)="showResults()">See Results</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Show results -->
+  <div *ngIf="step === 3 && results" class="results-section">
+    <h3>Possible Conditions:</h3>
+    <ul>
+      <li *ngFor="let cond of results.conditions">{{ cond }}</li>
+    </ul>
+
+    <h3>Recommended Exercises:</h3>
+    <ul>
+      <li *ngFor="let ex of results.exercises">{{ ex }}</li>
+    </ul>
+    
+    <h3>Exercise Tips:</h3>
+    <ul>
+      <li *ngFor="let tip of results.tips">{{ tip }}</li>
+    </ul>
+
+    <div class="actions">
+      <button (click)="restart()">Check Another Symptom</button>
+    </div>
+  </div>
+</div>

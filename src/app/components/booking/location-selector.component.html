@@ -1,0 +1,137 @@
+<div class="min-h-screen bg-primary pt-24 pb-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">
+                <span class="text-gold-foil">Book Your Appointment</span>
+            </h1>
+            <p class="text-gray-light text-lg">Step 1 of 4: Select Your Preferred Location</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center text-primary font-bold">
+                        1</div>
+                    <span class="text-xs text-accent mt-2">Location</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        2</div>
+                    <span class="text-xs text-gray-500 mt-2">Doctor</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        3</div>
+                    <span class="text-xs text-gray-500 mt-2">Schedule</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        4</div>
+                    <span class="text-xs text-gray-500 mt-2">Confirm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <!-- Nagpada Location -->
+            <div class="lux-card lux-card--featured cursor-pointer group hover:scale-105 transition-transform duration-300"
+                data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-gold p-1">
+                        <div class="w-full h-full rounded-full bg-primary flex items-center justify-center">
+                            <svg class="w-10 h-10 text-gold-foil" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h3 class="lux-card__heading mb-3">Nagpada Clinic</h3>
+                    <p class="lux-card__subheading mb-4">Mumbai Central Location</p>
+
+                    <div class="space-y-3 mb-6 text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">📍</span>
+                            <span class="text-gray-light text-sm">Shop No. 1, The Baya Junction, Ghodbunder Road, Thane
+                                (W)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">🕐</span>
+                            <span class="text-gray-light text-sm">Available: 2:00 PM - 6:00 PM (Daily)</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">👨‍⚕️</span>
+                            <span class="text-gray-light text-sm">2 Doctors Available</span>
+                        </div>
+                    </div>
+
+                    <button class="lux-card__cta lux-card__cta--primary w-full">
+                        Select Nagpada
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bhiwandi Location -->
+            <div class="lux-card lux-card--featured cursor-pointer group hover:scale-105 transition-transform duration-300"
+                data-aos="fade-up" data-aos-delay="300">
+                <div class="text-center">
+                    <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-gold p-1">
+                        <div class="w-full h-full rounded-full bg-primary flex items-center justify-center">
+                            <svg class="w-10 h-10 text-gold-foil" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h3 class="lux-card__heading mb-3">Bhiwandi Clinic</h3>
+                    <p class="lux-card__subheading mb-4">Extended Hours Location</p>
+
+                    <div class="space-y-3 mb-6 text-left">
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">📍</span>
+                            <span class="text-gray-light text-sm">Bhiwandi Medical Center, Maharashtra</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">🕐</span>
+                            <div class="text-gray-light text-sm">
+                                <div>Morning: 10:00 AM - 2:00 PM</div>
+                                <div>Evening: 6:00 PM - 10:00 PM</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-accent mt-1">👨‍⚕️</span>
+                            <span class="text-gray-light text-sm">2 Doctors Available</span>
+                        </div>
+                    </div>
+
+                    <button class="lux-card__cta lux-card__cta--primary w-full">
+                        Select Bhiwandi
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Text -->
+        <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
+            <p class="text-gray-500 text-sm">
+                Need help choosing? <a href="#" class="text-accent hover:text-gold-200 transition-colors">Contact us</a>
+                for assistance.
+            </p>
+        </div>
+    </div>
+</div>

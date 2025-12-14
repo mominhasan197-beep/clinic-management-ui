@@ -1,0 +1,42 @@
+<section class="treatment-detail" *ngIf="treatment">
+  <div class="hero-image">
+    <img [src]="treatment.image" [alt]="treatment.title" />
+    <div class="overlay">
+      <h1 class="treatment-title">{{ treatment.title }}</h1>
+      <p class="subtitle">Signature Care. Scientific Precision. Total Wellness.</p>
+    </div>
+  </div>
+
+  <div class="content">
+    <section class="about">
+      <h2 class="section-heading">About This Premium Therapy</h2>
+      <div class="rich-description" [innerHTML]="treatment.description"></div>
+    </section>
+
+    <section class="luxury-highlight">
+      <h3 class="section-subheading">Why Select Our Elite Care?</h3>
+      <ul class="benefits-list">
+        <li><span>🌟</span> Customized therapies by expert clinicians</li>
+        <li><span>🛠</span> Leading-edge therapeutic technology</li>
+        <li><span>🛋</span> Private, luxurious therapy lounges</li>
+        <li><span>🧑‍⚕️</span> White-glove, concierge-level attention</li>
+        <li><span>🧘</span> Whole-body healing with mindful wellness</li>
+      </ul>
+    </section>
+
+    <!-- <section class="call-to-action">
+      <h4>Begin Your Wellness Journey Today</h4>
+      <p>
+        Ready to take the next step toward better health? Contact our wellness concierge or
+        <a routerLink="/book-appointment" class="btn-book">book your premium session</a> now.
+      </p>
+    </section> -->
+  </div>
+</section>
+
+<section *ngIf="!treatment" class="not-found">
+  <p>We're sorry — the treatment you're looking for wasn't found.</p>
+  <p>
+    Explore our <a routerLink="/treatments">full treatment menu</a> to find what suits you best.
+  </p>
+</section>

@@ -1,0 +1,59 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+// Ensure the component renders properly
+.min-h-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.max-w-md {
+    width: 100%;
+    max-width: 28rem;
+}
+
+// Ensure form is visible
+form {
+    display: block;
+    width: 100%;
+}
+
+// Input styling
+input[type="text"],
+input[type="password"],
+input[type="checkbox"] {
+    display: block;
+    width: 100%;
+    
+    &[type="checkbox"] {
+        width: auto;
+    }
+}
+
+// Button styling
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    color: #050505;
+    
+    &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+    }
+    
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

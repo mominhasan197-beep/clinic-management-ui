@@ -1,0 +1,311 @@
+<div class="min-h-screen bg-primary pt-24 pb-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">
+                <span class="text-gold-foil">Choose Your Time Slot</span>
+            </h1>
+            <p class="text-gray-light text-lg">Step 3 of 4: Select date and available time for <span
+                    class="text-accent">Dr. Tahoora Momin</span></p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-accent/30 flex items-center justify-center text-accent font-bold">
+                        ✓</div>
+                    <span class="text-xs text-accent mt-2">Location</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-accent/30 flex items-center justify-center text-accent font-bold">
+                        ✓</div>
+                    <span class="text-xs text-accent mt-2">Doctor</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center text-primary font-bold">
+                        3</div>
+                    <span class="text-xs text-accent mt-2">Schedule</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        4</div>
+                    <span class="text-xs text-gray-500 mt-2">Confirm</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Calendar Section -->
+            <div class="lg:col-span-2">
+                <div class="lux-card lux-card--standard" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="lux-card__heading mb-6">Select Date</h3>
+
+                    <!-- Month Navigation -->
+                    <div class="flex items-center justify-between mb-6">
+                        <button class="p-2 hover:bg-accent/10 rounded-lg transition-colors">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <h4 class="text-xl font-serif font-bold text-off-white">December 2025</h4>
+                        <button class="p-2 hover:bg-accent/10 rounded-lg transition-colors">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Calendar Grid -->
+                    <div class="grid grid-cols-7 gap-2">
+                        <!-- Day Headers -->
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Sun</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Mon</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Tue</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Wed</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Thu</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Fri</div>
+                        <div class="text-center text-xs font-semibold text-gray-500 py-2">Sat</div>
+
+                        <!-- Empty cells for alignment -->
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+
+                        <!-- Calendar Days -->
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">1</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">2</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">3</button>
+
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">4</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">5</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">6</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-gray-500 hover:bg-surface transition-colors">7</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg bg-gradient-gold text-primary font-bold shadow-gold-glow">8</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">9</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">10</button>
+
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">11</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">12</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">13</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">14</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">15</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">16</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">17</button>
+
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">18</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">19</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">20</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">21</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">22</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">23</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">24</button>
+
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">25</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">26</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">27</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">28</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">29</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">30</button>
+                        <button
+                            class="aspect-square flex items-center justify-center rounded-lg text-off-white hover:bg-accent/10 transition-colors border border-accent/30">31</button>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="flex flex-wrap gap-4 mt-6 pt-6 border-t border-white/10">
+                        <div class="flex items-center gap-2">
+                            <div class="w-4 h-4 rounded bg-gradient-gold"></div>
+                            <span class="text-xs text-gray-light">Selected</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-4 h-4 rounded border border-accent/30"></div>
+                            <span class="text-xs text-gray-light">Available</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-4 h-4 rounded bg-surface"></div>
+                            <span class="text-xs text-gray-light">Past Date</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Slots Section -->
+            <div class="lg:col-span-1">
+                <div class="lux-card lux-card--standard sticky top-24" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="lux-card__heading mb-4">Available Time Slots</h3>
+                    <p class="lux-card__subheading mb-6">December 8, 2025</p>
+
+                    <!-- Morning Slots (Bhiwandi only) -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-light mb-3">Morning (10:00 AM - 2:00 PM)</h4>
+                        <div class="space-y-2">
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                10:00 AM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                10:30 AM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                11:00 AM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg bg-surface/50 border border-white/5 text-gray-500 cursor-not-allowed text-sm"
+                                disabled>
+                                11:30 AM - Booked
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                12:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                12:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                1:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                1:30 PM
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Slots (Nagpada) -->
+                    <div class="mb-6">
+                        <h4 class="text-sm font-semibold text-gray-light mb-3">Afternoon (2:00 PM - 6:00 PM)</h4>
+                        <div class="space-y-2">
+                            <button
+                                class="w-full px-4 py-3 rounded-lg bg-gradient-gold text-primary font-semibold shadow-gold-glow text-sm">
+                                2:00 PM - Selected
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                2:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg bg-surface/50 border border-white/5 text-gray-500 cursor-not-allowed text-sm"
+                                disabled>
+                                3:00 PM - Booked
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                3:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                4:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                4:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                5:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                5:30 PM
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Evening Slots (Bhiwandi only) -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-light mb-3">Evening (6:00 PM - 10:00 PM)</h4>
+                        <div class="space-y-2">
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                6:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                6:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                7:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg bg-surface/50 border border-white/5 text-gray-500 cursor-not-allowed text-sm"
+                                disabled>
+                                7:30 PM - Booked
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                8:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                8:30 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                9:00 PM
+                            </button>
+                            <button
+                                class="w-full px-4 py-3 rounded-lg border border-accent/30 text-off-white hover:bg-accent/10 hover:border-accent transition-all text-sm">
+                                9:30 PM
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-12" data-aos="fade-up" data-aos-delay="400">
+            <button class="lux-card__cta lux-card__cta--ghost">
+                ← Back to Doctors
+            </button>
+            <button class="lux-card__cta lux-card__cta--primary">
+                Continue to Confirmation →
+            </button>
+        </div>
+    </div>
+</div>

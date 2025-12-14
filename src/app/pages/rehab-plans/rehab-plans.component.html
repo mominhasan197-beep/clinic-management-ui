@@ -1,0 +1,70 @@
+<app-disclaimer-modal
+  featureKey="rehab-ai"
+  title="⚠️ AI Rehab Disclaimer"
+  extraNote="Always consult your physiotherapist before following this AI-generated exercise plan."
+  (accepted)="onDisclaimerAccepted()"
+></app-disclaimer-modal>
+
+<div class="rehab-wrapper" *ngIf="disclaimerAccepted">
+  <div class="rehab-container">
+    <h2>Personalized Rehabilitation & Exercise Plans</h2>
+
+    <div class="dropdowns">
+      <mat-form-field appearance="fill">
+        <mat-label>Injury Type</mat-label>
+        <mat-select [(ngModel)]="selectedInjury" (selectionChange)="onInjuryChange()">
+          <mat-option *ngFor="let injury of injuries" [value]="injury">{{ injury }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" *ngIf="locations.length > 0">
+        <mat-label>Pain Location</mat-label>
+        <mat-select [(ngModel)]="selectedLocation">
+          <mat-option *ngFor="let location of locations" [value]="location">{{ location }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Intensity</mat-label>
+        <mat-select [(ngModel)]="selectedIntensity">
+          <mat-option *ngFor="let intensity of intensities" [value]="intensity">{{ intensity }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Goal</mat-label>
+        <mat-select [(ngModel)]="selectedGoal">
+          <mat-option *ngFor="let goal of goals" [value]="goal">{{ goal }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="loading" (click)="generatePlan()">
+      {{ loading ? 'Generating...' : 'Generate Plan' }}
+    </button>
+
+    <div *ngIf="loading" class="loading">Generating your personalized plan...</div>
+
+    <div *ngIf="rehabPlans.length" class="plan-results">
+      <h3>Recommended Exercises:</h3>
+
+      <div *ngFor="let section of rehabPlans" class="plan-section">
+        <h4>{{ section.section }}</h4>
+
+        <div *ngFor="let exercise of section.exercises" class="exercise-card">
+          <div class="exercise-header">{{ exercise.name }}</div>
+          <p><span class="label">Instructions:</span> {{ exercise.instructions }}</p>
+          <p><span class="label">Duration:</span> {{ exercise.duration }}</p>
+          <p><span class="label">Frequency:</span> {{ exercise.frequency }}</p>
+          <p><span class="label">Precautions:</span> {{ exercise.precautions }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="disclaimer-btn">
+  <button mat-stroked-button color="warn" (click)="disclaimerAccepted = false">
+    View Disclaimer
+  </button>
+</div> -->
+  </div>
+</div>

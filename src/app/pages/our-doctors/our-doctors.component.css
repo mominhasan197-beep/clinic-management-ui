@@ -1,0 +1,204 @@
+/* ================================
+   Elegant Clinic Home Page - White & Gold
+   ================================ */
+
+/* Full-page background */
+html, body {
+  background: #fdfaf6; /* Soft off-white */
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+/* ================================
+   Page Layout Container
+   ================================ */
+.page {
+  max-width: 950px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  color: #333;
+}
+
+/* Page heading */
+.page h1 {
+  font-size: 2.4rem;
+  color: #d4af37; /* Gold accent */
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  border-bottom: 3px solid #d4af37;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Paragraphs */
+.page p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 1.2rem;
+}
+
+/* Unordered lists */
+.page ul {
+  padding-left: 1.8rem;
+  font-size: 1.1rem;
+}
+
+.page ul li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+/* ================================
+   Header & Navigation
+   ================================ */
+.clinic-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #fff; /* White header */
+  color: #d4af37;
+  padding: 1rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #d4af37; /* Gold border */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-radius: 0 0 15px 15px;
+  z-index: 1000;
+}
+
+/* Logo */
+.clinic-logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #d4af37;
+}
+
+.clinic-logo span {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1), 0 0 4px rgba(212,175,55,0.4);
+}
+
+.clinic-logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clinic-logo img:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 4px 15px rgba(212,175,55,0.4);
+}
+
+/* Navigation Menu */
+.clinic-nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.clinic-nav .nav-links li a {
+  text-decoration: none;
+  color: #444;
+  font-size: 1.1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.clinic-nav .nav-links li a:hover {
+  color: #d4af37;
+}
+
+.clinic-nav .nav-links li a::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #d4af37;
+  width: 0%;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.clinic-nav .nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.clinic-nav .nav-links li a.active {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+/* ================================
+   Blinking Offer Section
+   ================================ */
+.blinking-text h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d4af37;
+  font-weight: 700;
+  margin: 2rem auto 1.5rem;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* ================================
+   Cards / Features
+   ================================ */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #d4af37; /* Gold accent */
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.2);
+  border-left-color: #b7950b;
+}
+
+/* ================================
+   Buttons
+   ================================ */
+.page button {
+  background-color: #d4af37;
+  color: #111;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.page button:hover {
+  background-color: #b7950b;
+  transform: scale(1.05);
+}

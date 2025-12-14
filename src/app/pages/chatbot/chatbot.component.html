@@ -1,0 +1,17 @@
+<div class="chatbot-container">
+  <h2>Physiotherapy AI Assistant</h2>
+
+  <div class="messages">
+    <div *ngFor="let msg of messages" [ngClass]="msg.sender">
+      <strong *ngIf="msg.sender === 'user'">You:</strong>
+      <strong *ngIf="msg.sender === 'ai'">AI:</strong>
+      <span>{{ msg.text }}</span>
+    </div>
+    <div *ngIf="loading" class="loading">AI is typing...</div>
+  </div>
+
+  <div class="input-box">
+    <input type="text" [(ngModel)]="userInput" placeholder="Describe your pain or ask a question..." (keyup.enter)="sendMessage()">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

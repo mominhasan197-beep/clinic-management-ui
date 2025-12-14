@@ -1,0 +1,38 @@
+<div class="finder-container" data-aos="fade-up">
+  <h2>Treatment Finder Quiz</h2>
+  <form [formGroup]="quizForm" (ngSubmit)="getRecommendation()">
+    
+    <label>Pain Location</label>
+    <select formControlName="painLocation">
+      <option value="">--Select--</option>
+      <option value="back">Back</option>
+      <option value="neck">Neck</option>
+      <option value="shoulder">Shoulder</option>
+      <option value="knee">Knee</option>
+    </select>
+
+    <label>Duration of Pain</label>
+    <select formControlName="duration">
+      <option value="">--Select--</option>
+      <option value="short">Less than 2 weeks</option>
+      <option value="medium">2 weeks - 3 months</option>
+      <option value="long">More than 3 months</option>
+    </select>
+
+    <label>Severity</label>
+    <select formControlName="severity">
+      <option value="">--Select--</option>
+      <option value="low">Mild</option>
+      <option value="medium">Moderate</option>
+      <option value="high">Severe</option>
+    </select>
+
+    <button type="submit">Find My Treatment</button>
+  </form>
+
+  <div class="result" *ngIf="recommendation">
+    <h3>Recommended Treatment</h3>
+    <p>{{ recommendation }}</p>
+    <a routerLink="/book-appointment" class="book-btn">Book Now</a>
+  </div>
+</div>

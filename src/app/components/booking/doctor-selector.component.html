@@ -1,0 +1,165 @@
+<div class="min-h-screen bg-primary pt-24 pb-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold mb-4">
+                <span class="text-gold-foil">Select Your Doctor</span>
+            </h1>
+            <p class="text-gray-light text-lg">Step 2 of 4: Choose from available doctors at <span
+                    class="text-accent">Nagpada</span></p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center space-x-4">
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-accent/30 flex items-center justify-center text-accent font-bold">
+                        ✓</div>
+                    <span class="text-xs text-accent mt-2">Location</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-gold flex items-center justify-center text-primary font-bold">
+                        2</div>
+                    <span class="text-xs text-accent mt-2">Doctor</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        3</div>
+                    <span class="text-xs text-gray-500 mt-2">Schedule</span>
+                </div>
+                <div class="w-16 h-0.5 bg-accent/30"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface border border-accent/30 flex items-center justify-center text-gray-light">
+                        4</div>
+                    <span class="text-xs text-gray-500 mt-2">Confirm</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Doctor 1 -->
+            <div class="lux-card lux-card--featured cursor-pointer group" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col items-center text-center">
+                    <!-- Doctor Avatar -->
+                    <div class="w-32 h-32 rounded-full bg-gradient-gold p-1 mb-6">
+                        <div
+                            class="w-full h-full rounded-full bg-primary flex items-center justify-center overflow-hidden">
+                            <span class="text-gold-foil font-serif text-5xl font-bold">T</span>
+                        </div>
+                    </div>
+
+                    <h3 class="lux-card__heading mb-2">Dr. Tahoora Momin</h3>
+                    <p class="lux-card__subheading mb-4">BPT, MPT (Orthopedics)</p>
+                    <p class="text-gray-light text-sm mb-6 leading-relaxed max-w-md">
+                        Specialist in sports injuries and post-surgical rehabilitation with over 10 years of experience
+                        in orthopedic physiotherapy.
+                    </p>
+
+                    <!-- Specializations -->
+                    <div class="w-full space-y-3 mb-6">
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">10+ years of experience</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Sports Injury Rehabilitation</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Post-Surgical Recovery</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Orthopedic Conditions</span>
+                        </div>
+                    </div>
+
+                    <!-- Availability Badge -->
+                    <div class="mb-6">
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent text-sm">
+                            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                            Available Today
+                        </span>
+                    </div>
+
+                    <button class="lux-card__cta lux-card__cta--primary w-full">
+                        Select Dr. Tahoora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Doctor 2 -->
+            <div class="lux-card lux-card--featured cursor-pointer group" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex flex-col items-center text-center">
+                    <!-- Doctor Avatar -->
+                    <div class="w-32 h-32 rounded-full bg-gradient-gold p-1 mb-6">
+                        <div
+                            class="w-full h-full rounded-full bg-primary flex items-center justify-center overflow-hidden">
+                            <span class="text-gold-foil font-serif text-5xl font-bold">A</span>
+                        </div>
+                    </div>
+
+                    <h3 class="lux-card__heading mb-2">Dr. Ahmed Khan</h3>
+                    <p class="lux-card__subheading mb-4">BPT, MPT (Neurology)</p>
+                    <p class="text-gray-light text-sm mb-6 leading-relaxed max-w-md">
+                        Expert in neurological rehabilitation and chronic pain management with specialized training in
+                        manual therapy techniques.
+                    </p>
+
+                    <!-- Specializations -->
+                    <div class="w-full space-y-3 mb-6">
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">8+ years of experience</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Neurological Rehabilitation</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Chronic Pain Management</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-left">
+                            <span class="text-accent mt-1">✓</span>
+                            <span class="text-gray-light text-sm">Manual Therapy</span>
+                        </div>
+                    </div>
+
+                    <!-- Availability Badge -->
+                    <div class="mb-6">
+                        <span
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/30 rounded-full text-accent text-sm">
+                            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                            Available Today
+                        </span>
+                    </div>
+
+                    <button class="lux-card__cta lux-card__cta--primary w-full">
+                        Select Dr. Ahmed
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex justify-between mt-12" data-aos="fade-up" data-aos-delay="400">
+            <button class="lux-card__cta lux-card__cta--ghost">
+                ← Back to Locations
+            </button>
+            <p class="text-gray-500 text-sm self-center">
+                Need more information? <a href="#" class="text-accent hover:text-gold-200 transition-colors">View full
+                    profiles</a>
+            </p>
+        </div>
+    </div>
+</div>

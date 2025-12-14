@@ -1,0 +1,68 @@
+<!-- Disclaimer Modal -->
+<app-disclaimer-modal
+  featureKey="diet-ai"
+  title="⚠️ AI Diet Disclaimer"
+  extraNote="Always consult your doctor before following this AI-generated diet plan."
+  (accepted)="onDisclaimerAccepted()"
+></app-disclaimer-modal>
+
+<!-- Diet content shows only if disclaimer accepted -->
+<div class="diet-container" *ngIf="disclaimerAccepted">
+  <h2>AI Diet & Lifestyle Recommendations</h2>
+
+  <!-- Condition -->
+  <div class="form-group">
+    <label for="condition">Select Condition:</label>
+    <select [(ngModel)]="selectedCondition" id="condition">
+      <option value="">-- Choose a Condition --</option>
+      <option *ngFor="let condition of conditions" [value]="condition">
+        {{ condition }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Diet Type -->
+  <div class="form-group">
+    <label for="dietType">Diet Preference:</label>
+    <select [(ngModel)]="selectedDietType" id="dietType">
+      <option value="">-- Choose Diet Type --</option>
+      <option *ngFor="let type of dietTypes" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+
+  <!-- Goal -->
+  <div class="form-group">
+    <label for="goal">Your Goal:</label>
+    <select [(ngModel)]="selectedGoal" id="goal">
+      <option value="">-- Choose Goal --</option>
+      <option *ngFor="let goal of goals" [value]="goal">{{ goal }}</option>
+    </select>
+  </div>
+
+  <!-- Generate Button -->
+  <button (click)="generatePlan()" [disabled]="loading">
+    {{ loading ? 'Generating...' : 'Generate Diet Plan' }}
+  </button>
+
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="loading-spinner">
+    <p>Generating your personalized plan...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Display Plan -->
+  <div *ngIf="!loading && dietPlan.length > 0" class="diet-plan">
+    <h3>Your Personalized Plan</h3>
+    <div *ngFor="let section of dietPlan" class="plan-section">
+      <h4>{{ section.section }}</h4>
+      <ul>
+        <li *ngFor="let rec of section.recommendations">{{ rec }}</li>
+      </ul>
+      <p *ngIf="section.key_notes">
+        <strong>Notes:</strong> {{ section.key_notes }}
+      </p>
+    </div>
+  </div>
+</div>

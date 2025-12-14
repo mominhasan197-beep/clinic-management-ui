@@ -1,0 +1,232 @@
+<div class="pm-wrap">
+  <div class="pm-header">
+    <h3>Find Treatment by Pain Location</h3>
+    <button type="button" class="toggle" (click)="toggleView()">
+      {{ view === 'front' ? 'Switch to Back View' : 'Switch to Front View' }}
+    </button>
+  </div>
+
+  <div class="pm-canvas" [attr.data-view]="view" role="img" aria-label="Pain location body map">
+    <!-- ===== FRONT VIEW ===== -->
+    <svg *ngIf="view === 'front'" viewBox="0 0 300 600" class="body-svg" aria-hidden="false">
+      <!-- Silhouette (illustrative, soft gradient) -->
+      <defs>
+        <linearGradient id="skinGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stop-color="#1b1b1b"/>
+          <stop offset="100%" stop-color="#101010"/>
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Body shell -->
+      <g fill="url(#skinGrad)" stroke="#2a2a2a" stroke-width="1.2">
+        <!-- head -->
+        <ellipse cx="150" cy="55" rx="28" ry="32"/>
+        <!-- neck -->
+        <rect x="138" y="85" width="24" height="18" rx="8"/>
+        <!-- torso -->
+        <path d="M110,105 C110,90 190,90 190,105 L190,260 C190,295 110,295 110,260 Z"/>
+        <!-- pelvis -->
+        <path d="M115,260 C115,285 185,285 185,260 L185,295 C185,305 115,305 115,295 Z"/>
+        <!-- left leg -->
+        <path d="M130,300 L130,470 C130,495 145,520 145,540 L135,575 L115,575 L125,535 C120,515 110,485 110,470 L110,300 Z"/>
+        <!-- right leg -->
+        <path d="M170,300 L170,470 C170,495 155,520 155,540 L165,575 L185,575 L175,535 C180,515 190,485 190,470 L190,300 Z"/>
+        <!-- left arm -->
+        <path d="M110,120 L85,150 L80,230 L95,260 L110,245 Z"/>
+        <!-- right arm -->
+        <path d="M190,120 L215,150 L220,230 L205,260 L190,245 Z"/>
+      </g>
+
+      <!-- ===== HOTSPOTS (Front) ===== -->
+      <!-- Head -->
+      <circle class="hotspot"
+        cx="150" cy="55" r="25"
+        [class.active]="hover==='head' || selected==='head'"
+        (mouseenter)="hover='head'" (mouseleave)="hover=null"
+        (click)="onAreaClick('head')" (keydown)="onKeyActivate($event,'head')"
+        tabindex="0" role="button" [attr.aria-label]="label('head')"></circle>
+
+      <!-- Neck -->
+      <rect class="hotspot"
+        x="138" y="85" width="24" height="16" rx="6"
+        [class.active]="hover==='neck' || selected==='neck'"
+        (mouseenter)="hover='neck'" (mouseleave)="hover=null"
+        (click)="onAreaClick('neck')" (keydown)="onKeyActivate($event,'neck')"
+        tabindex="0" role="button" [attr.aria-label]="label('neck')"></rect>
+
+      <!-- Chest -->
+      <rect class="hotspot"
+        x="120" y="110" width="60" height="55" rx="10"
+        [class.active]="hover==='chest' || selected==='chest'"
+        (mouseenter)="hover='chest'" (mouseleave)="hover=null"
+        (click)="onAreaClick('chest')" (keydown)="onKeyActivate($event,'chest')"
+        tabindex="0" role="button" [attr.aria-label]="label('chest')"></rect>
+
+      <!-- Abdomen -->
+      <rect class="hotspot"
+        x="120" y="165" width="60" height="65" rx="10"
+        [class.active]="hover==='abdomen' || selected==='abdomen'"
+        (mouseenter)="hover='abdomen'" (mouseleave)="hover=null"
+        (click)="onAreaClick('abdomen')" (keydown)="onKeyActivate($event,'abdomen')"
+        tabindex="0" role="button" [attr.aria-label]="label('abdomen')"></rect>
+
+      <!-- Groin -->
+      <rect class="hotspot"
+        x="125" y="235" width="50" height="25" rx="10"
+        [class.active]="hover==='groin' || selected==='groin'"
+        (mouseenter)="hover='groin'" (mouseleave)="hover=null"
+        (click)="onAreaClick('groin')" (keydown)="onKeyActivate($event,'groin')"
+        tabindex="0" role="button" [attr.aria-label]="label('groin')"></rect>
+
+      <!-- Shoulders -->
+      <circle class="hotspot" cx="110" cy="130" r="14"
+        [class.active]="hover==='shoulder_left' || selected==='shoulder_left'"
+        (mouseenter)="hover='shoulder_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('shoulder_left')" (keydown)="onKeyActivate($event,'shoulder_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('shoulder_left')"></circle>
+
+      <circle class="hotspot" cx="190" cy="130" r="14"
+        [class.active]="hover==='shoulder_right' || selected==='shoulder_right'"
+        (mouseenter)="hover='shoulder_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('shoulder_right')" (keydown)="onKeyActivate($event,'shoulder_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('shoulder_right')"></circle>
+
+      <!-- Elbows -->
+      <circle class="hotspot" cx="90" cy="205" r="12"
+        [class.active]="hover==='elbow_left' || selected==='elbow_left'"
+        (mouseenter)="hover='elbow_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('elbow_left')" (keydown)="onKeyActivate($event,'elbow_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('elbow_left')"></circle>
+
+      <circle class="hotspot" cx="210" cy="205" r="12"
+        [class.active]="hover==='elbow_right' || selected==='elbow_right'"
+        (mouseenter)="hover='elbow_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('elbow_right')" (keydown)="onKeyActivate($event,'elbow_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('elbow_right')"></circle>
+
+      <!-- Wrists -->
+      <circle class="hotspot" cx="95" cy="255" r="10"
+        [class.active]="hover==='wrist_left' || selected==='wrist_left'"
+        (mouseenter)="hover='wrist_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('wrist_left')" (keydown)="onKeyActivate($event,'wrist_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('wrist_left')"></circle>
+
+      <circle class="hotspot" cx="205" cy="255" r="10"
+        [class.active]="hover==='wrist_right' || selected==='wrist_right'"
+        (mouseenter)="hover='wrist_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('wrist_right')" (keydown)="onKeyActivate($event,'wrist_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('wrist_right')"></circle>
+
+      <!-- Hips -->
+      <circle class="hotspot" cx="130" cy="275" r="12"
+        [class.active]="hover==='hip_left' || selected==='hip_left'"
+        (mouseenter)="hover='hip_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('hip_left')" (keydown)="onKeyActivate($event,'hip_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('hip_left')"></circle>
+
+      <circle class="hotspot" cx="170" cy="275" r="12"
+        [class.active]="hover==='hip_right' || selected==='hip_right'"
+        (mouseenter)="hover='hip_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('hip_right')" (keydown)="onKeyActivate($event,'hip_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('hip_right')"></circle>
+
+      <!-- Knees -->
+      <circle class="hotspot" cx="135" cy="430" r="13"
+        [class.active]="hover==='knee_left' || selected==='knee_left'"
+        (mouseenter)="hover='knee_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('knee_left')" (keydown)="onKeyActivate($event,'knee_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('knee_left')"></circle>
+
+      <circle class="hotspot" cx="165" cy="430" r="13"
+        [class.active]="hover==='knee_right' || selected==='knee_right'"
+        (mouseenter)="hover='knee_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('knee_right')" (keydown)="onKeyActivate($event,'knee_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('knee_right')"></circle>
+
+      <!-- Ankles -->
+      <circle class="hotspot" cx="130" cy="565" r="11"
+        [class.active]="hover==='ankle_left' || selected==='ankle_left'"
+        (mouseenter)="hover='ankle_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('ankle_left')" (keydown)="onKeyActivate($event,'ankle_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('ankle_left')"></circle>
+
+      <circle class="hotspot" cx="170" cy="565" r="11"
+        [class.active]="hover==='ankle_right' || selected==='ankle_right'"
+        (mouseenter)="hover='ankle_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('ankle_right')" (keydown)="onKeyActivate($event,'ankle_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('ankle_right')"></circle>
+
+    </svg>
+
+    <!-- ===== BACK VIEW ===== -->
+    <svg *ngIf="view === 'back'" viewBox="0 0 300 600" class="body-svg" aria-hidden="false">
+      <!-- Simplified back silhouette -->
+      <g fill="url(#skinGrad)" stroke="#2a2a2a" stroke-width="1.2">
+        <ellipse cx="150" cy="55" rx="28" ry="32"/>
+        <rect x="138" y="85" width="24" height="18" rx="8"/>
+        <path d="M110,105 C110,90 190,90 190,105 L190,260 C190,295 110,295 110,260 Z"/>
+        <path d="M115,260 C115,285 185,285 185,260 L185,295 C185,305 115,305 115,295 Z"/>
+        <path d="M130,300 L130,470 C130,495 145,520 145,540 L135,575 L115,575 L125,535 C120,515 110,485 110,470 L110,300 Z"/>
+        <path d="M170,300 L170,470 C170,495 155,520 155,540 L165,575 L185,575 L175,535 C180,515 190,485 190,470 L190,300 Z"/>
+        <path d="M110,120 L85,150 L80,230 L95,260 L110,245 Z"/>
+        <path d="M190,120 L215,150 L220,230 L205,260 L190,245 Z"/>
+      </g>
+
+      <!-- Upper Back -->
+      <rect class="hotspot"
+        x="120" y="120" width="60" height="60" rx="10"
+        [class.active]="hover==='upper_back' || selected==='upper_back'"
+        (mouseenter)="hover='upper_back'" (mouseleave)="hover=null"
+        (click)="onAreaClick('upper_back')" (keydown)="onKeyActivate($event,'upper_back')"
+        tabindex="0" role="button" [attr.aria-label]="label('upper_back')"></rect>
+
+      <!-- Lower Back -->
+      <rect class="hotspot"
+        x="120" y="180" width="60" height="70" rx="10"
+        [class.active]="hover==='lower_back' || selected==='lower_back'"
+        (mouseenter)="hover='lower_back'" (mouseleave)="hover=null"
+        (click)="onAreaClick('lower_back')" (keydown)="onKeyActivate($event,'lower_back')"
+        tabindex="0" role="button" [attr.aria-label]="label('lower_back')"></rect>
+
+      <!-- Shoulders (back) -->
+      <circle class="hotspot" cx="110" cy="130" r="14"
+        [class.active]="hover==='shoulder_left' || selected==='shoulder_left'"
+        (mouseenter)="hover='shoulder_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('shoulder_left')" (keydown)="onKeyActivate($event,'shoulder_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('shoulder_left')"></circle>
+
+      <circle class="hotspot" cx="190" cy="130" r="14"
+        [class.active]="hover==='shoulder_right' || selected==='shoulder_right'"
+        (mouseenter)="hover='shoulder_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('shoulder_right')" (keydown)="onKeyActivate($event,'shoulder_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('shoulder_right')"></circle>
+
+      <!-- Hips (back) -->
+      <circle class="hotspot" cx="130" cy="275" r="12"
+        [class.active]="hover==='hip_left' || selected==='hip_left'"
+        (mouseenter)="hover='hip_left'" (mouseleave)="hover=null"
+        (click)="onAreaClick('hip_left')" (keydown)="onKeyActivate($event,'hip_left')"
+        tabindex="0" role="button" [attr.aria-label]="label('hip_left')"></circle>
+
+      <circle class="hotspot" cx="170" cy="275" r="12"
+        [class.active]="hover==='hip_right' || selected==='hip_right'"
+        (mouseenter)="hover='hip_right'" (mouseleave)="hover=null"
+        (click)="onAreaClick('hip_right')" (keydown)="onKeyActivate($event,'hip_right')"
+        tabindex="0" role="button" [attr.aria-label]="label('hip_right')"></circle>
+    </svg>
+  </div>
+
+  <!-- Context panel -->
+  <div class="pm-info" *ngIf="hover || selected">
+    <div class="chip" *ngIf="hover">Hover: {{ label(hover!) }}</div>
+    <div class="chip gold" *ngIf="selected">Selected: {{ label(selected!) }}</div>
+    <p class="hint">Tip: Click a body area to see treatments. Press <kbd>Tab</kbd> then <kbd>Enter</kbd> to select via keyboard.</p>
+  </div>
+</div>

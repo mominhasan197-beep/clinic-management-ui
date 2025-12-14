@@ -1,0 +1,9 @@
+<section class="page doctors-page">
+  <h2>Meet Our Doctors</h2>
+
+  <ul class="doctor-list">
+    <li *ngFor="let doc of doctors">
+      <strong>{{ doc.name }}</strong> — {{ doc.specialty }}
+    </li>
+  </ul>
+</section>
