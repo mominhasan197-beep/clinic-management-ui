@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TreatmentService } from '../../services/treatment.service';
 import { Treatment } from '../../models/treatment.model';
+import { ImageOptimizerService } from '../../services/image-optimizer.service';
 import AOS from 'aos';
 
 @Component({
@@ -13,11 +14,22 @@ export class TreatmentsComponent implements OnInit {
   groupedTreatments: { [key: string]: Treatment[] } = {};
   objectKeys = Object.keys; // Helper for HTML iteration
 
-  constructor(private treatmentService: TreatmentService) { }
+  constructor(private treatmentService: TreatmentService, private imageOptimizer: ImageOptimizerService) { }
 
   ngOnInit(): void {
     this.treatmentService.getTreatments().subscribe(data => {
       this.treatments = data;
+      // attach optimized sources if manifest exists later
+      this.groupTreatments();
+    });
+
+    // when manifest is ready, enrich treatments with optimized sources
+    this.imageOptimizer.getManifest().subscribe(manifest => {
+      if (!manifest) return;
+      this.treatments.forEach(t => {
+        // safe assign
+        (t as any).optimized = this.imageOptimizer.getSourcesFor(t.image);
+      });
       this.groupTreatments();
     });
   }

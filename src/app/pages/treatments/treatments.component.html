@@ -25,9 +25,22 @@
             data-aos="fade-up" [attr.data-aos-delay]="i * 100">
 
             <div class="relative h-56 overflow-hidden">
-              <img [src]="treatment.image" [alt]="treatment.title"
-                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                onerror="this.src='assets/images/clinic.png'" />
+              <!-- Optimized picture: use AVIF/WebP variants when available, otherwise fallback to original -->
+              <ng-container *ngIf="treatment.optimized as opt; else fallbackImage">
+                <picture>
+                  <source *ngIf="opt.avifSrcset" [attr.type]="'image/avif'" [attr.srcset]="opt.avifSrcset" sizes="(max-width: 768px) 100vw, 33vw">
+                  <source *ngIf="opt.webpSrcset" [attr.type]="'image/webp'" [attr.srcset]="opt.webpSrcset" sizes="(max-width: 768px) 100vw, 33vw">
+                  <img [src]="opt.fallback" [alt]="treatment.title" loading="lazy" decoding="async"
+                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    onerror="this.src='assets/images/clinic.png'" />
+                </picture>
+              </ng-container>
+              <ng-template #fallbackImage>
+                <img [src]="treatment.image" [alt]="treatment.title" loading="lazy" decoding="async"
+                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  onerror="this.src='assets/images/clinic.png'" />
+              </ng-template>
+
               <div
                 class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300">
               </div>

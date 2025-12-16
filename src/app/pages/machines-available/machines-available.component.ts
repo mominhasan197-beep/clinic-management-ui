@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SeoService } from '../../services/seo.service';
+import { ImageOptimizerService } from '../../services/image-optimizer.service';
 
 interface Machine {
     name: string;
     description: string;
     image: string;
     category: 'Therapy' | 'Rehab' | 'Cupping' | 'Fitness' | 'Neuro';
+    optimized?: any;
 }
+
+
+
 
 @Component({
     selector: 'app-machines-available',
@@ -179,7 +184,7 @@ export class MachinesAvailableComponent implements OnInit {
 
     filteredMachines: Machine[] = [];
 
-    constructor(private seoService: SeoService) { }
+    constructor(private seoService: SeoService, private imageOptimizer: ImageOptimizerService) { }
 
     ngOnInit(): void {
         this.seoService.updateTitle('Advanced Physiotherapy Machines Available | Dr. Salim');
@@ -187,7 +192,15 @@ export class MachinesAvailableComponent implements OnInit {
             { name: 'description', content: 'Explore our state-of-the-art physiotherapy equipment including Robotic Hand Rehab, Spinal Decompression, Ultrasound, and Laser Therapy available at Dr. Salim\'s clinic.' },
             { name: 'keywords', content: 'Physiotherapy machines, Robotic rehab, Spinal decompression, Laser therapy, Medical equipment' }
         ]);
-        this.filterMachines();
+
+        this.imageOptimizer.getManifest().subscribe(manifest => {
+            if (manifest) {
+                this.machines.forEach(m => {
+                    m.optimized = this.imageOptimizer.getSourcesFor(m.image);
+                });
+            }
+            this.filterMachines();
+        });
     }
 
     setCategory(cat: string) {

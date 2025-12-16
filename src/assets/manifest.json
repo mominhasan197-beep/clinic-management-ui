@@ -1,0 +1,508 @@
+{
+  "treatments/Advance-Cardiac-&-Chest-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAwBQCdASoUABQAPu1sqlEppaOiqAqpMB2JQBetP/wDw2V5k3ovUze03Mfj3RTuljuEAAD+6uJSaW3fM1E5vwirToTW+RGY5UTOpgkYj43WsBnKz566ifKia4xy71zOnO7QtTwwdTxoCPTggLYaUrJc5bm53aFK+TM2RdN22TO3fSFz4s0Ywt0LK9sqU2I2360dmITpXGzMCoexHd5Zg/cr0gXVCAi6t8OetGGIAAA="
+  },
+  "treatments/Advance-Neuro-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Neuro-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/Advance-Neuro-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/Advance-Neuro-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/Advance-Neuro-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/Advance-Neuro-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Neuro-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBQCdASoUABQAPu1oqVAppaOiqA1RMB2JYwDGfdwAWcFDCLD5vXZuvCUQcBkxnMszZEAA/ufW561HKZxxY/zJP2KH1GRwTlFgO3mVFsERHSpE43DEPODGhuumJpLQzUZKW7gDfluXLbblxnI/plQjEwYvFhRIZoJPEMKof3JrzFmP6MNGoNPdb3FP5HBy/m8I3w12uxogDDV9PNAy+AAA"
+  },
+  "treatments/Advance-Orthopedic-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Orthopedic-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/Advance-Orthopedic-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/Advance-Orthopedic-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/Advance-Orthopedic-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/Advance-Orthopedic-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Orthopedic-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAQBQCdASoUABQAPu1usFKppiSiqAgBMB2JZQDJEdwLhUKRVAOgpqHpdlwTOKON7qGAAP7wM9quItMV8zmZunVGTHcqJT6XLvH1SjMJv1O5wAANLWjrvETaqu6ITq7XCi99MoOweFvMKS3ygDIFWGGZW5o9dZsn/K+stDtUComDG4Q6GGmB9kjNSXAk72e5dOHFqr8wuEVZV97P61uoWIZMTSqhonUAS7zYmMdECwo0Dh3AkXAAAA=="
+  },
+  "treatments/Advance-Pain-Management.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Pain-Management-400.webp",
+      "400_avif": "assets/treatments/Advance-Pain-Management-400.avif",
+      "800_webp": "assets/treatments/Advance-Pain-Management-800.webp",
+      "800_avif": "assets/treatments/Advance-Pain-Management-800.avif",
+      "1200_webp": "assets/treatments/Advance-Pain-Management-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Pain-Management-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABQAPu1qrVCppaQiqAqpMB2JYwC3uBDRry1lMRMR+oMeuGRGMPjSAAD+5yAcJnZvA4N17jvuN0hyl6g1w9R3noK1IaI7C03gjztkzsnrrE5En+X7QnNaQQc1y+Y9ndqmChgpRTcs0mXM9Sh9G/ejrb7VYudC/dMmPKiNHpUFa7rx/lIDDWUcw8eWoA7hnNymCNWejKafKBeSQCQgGsk7a1EAAA=="
+  },
+  "treatments/Advance-Pediatric-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Pediatric-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/Advance-Pediatric-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/Advance-Pediatric-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/Advance-Pediatric-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/Advance-Pediatric-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Pediatric-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACwBACdASoUABQAPu1srVEppaQiqAqpMB2JYwC90AwfkgWLl/fn0XA+/vFBw1ogAP7oS+HJLHMpRU3bZ3lFXNkYWTtLOwgeriWjkT1NqSRitO8PHADEkYKJY1LeUW5JrKXr99JBhjJ2gfFnarna7cx1UeiHSSCvgBmvIke2e3KEqsU6kkLqsG9QCagAAA=="
+  },
+  "treatments/Advance-Sports-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Advance-Sports-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/Advance-Sports-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/Advance-Sports-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/Advance-Sports-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/Advance-Sports-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/Advance-Sports-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAAAQBQCdASoUABQAPu1wsFIppiSiqAgBMB2JYgDDNYx2TK/ZRFgC725KmekWmSbDFTsAAP2aEp+F2BJxk5Tk0soDvG+zjBnog0UyuyzNfjxA+qXuHnqbKQExmOmI50tSwr7h97y7Z8Mq7OarrXkSvPs/sSABGj0t9UiQwo0RwSvpN3lwxL3FoHCwGhRzMS/L905HYpCm4i4ENnknu29dmmMjXIiAo1hA9D1xV5CP9E7TLNwA"
+  },
+  "treatments/All-Types-of-Paralysis-Rehabilitation.png": {
+    "variants": {
+      "400_webp": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-400.webp",
+      "400_avif": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-400.avif",
+      "800_webp": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-800.webp",
+      "800_avif": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-800.avif",
+      "1200_webp": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-1200.webp",
+      "1200_avif": "assets/treatments/All-Types-of-Paralysis-Rehabilitation-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAwBQCdASoUABQAPu1oqU+ppiOiKA1RMB2JQBjegZHFzxwKq4rVvTzxYD+0M+VCZqDsAAD+0600sZ6yeDYaCtpO1IMrKOwNTmSeGEx+KkKOr1h6FOaTOQ+3W58Hd23GyU4ZieGypJmfLQ5drgRVQ+m9Du0koe6W20jthevBWHmYAqo8oV9+b03pXrniXellQa0nQvI5lDxGFyQZthQAAA=="
+  },
+  "treatments/Antenatal-&-postnatal-Exercises.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Antenatal-&-postnatal-Exercises-400.webp",
+      "400_avif": "assets/treatments/Antenatal-&-postnatal-Exercises-400.avif",
+      "800_webp": "assets/treatments/Antenatal-&-postnatal-Exercises-800.webp",
+      "800_avif": "assets/treatments/Antenatal-&-postnatal-Exercises-800.avif",
+      "1200_webp": "assets/treatments/Antenatal-&-postnatal-Exercises-1200.webp",
+      "1200_avif": "assets/treatments/Antenatal-&-postnatal-Exercises-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwBACdASoUABQAPu1crE2ppKSiMBgMATAdiWMAyJgQ7/VWU4jMDF9kYpDWn5EtNQAA/u1Js/SNJtcnCLe9saRGbfK++RE2qx5qBObSmDJX+hPcDv/UsrLQBL1/74pErRFvQNHnmyNrZGz6ML0GC00m11CacrOo75zCtqhcRgAAAA=="
+  },
+  "treatments/cardiac_rehab.png": {
+    "variants": {
+      "400_webp": "assets/treatments/cardiac_rehab-400.webp",
+      "400_avif": "assets/treatments/cardiac_rehab-400.avif",
+      "800_webp": "assets/treatments/cardiac_rehab-800.webp",
+      "800_avif": "assets/treatments/cardiac_rehab-800.avif",
+      "1200_webp": "assets/treatments/cardiac_rehab-1200.webp",
+      "1200_avif": "assets/treatments/cardiac_rehab-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4ILwAAADwBACdASoUABQAPu1urlIppiQiqAgBMB2JQBYdsXrIX0zVm4aO8pGoT+8UkwDSkMAA/sX2JIL9avnUIjJ0vCFdaEF87AYzilgHVcWSzZr0w7dGBpdpBF9QpBhrpg0tyGHCtB5wOI8mJpgYdsFIrIaw5nOYUVes4Bxkje19OrfOvXv1Yetd6Pr25H0Mg4VCKTjFm9WHwQJEYRFYTBOqSKRB9lZzoLBxqaAte9M6UPbRfo0R8iaRxLLACmkAAA=="
+  },
+  "treatments/Exercise-&-Movement-Therapy.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Exercise-&-Movement-Therapy-400.webp",
+      "400_avif": "assets/treatments/Exercise-&-Movement-Therapy-400.avif",
+      "800_webp": "assets/treatments/Exercise-&-Movement-Therapy-800.webp",
+      "800_avif": "assets/treatments/Exercise-&-Movement-Therapy-800.avif",
+      "1200_webp": "assets/treatments/Exercise-&-Movement-Therapy-1200.webp",
+      "1200_avif": "assets/treatments/Exercise-&-Movement-Therapy-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAAAQBQCdASoUABQAPu1sqlEppaOiqAqpMB2JYwDDRf/l2AEoNWBdc/hMIWJRS8AZ/9IgAP7hZMb+VyoC6KfDLJfX1U7TvNjlgX+tOykmwq79iNfw9UJ+TrnIF3R2GwAkmhdjfen9hsnntsBHmAOPG2IoV8YNunYBQESeAZi73gHSthMMUPljJ/Y7MPV6ea2Byq/k34g3Wjy14tf78pVVJCdFESuwJg/K+KaQyX8omFfK3PasuYXtAAAA"
+  },
+  "treatments/Exercises_for_Diabetic_Patients.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Exercises_for_Diabetic_Patients-400.webp",
+      "400_avif": "assets/treatments/Exercises_for_Diabetic_Patients-400.avif",
+      "800_webp": "assets/treatments/Exercises_for_Diabetic_Patients-800.webp",
+      "800_avif": "assets/treatments/Exercises_for_Diabetic_Patients-800.avif",
+      "1200_webp": "assets/treatments/Exercises_for_Diabetic_Patients-1200.webp",
+      "1200_avif": "assets/treatments/Exercises_for_Diabetic_Patients-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBQCdASoUABQAPu1qq1EppaOiqAqpMB2JYwDDrYxYY4JxTO5YgwOGhAWPU4C3ICQAAP7IyZltBzmd1oZFU3Rhe0rWO9N/n5QLD9k80bBh9BZn2ZG7X5aQyhn7joc3XXdGP2EHMmhGlO1VSqR4udvbZIgDC5imnPMQMWpwgF5l5TT5HC7pjBYb3GUluviLYnyHZMbv+tU5kw47kJD1TbdW3acEHjuhv188AAAA"
+  },
+  "treatments/IceBath.png": {
+    "variants": {
+      "400_webp": "assets/treatments/IceBath-400.webp",
+      "400_avif": "assets/treatments/IceBath-400.avif",
+      "800_webp": "assets/treatments/IceBath-800.webp",
+      "800_avif": "assets/treatments/IceBath-800.avif",
+      "1200_webp": "assets/treatments/IceBath-1200.webp",
+      "1200_avif": "assets/treatments/IceBath-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADwBACdASoUABQAPu1srVIppaQiqAgBMB2JYwCls2pQJbNEvOBxGu+lVuCJlA9x3oAA/sj3jcQK3uohZKylfDFmTn5bwheJSy3an6BgJd9ud5zF/nN8u3TcoLfBjWyNHLOKLndBcZzlCHbcOv648my3vq8RgytWYFDiB+mWSgx+WUVoakvyhvc6LztSLBijHAuIPyQibXUWnFtaR3mryhX5ijvwAegA"
+  },
+  "treatments/Kegel-Exercises.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Kegel-Exercises-400.webp",
+      "400_avif": "assets/treatments/Kegel-Exercises-400.avif",
+      "800_webp": "assets/treatments/Kegel-Exercises-800.webp",
+      "800_avif": "assets/treatments/Kegel-Exercises-800.avif",
+      "1200_webp": "assets/treatments/Kegel-Exercises-1200.webp",
+      "1200_avif": "assets/treatments/Kegel-Exercises-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADwBACdASoUABQAPu1urlIppiQiqAgBMB2JZQC7ABI9tWfKEGO3wy4OJbKviMDTmAAA/sVhdytuWWfpuWY64aSacTKDuZ3v4+68QR1JvDP9U1OHfFFA++O3j88WwhMhiX4ptNPu/LpVfDXfgheoWWbXEULWmyrE32c2yRvwSlJu/mdwXhsZtZFqkyui8Y8ZO+UOcAAKwgAAAA=="
+  },
+  "treatments/neuro_rehab.png": {
+    "variants": {
+      "400_webp": "assets/treatments/neuro_rehab-400.webp",
+      "400_avif": "assets/treatments/neuro_rehab-400.avif",
+      "800_webp": "assets/treatments/neuro_rehab-800.webp",
+      "800_avif": "assets/treatments/neuro_rehab-800.avif",
+      "1200_webp": "assets/treatments/neuro_rehab-1200.webp",
+      "1200_avif": "assets/treatments/neuro_rehab-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JZwDO7Yy8a8sreV48Zs8qylM2L5ETou+qCYAA/tYhr8ANXikuWoh/tfi9qQqQmdRA4oIQMfGiJAobZO+hQPnH+/T0BetMuWqxdbKCaPXyZRo94ODemce1ev2iKD3qDoB+p5zOYIeFLGziAmgiFwBnxegJbElBanb9RUpAAAA="
+  },
+  "treatments/ortho_rehab.png": {
+    "variants": {
+      "400_webp": "assets/treatments/ortho_rehab-400.webp",
+      "400_avif": "assets/treatments/ortho_rehab-400.avif",
+      "800_webp": "assets/treatments/ortho_rehab-800.webp",
+      "800_avif": "assets/treatments/ortho_rehab-800.avif",
+      "1200_webp": "assets/treatments/ortho_rehab-1200.webp",
+      "1200_avif": "assets/treatments/ortho_rehab-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAABQBwCdASoUABQAPu1urlIppiQiqAgBMB2JbACdMzQ7WL61tABtgLuA9AAejoidspivmDJZqP4X6k8XeXT6hx1AY47gAP7JEuUT5Yg/ea0B99UEfjfXBDr2OjPn7Uox8rnFfBaWtyhx+a78dSC7/4jFWBMIUZkjlM05jgIVL5A1QAYxejqGWZpCCfC6EXZiCS0Cy7ZQbmL7KviEjG8DK+MyluhjfORIVOujVJQxYmBcW+hHxvJld1VsUZg28Kh+lycX6T9I2FYNw8NORDKAfHe073gbJDXhjZ0hTVYPhJgfLEBkgAA="
+  },
+  "treatments/Personalised-Weight-Loss-Program.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Personalised-Weight-Loss-Program-400.webp",
+      "400_avif": "assets/treatments/Personalised-Weight-Loss-Program-400.avif",
+      "800_webp": "assets/treatments/Personalised-Weight-Loss-Program-800.webp",
+      "800_avif": "assets/treatments/Personalised-Weight-Loss-Program-800.avif",
+      "1200_webp": "assets/treatments/Personalised-Weight-Loss-Program-1200.webp",
+      "1200_avif": "assets/treatments/Personalised-Weight-Loss-Program-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAABwBACdASoUABQAPu1urlIppiQiqAgBMB2JYwDJEBEdLwRrHzojSb2Zy8A0AAD+8c1Ptx6z0fJJ4xiKQQLV1INVuKEZ33172lUs2l0AQRjV1ja6VPCAdB6NaL+7O2Juzrp5AHDlghFj8eAzOXG7IhlEv74SPYG3+a/t4r4YdoDZtrC9QR9vY/BYs/xeWNzI4AA="
+  },
+  "treatments/Pilates-(Muscle-Activation).png": {
+    "variants": {
+      "400_webp": "assets/treatments/Pilates-(Muscle-Activation)-400.webp",
+      "400_avif": "assets/treatments/Pilates-(Muscle-Activation)-400.avif",
+      "800_webp": "assets/treatments/Pilates-(Muscle-Activation)-800.webp",
+      "800_avif": "assets/treatments/Pilates-(Muscle-Activation)-800.avif",
+      "1200_webp": "assets/treatments/Pilates-(Muscle-Activation)-1200.webp",
+      "1200_avif": "assets/treatments/Pilates-(Muscle-Activation)-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoUABQAPu1wr1IppiQiqAgBMB2JZQCDGQOA0+/FmGcGVnc6eUDkAP3eGxY4DqofT+qZc2u5p+tnMW9bJeVbe4mopo55gtUVy0JL/4XkaHVFVQmyI8wRmYN8CgpsFbH+XeU59e6bBeizA6DmcG1C8L7os32ssA+AAAA="
+  },
+  "treatments/Sauna_Therapy.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Sauna_Therapy-400.webp",
+      "400_avif": "assets/treatments/Sauna_Therapy-400.avif",
+      "800_webp": "assets/treatments/Sauna_Therapy-800.webp",
+      "800_avif": "assets/treatments/Sauna_Therapy-800.avif",
+      "1200_webp": "assets/treatments/Sauna_Therapy-1200.webp",
+      "1200_avif": "assets/treatments/Sauna_Therapy-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAwBQCdASoUABQAPu1ur1IppiQiqAgBMB2JQBWAMZtK9HCmqnj5eQ6JhBf3nnUCgUp/AAD+fAlWKOeMrQo5OcfX0K47jXGOSlEbUTXmZ4wLNJxCZNMW22rcOrJsNT5xhcJn0f8sC55RZbyN0W8lslbFCKStJl47y/WCpMDC6szS0berwTuUeTKEnEpdDjR+7QnKOQg9Snf8ONTU9sdbzuhoOmShB/RtqevAC6AAAAA="
+  },
+  "treatments/Steam_shower.png": {
+    "variants": {
+      "400_webp": "assets/treatments/Steam_shower-400.webp",
+      "400_avif": "assets/treatments/Steam_shower-400.avif",
+      "800_webp": "assets/treatments/Steam_shower-800.webp",
+      "800_avif": "assets/treatments/Steam_shower-800.avif",
+      "1200_webp": "assets/treatments/Steam_shower-1200.webp",
+      "1200_avif": "assets/treatments/Steam_shower-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQBACdASoUABQAPu1ur1KppiQiqAgBMB2JQBdgAe0gol0egRcrXUajlbBEU58YAADf9uDdOxmp8Rt7Br2gRiRSkYPXx7bptGBBgLI6tu/niZkHkKP7hlsSG4eGZtYjY3zWYk7iFiZyj6YhbSi//Ek9PGJLfFt9Z6BGcHW0s8hCDyGaZBsLO8fX5TAAAAAA"
+  },
+  "machines/Acupressure.png": {
+    "variants": {
+      "400_webp": "assets/machines/Acupressure-400.webp",
+      "400_avif": "assets/machines/Acupressure-400.avif",
+      "800_webp": "assets/machines/Acupressure-800.webp",
+      "800_avif": "assets/machines/Acupressure-800.avif",
+      "1200_webp": "assets/machines/Acupressure-1200.webp",
+      "1200_avif": "assets/machines/Acupressure-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAADQBACdASoUABQAPu1wsFKppiSiqAgBMB2JQBdgAY8N6o1vh5clq6r/n1jzAZs1AAD+7dGbqk97avJJukB3+/D95Fgj2WxzcyVcqFxcyQk9AT+uYPIP8c8ACeeLKHDQcNZp2WBNdxS+Bi/LeSiYS1ZKdMCqGFYRDdK2q77KbeeLwcJZaYhL3fsZ3OhGvZdo/tb8x9QuizYF1StzUasEgSKufeACG7gAAAA="
+  },
+  "machines/Chest-Percussion-Vibration.png": {
+    "variants": {
+      "400_webp": "assets/machines/Chest-Percussion-Vibration-400.webp",
+      "400_avif": "assets/machines/Chest-Percussion-Vibration-400.avif",
+      "800_webp": "assets/machines/Chest-Percussion-Vibration-800.webp",
+      "800_avif": "assets/machines/Chest-Percussion-Vibration-800.avif",
+      "1200_webp": "assets/machines/Chest-Percussion-Vibration-1200.webp",
+      "1200_avif": "assets/machines/Chest-Percussion-Vibration-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAACQBQCdASoUABQAPu1usFKppiSiqAgBMB2JYgDHJuI8I0kAwul6TLefVTm3K9NaSb5X7RGZQAD931bj/C9nUUYa1Z4IbDVWKafRMmvKJLsPx8pgaCySwZrKoToCY3MkB+uFZMhxyWlH75PRvlNCn7mluOVgpGb5vmnWiFUQlDeW4MDJJv6WG/3d3bQLF9DLttwgPPHlO19EajSmqI98cScIsBbsNkSkShyFfeSBQ00O7uBzh4ASIxuwiZZVncoli56woEEojAA="
+  },
+  "machines/Crosstrainer_&_Recumbent_Bike.png": {
+    "variants": {
+      "400_webp": "assets/machines/Crosstrainer_&_Recumbent_Bike-400.webp",
+      "400_avif": "assets/machines/Crosstrainer_&_Recumbent_Bike-400.avif",
+      "800_webp": "assets/machines/Crosstrainer_&_Recumbent_Bike-800.webp",
+      "800_avif": "assets/machines/Crosstrainer_&_Recumbent_Bike-800.avif",
+      "1200_webp": "assets/machines/Crosstrainer_&_Recumbent_Bike-1200.webp",
+      "1200_avif": "assets/machines/Crosstrainer_&_Recumbent_Bike-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAAAQBQCdASoUABQAPu1sqlEppaOiqAqpMB2JYwDIE1yAp7xQJ02DrzL46rercC7zUtUIAP7qxiGhzZb2S4RCMFcpPX7LD2tkaRkWl6ZqcyKhKDbVGuGlWw/Frd8XRjauMMEJMB03IVyheTsRVahU2uW6zIVudAF7a+Yfno4xzeVCmcNLSSEyI655esIO3Zlm/ENGDBfCytttPckNZ8gQq4u90xyBa06oMl+nyodqfuggAAAA"
+  },
+  "machines/Double-Knee-&-Calf-Machine.png": {
+    "variants": {
+      "400_webp": "assets/machines/Double-Knee-&-Calf-Machine-400.webp",
+      "400_avif": "assets/machines/Double-Knee-&-Calf-Machine-400.avif",
+      "800_webp": "assets/machines/Double-Knee-&-Calf-Machine-800.webp",
+      "800_avif": "assets/machines/Double-Knee-&-Calf-Machine-800.avif",
+      "1200_webp": "assets/machines/Double-Knee-&-Calf-Machine-1200.webp",
+      "1200_avif": "assets/machines/Double-Knee-&-Calf-Machine-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsAAAABXRUJQVlA4ILQAAABQBQCdASoUABQAPu1wsFIppiSiqAgBMB2JYwCyzywTnwUu8ZXJPVBOTARN48smdB7CrQAA/llNbegsRPxby/Rn5drfGT6Iht3Cx5WC/+K+n8wTaTTjFNTrGVdRGMtIlb5p8Zs3zoHqZHvCpyOWXBP1MDKQyQVfgcX0h6OpgmpxijLNavlNBCPHQxA01ld+6HXdT530o1etuo3xA03Qwtz0Mz7prFBZPNrYuyKkmsCgAAAAAAA="
+  },
+  "machines/Dry-Needling.png": {
+    "variants": {
+      "400_webp": "assets/machines/Dry-Needling-400.webp",
+      "400_avif": "assets/machines/Dry-Needling-400.avif",
+      "800_webp": "assets/machines/Dry-Needling-800.webp",
+      "800_avif": "assets/machines/Dry-Needling-800.avif",
+      "1200_webp": "assets/machines/Dry-Needling-1200.webp",
+      "1200_avif": "assets/machines/Dry-Needling-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASoUABQAPu1wsFIppiSiqAgBMB2JQBgDYB2f43gXD4VCDllORnTYSRqY+XXk2oGQFgAA/sqXC+dnn5WE1qAEjGZikzeXW3SsEbXr9+lJOdivCWmNyLIoER7vUvrAwJyFT4QIMwfQqdoftPR7bxmpbNQqRYRH0CVgwx6QnpMtQF36xGLRBs0Z3ADjBUDEPI1kD88GIUSL6bdgk3F8dQXZ0070qfFzaiyqHBxl8HPanZoekw3EkF8tDXN0P9TNr7AA"
+  },
+  "machines/DVT-Machine.png": {
+    "variants": {
+      "400_webp": "assets/machines/DVT-Machine-400.webp",
+      "400_avif": "assets/machines/DVT-Machine-400.avif",
+      "800_webp": "assets/machines/DVT-Machine-800.webp",
+      "800_avif": "assets/machines/DVT-Machine-800.avif",
+      "1200_webp": "assets/machines/DVT-Machine-1200.webp",
+      "1200_avif": "assets/machines/DVT-Machine-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABQBQCdASoUABQAPu1krE6ppaQiKA1RMB2JQBgh3RS4QRfZTcPjgo4G9LFIhh72190zbAAA/vHXzMXL0UJF8s5jrj+ZdHCVkZn0/mf2EF3HyfUoyrwrRdPpEDU8Ipeo1Dg2tqTcgrZ0S8dDDBIr0l1jWpVJfUhlTeMEKPieE1QO+g7MGYolWj1ApgCPZcmpUDAChCT0610oe1QKYGwa5mGmtxq/PabJtr4kZHdJ4+mrGaN+D6YavHeAAAA="
+  },
+  "machines/Face_Paralysis_Machine.png": {
+    "variants": {
+      "400_webp": "assets/machines/Face_Paralysis_Machine-400.webp",
+      "400_avif": "assets/machines/Face_Paralysis_Machine-400.avif",
+      "800_webp": "assets/machines/Face_Paralysis_Machine-800.webp",
+      "800_avif": "assets/machines/Face_Paralysis_Machine-800.avif",
+      "1200_webp": "assets/machines/Face_Paralysis_Machine-1200.webp",
+      "1200_avif": "assets/machines/Face_Paralysis_Machine-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAABwBQCdASoUABQAPu1wsFIppiSiqAgBMB2JYwDKAywToIX4uqZCgFH2ybMB3OK8UFK1DmIAAP61diXadBoDJ5im++u7cTOqqsfi9sdEjnPX+5DC21t9swzypsYfZTjYTF9PnXUBPGuU71n9P57CUxgzNbGwgjuquyzH4JZ8R52ZdR0dY7kKTaQOpZSLiXBiu/ARje0aDv6iscczxmASPqQ0tSzNiJXULi7HXy5IZhIMlrX407LSLfQ3wgjgz4gAAAA="
+  },
+  "machines/fire_cupping.png": {
+    "variants": {
+      "400_webp": "assets/machines/fire_cupping-400.webp",
+      "400_avif": "assets/machines/fire_cupping-400.avif",
+      "800_webp": "assets/machines/fire_cupping-800.webp",
+      "800_avif": "assets/machines/fire_cupping-800.avif",
+      "1200_webp": "assets/machines/fire_cupping-1200.webp",
+      "1200_avif": "assets/machines/fire_cupping-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAwBQCdASoUABQAPu1ur1IppiQiqAgBMB2JQBahJEeqAJrUA4Xw/Usp8SRkCCdIe1+FAAD+64rqM+U3YbAsUGZHNL8KzoYiQs/axrZTcofrQ84oxKBrhNttV2up7tnCF2TwtOD7/6GfuijPiYZLNU+U/zzpIMZS2ZCooVFK64g1Twwsgk3TtT5ri0/IMJtwPWLIbl0Ilr161JNN3ySgi6CkvCpqH8XJTkqprRQ8zwU1Jd6GEAAAAA=="
+  },
+  "machines/Home-Gym-Setup.png": {
+    "variants": {
+      "400_webp": "assets/machines/Home-Gym-Setup-400.webp",
+      "400_avif": "assets/machines/Home-Gym-Setup-400.avif",
+      "800_webp": "assets/machines/Home-Gym-Setup-800.webp",
+      "800_avif": "assets/machines/Home-Gym-Setup-800.avif",
+      "1200_webp": "assets/machines/Home-Gym-Setup-1200.webp",
+      "1200_avif": "assets/machines/Home-Gym-Setup-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAACwBACdASoUABQAPu1mqk8ppaOiKA1RMB2JZQDI1BEc9pOl0/zw/OYduFIhIZGgAP7WaWEmQiv/xKphnFfyzpJHI2D/NObJh1UKVyNFrt85uUGnD/YrK4Od6vg67iZbp7a3orQBivJTP28CZxBlX+B1hcv3IBBG/dPvj+jH7AQAAA=="
+  },
+  "machines/Hydrocollator.png": {
+    "variants": {
+      "400_webp": "assets/machines/Hydrocollator-400.webp",
+      "400_avif": "assets/machines/Hydrocollator-400.avif",
+      "800_webp": "assets/machines/Hydrocollator-800.webp",
+      "800_avif": "assets/machines/Hydrocollator-800.avif",
+      "1200_webp": "assets/machines/Hydrocollator-1200.webp",
+      "1200_avif": "assets/machines/Hydrocollator-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAADwBACdASoUABQAPu1qrVEppaQiqAqpMB2JQBdkJAAvtEr7VM6qi/m2pP03uO/pyggA/u/KXiWzdbXfgV9cDbsa2/1dcOUsJSeRoNCCS+P3z5XhQb4VxRPXw01/QJiyegRj79SVSKihYi0afe0ltkkY4y5INkydFs9MdyfV7rjSFVEaMVP/3b3JN5A4tq5dAu16VvDSZjrkIGExSh2SWgOQREpthQdr2qWm7lock8eyZgAA"
+  },
+  "machines/I-Theracare_Device.png": {
+    "variants": {
+      "400_webp": "assets/machines/I-Theracare_Device-400.webp",
+      "400_avif": "assets/machines/I-Theracare_Device-400.avif",
+      "800_webp": "assets/machines/I-Theracare_Device-800.webp",
+      "800_avif": "assets/machines/I-Theracare_Device-800.avif",
+      "1200_webp": "assets/machines/I-Theracare_Device-1200.webp",
+      "1200_avif": "assets/machines/I-Theracare_Device-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrwAAABXRUJQVlA4ILAAAAAwBQCdASoUABQAPu1wsFKppiSiqAgBMB2JQBgdv/wDo+FVVt4u76XsSJkK1n2B7i17gAD+79lZnnZqzNGUCag+oJm8kvV5M1Ctm/TNRD237iS90lU37muoogDtklM0NTfMMdMRJWlK/JyLT4TtIBXI1Burs0gErM23x7GwTn/xuzcwPVudt7U2Kub4QrCNy5UscPAGb94WW1iPbW69fGRFZau7YAxrkwSObmqs26AAAA=="
+  },
+  "machines/IFT.png": {
+    "variants": {
+      "400_webp": "assets/machines/IFT-400.webp",
+      "400_avif": "assets/machines/IFT-400.avif",
+      "800_webp": "assets/machines/IFT-800.webp",
+      "800_avif": "assets/machines/IFT-800.avif",
+      "1200_webp": "assets/machines/IFT-1200.webp",
+      "1200_avif": "assets/machines/IFT-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAQBQCdASoUABQAPu1urlKppiQiqAgBMB2JYwDAJ78ARmS7L7rxghOD9fWfE2ELkp9YAP60F+UsPVbSft+FoxAfXGp3j95gaRe5gF10y+wqS+LdES3m3fuaFfQ3RbFVHETN/3pfgtD9AEPg+sDsr+Z6r1A17BF67AfqkmShoW5h5QeM70cYpXWNXMEKoolL1EWnGuKuhgOjP78ZMbDQ90fjHMrg3oAA"
+  },
+  "machines/Magnetic_Glasses.png": {
+    "variants": {
+      "400_webp": "assets/machines/Magnetic_Glasses-400.webp",
+      "400_avif": "assets/machines/Magnetic_Glasses-400.avif",
+      "800_webp": "assets/machines/Magnetic_Glasses-800.webp",
+      "800_avif": "assets/machines/Magnetic_Glasses-800.avif",
+      "1200_webp": "assets/machines/Magnetic_Glasses-1200.webp",
+      "1200_avif": "assets/machines/Magnetic_Glasses-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABQAPu1urlKppiQiqAgBMB2JQBjPgZDGBupxtmU/wo75jFXF6b1UAAD+79lvLc966AJy0pXThnMtCpnolREvzL/rZnnNtH8Am81QbCmRp9EFaBDJB+DIRLLoiGMe1tLprTQB3iXHPX4AjYeEt8bJvqemGr3AspEQm0UlxGGaPK6DZAAf1RPOvhHsoi/2pAmxNEw9X6Gp+vY2g4EvsDtAErgAAA=="
+  },
+  "machines/Mobilizer.png": {
+    "variants": {
+      "400_webp": "assets/machines/Mobilizer-400.webp",
+      "400_avif": "assets/machines/Mobilizer-400.avif",
+      "800_webp": "assets/machines/Mobilizer-800.webp",
+      "800_avif": "assets/machines/Mobilizer-800.avif",
+      "1200_webp": "assets/machines/Mobilizer-1200.webp",
+      "1200_avif": "assets/machines/Mobilizer-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAADQBACdASoUABQAPu1ur1KppiQiqAgBMB2JQBgBi5wYQQtiThgZd/lf2kN2i9vsAAD+7hLcQRzGBUxC34cMI2MobaXyI7XkqgjeKQPLTP7Y/wHIgUPjv5YfRC008akOfmYyL61S3N2vATwVKechBKCAMq0IoZpKun65KZLb11j1PjDujC14ys9egAJUSPj6BwP371oAkZtMhvRnsj/KwPn2FQvXAhgXUEwe6Tn1n2istuNsMex0Ap4sxO/IcnxiIwiAR8jAfoAAAA=="
+  },
+  "machines/PEMF-Therapy.png": {
+    "variants": {
+      "400_webp": "assets/machines/PEMF-Therapy-400.webp",
+      "400_avif": "assets/machines/PEMF-Therapy-400.avif",
+      "800_webp": "assets/machines/PEMF-Therapy-800.webp",
+      "800_avif": "assets/machines/PEMF-Therapy-800.avif",
+      "1200_webp": "assets/machines/PEMF-Therapy-1200.webp",
+      "1200_avif": "assets/machines/PEMF-Therapy-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAADwBACdASoUABQAPu1mq08ppaOiKA1RMB2JZQDDNAt4PL1YKSN6uqgIjH8FJX9yqEAA/mCc0i62T14ucvXsEbEnKLpJCYJKXWBGwRgD0/6MyYNGo/RNwYsphJuxKuyWhagmJA6JFa37JT0Sna8yb9CsfJloGV7YP9R1GjR3/oumm4w1trZN6HL9llwVUM0e5RMT0ATZygN0Jo6xJL6uh+enMvwXx/CrBYA7rYAA"
+  },
+  "machines/placeholder.jpg": {
+    "variants": {
+      "400_webp": "assets/machines/placeholder-400.webp",
+      "400_avif": "assets/machines/placeholder-400.avif",
+      "800_webp": "assets/machines/placeholder-800.webp",
+      "800_avif": "assets/machines/placeholder-800.avif",
+      "1200_webp": "assets/machines/placeholder-1200.webp",
+      "1200_avif": "assets/machines/placeholder-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAABQAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JZwAAW+tIDHGoAAD+9Bv+zayGdPpFFemK1cHVBu4KNJfd0PUGvvVztiAh8pgA"
+  },
+  "machines/placeholder_fallback.jpg": {
+    "variants": {
+      "400_webp": "assets/machines/placeholder_fallback-400.webp",
+      "400_avif": "assets/machines/placeholder_fallback-400.avif",
+      "800_webp": "assets/machines/placeholder_fallback-800.webp",
+      "800_avif": "assets/machines/placeholder_fallback-800.avif",
+      "1200_webp": "assets/machines/placeholder_fallback-1200.webp",
+      "1200_avif": "assets/machines/placeholder_fallback-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAABQAwCdASoUAA0APu1kqU2ppaQiMAgBMB2JZwAAW+tIDHGoAAD+9Bv+zayGdPpFFemK1cHVBu4KNJfd0PUGvvVztiAh8pgA"
+  },
+  "machines/Rapid-Release-Therapy.png": {
+    "variants": {
+      "400_webp": "assets/machines/Rapid-Release-Therapy-400.webp",
+      "400_avif": "assets/machines/Rapid-Release-Therapy-400.avif",
+      "800_webp": "assets/machines/Rapid-Release-Therapy-800.webp",
+      "800_avif": "assets/machines/Rapid-Release-Therapy-800.avif",
+      "1200_webp": "assets/machines/Rapid-Release-Therapy-1200.webp",
+      "1200_avif": "assets/machines/Rapid-Release-Therapy-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABwBQCdASoUABQAPu1ur1IppiQiqAgBMB2JZACxH1j6AByQFufSgCYFb5/L3N4ZSyKvsuHgAP7v80sLhG5FgCxATunR3Ds2Vr3QoX0lx1E+O6tIu3bkqAK2ECzas0ZhFeiST6Bde3v+kvWv2nQwjs2zHp2TxIEZsnAxQ9zdQleFYtscRs8mGzGbU9Bbv00g6iGevR0ruylY666H1UVOrz0PdZsXQQknDg6PsEBr6NMM8nDop33qfTDmv1364gIviQBPwAAA"
+  },
+  "machines/robotic_hand.png": {
+    "variants": {
+      "400_webp": "assets/machines/robotic_hand-400.webp",
+      "400_avif": "assets/machines/robotic_hand-400.avif",
+      "800_webp": "assets/machines/robotic_hand-800.webp",
+      "800_avif": "assets/machines/robotic_hand-800.avif",
+      "1200_webp": "assets/machines/robotic_hand-1200.webp",
+      "1200_avif": "assets/machines/robotic_hand-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAADQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JQBgetAf//EqgCzBrC5MAqxyW5rDvrXD1YUOzsnoAAP627btfiOfIk0R6gC1IYPC+QOeGa0Afvu5rfUXJLVklI03fIyYTyRePg0ZgDOWMMr2Ez0blKGSl0uNmK7drHjQYW15m2+fxD0pdOgT2wtiRK00tNNTHrZCEL4EIeo7ACCi+yrbqQvfJz7KnQmcx82/h/olBkj8T+xlPYY/7GDCqQBTKhuNnFcYFeB41ROnnDnziAR9qkHzAAAA="
+  },
+  "machines/robotic_hand_2.png": {
+    "variants": {
+      "400_webp": "assets/machines/robotic_hand_2-400.webp",
+      "400_avif": "assets/machines/robotic_hand_2-400.avif",
+      "800_webp": "assets/machines/robotic_hand_2-800.webp",
+      "800_avif": "assets/machines/robotic_hand_2-800.avif",
+      "1200_webp": "assets/machines/robotic_hand_2-1200.webp",
+      "1200_avif": "assets/machines/robotic_hand_2-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAAAwBQCdASoUABQAPu1oqk+ppaOiKA1RMB2JQBOmbIAgjqaWMbFZ5GaJRWVbDl38SUGgAAD5eqAmFuX0R9+DhBwQKA0+P4Ie13HxN29xlTLJybxcBGrQYfaJogDm+RvcR95/JTkyqJqJ/gbcXOPUlNozmsVspyxlgGqwdAyo2KUwKg2a3npn3tijkPH5FuYicnCourrDRgyL7Ap/4rMOAN5SQfAaAAAA"
+  },
+  "machines/Shoulder-&-Limb-Machine.png": {
+    "variants": {
+      "400_webp": "assets/machines/Shoulder-&-Limb-Machine-400.webp",
+      "400_avif": "assets/machines/Shoulder-&-Limb-Machine-400.avif",
+      "800_webp": "assets/machines/Shoulder-&-Limb-Machine-800.webp",
+      "800_avif": "assets/machines/Shoulder-&-Limb-Machine-800.avif",
+      "1200_webp": "assets/machines/Shoulder-&-Limb-Machine-1200.webp",
+      "1200_avif": "assets/machines/Shoulder-&-Limb-Machine-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRtgAAABXRUJQVlA4IMwAAABQBQCdASoUABQAPu1wsFIppiSiqAgBMB2JZADE2ywTooRwM1q3TaqreOSl/BkY8jh6gPAA4jOFejjGvq1cYLTlsYytajN97qD2lTiaGtQXEyLEM9Mf/2ahLFywoKttxaursmd1QEkce1W9Xx057A4WxsfvqvfOBxIcJHbT2IS5OpkAmrvRHStwIlSkFr/b0Zb6/CbofgUa6HUuapf9sr5D9Yl90rVXiorGUSS7L79AwTlTm9Q8Hh0SY3zFI/izWqeBEWLulzi8V8wAAAA="
+  },
+  "machines/smart_cupping.png": {
+    "variants": {
+      "400_webp": "assets/machines/smart_cupping-400.webp",
+      "400_avif": "assets/machines/smart_cupping-400.avif",
+      "800_webp": "assets/machines/smart_cupping-800.webp",
+      "800_avif": "assets/machines/smart_cupping-800.avif",
+      "1200_webp": "assets/machines/smart_cupping-1200.webp",
+      "1200_avif": "assets/machines/smart_cupping-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAADQBACdASoUABQAPu1mqk8ppaOiKA1RMB2JQBibAWGXZH3IhI8Nd8kV31M4vN9JWAD+84CbA48fScfvUNfrN6QPAZnQlLwPY7gr8h80Z+791eBz8zX7q5hQPEGXSQM1NOX19Ck2kO+hV2c5pGSnN21HJa+KRYuZcjNzcBY1OaeFyajwCDVMQwBqIkFQIeFahZULeLiFJc1ttqx6M0K18PJkM6V0H/dOfhAAAA=="
+  },
+  "machines/spinal_decompression.png": {
+    "variants": {
+      "400_webp": "assets/machines/spinal_decompression-400.webp",
+      "400_avif": "assets/machines/spinal_decompression-400.avif",
+      "800_webp": "assets/machines/spinal_decompression-800.webp",
+      "800_avif": "assets/machines/spinal_decompression-800.avif",
+      "1200_webp": "assets/machines/spinal_decompression-1200.webp",
+      "1200_avif": "assets/machines/spinal_decompression-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAABwBQCdASoUABQAPu1wsFIppiSiqAgBMB2JQBYj44/q2gPgAGsQvq+JEN8VQIlaM/t+sRaAAPY9L//lhJuhg53gHry0Hr9HyOOe7WexPDqq0/dI5mjHi4Inu0iwvvvdwvGMOjb8qYdcNuXhd7SbFbEOsqfm7YKqqzoDBtldl56OrpaJXyZfr+GHtTEJRuNH022Dx4uYf65jVip95bbVUaoj1bazHFEcJOF1RYGLb9Hs2PJwMtLIOP8QATpOwrAA"
+  },
+  "machines/Spine-Adjuster.png": {
+    "variants": {
+      "400_webp": "assets/machines/Spine-Adjuster-400.webp",
+      "400_avif": "assets/machines/Spine-Adjuster-400.avif",
+      "800_webp": "assets/machines/Spine-Adjuster-800.webp",
+      "800_avif": "assets/machines/Spine-Adjuster-800.avif",
+      "1200_webp": "assets/machines/Spine-Adjuster-1200.webp",
+      "1200_avif": "assets/machines/Spine-Adjuster-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAAAwBQCdASoUABQAPu1ur1IppiQiqAgBMB2JYwDGYP8BGeixPn6oMuZVCJfAf3sQB4yBAAD+7ebIhQvuxyjzJ2xD68Rk2VXiczTflS1cw7yOhoFLLCKcTLV0iqqgjQEL8MBDXXzXUdpdxAdhOMskP1Lv++1daLFZn6c8VBOHxeXiV5maoz/N34R1jikEDhxV/oXyasw2RCOyfQ1glnHwYs16zM7YSr8BYUeAAA=="
+  },
+  "machines/Traction_Machine.png": {
+    "variants": {
+      "400_webp": "assets/machines/Traction_Machine-400.webp",
+      "400_avif": "assets/machines/Traction_Machine-400.avif",
+      "800_webp": "assets/machines/Traction_Machine-800.webp",
+      "800_avif": "assets/machines/Traction_Machine-800.avif",
+      "1200_webp": "assets/machines/Traction_Machine-1200.webp",
+      "1200_avif": "assets/machines/Traction_Machine-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACwBACdASoUABQAPu1qrlCppaQiqAqpMB2JQBdmUAAmrIoeAb02mr4qhsxVgcMwAP7yCO4nq6zUGkgeYY/1XuwG2WUx1PVScSmw20qAmGP16kyMzyrasM69FjF5ISYqB/uXnnJUXYhWnZi3wkEQj0O8lLCE8otixoU33TzO6YSMAMT3HM5X6le43uOC/lXEF0XmdGPb3xoLNervCUx+gwjISU6g8za4CLDR32wI+AEkjhvyWfugAA=="
+  },
+  "machines/ultrasound.png": {
+    "variants": {
+      "400_webp": "assets/machines/ultrasound-400.webp",
+      "400_avif": "assets/machines/ultrasound-400.avif",
+      "800_webp": "assets/machines/ultrasound-800.webp",
+      "800_avif": "assets/machines/ultrasound-800.avif",
+      "1200_webp": "assets/machines/ultrasound-1200.webp",
+      "1200_avif": "assets/machines/ultrasound-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAwBQCdASoUABQAPu1ur1IppiQiqAgBMB2JZQDH5BGK+xpwRs7ZWud8hwnSRoSGodvHxAD+3yk2xEE5PsCUkB1palffEn+3cTdOoDBhKpttBLmDq1wFIvYL3DjPkMx9rBrcaR3w2NiWIRdMi/AKxvh+Vq1fVaFdU8jLxR5i//nzdvSgVDhCFc4kaP8xGGm6xt4zaZzTPs7L6HGET1AAAA=="
+  },
+  "machines/Wax-Bath.png": {
+    "variants": {
+      "400_webp": "assets/machines/Wax-Bath-400.webp",
+      "400_avif": "assets/machines/Wax-Bath-400.avif",
+      "800_webp": "assets/machines/Wax-Bath-800.webp",
+      "800_avif": "assets/machines/Wax-Bath-800.avif",
+      "1200_webp": "assets/machines/Wax-Bath-1200.webp",
+      "1200_avif": "assets/machines/Wax-Bath-1200.avif"
+    },
+    "placeholder": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAABQBQCdASoUABQAPu1ur1IppiQiqAgBMB2JYwC4Qf/gH2Bh7I5DH82Y6+8C31evtqa5tAAA/tghtLVogytDG/AvKsHWWDlJUnXFcHScKwk/T6kZz6JCEFpY3mGtQmBdKeLToqhii8QZUHG3N5Zd6Xg+zDQDGoi4k5kZLI8bgHKZDSodxZQRXa0CWX7Uj8+gyw50brcinm+jqu/HzV/5aUWPKrCAOHAfdp4NwL0SxHw9sAAA"
+  }
+}

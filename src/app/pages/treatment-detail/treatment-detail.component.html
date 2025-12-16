@@ -1,6 +1,17 @@
 <section class="treatment-detail" *ngIf="treatment">
   <div class="hero-image">
-    <img [src]="treatment.image" [alt]="treatment.title" />
+    <ng-container *ngIf="treatment.optimized as opt; else simpleImg">
+      <picture>
+        <source *ngIf="opt.avifSrcset" type="image/avif" [attr.srcset]="opt.avifSrcset" sizes="100vw">
+        <source *ngIf="opt.webpSrcset" type="image/webp" [attr.srcset]="opt.webpSrcset" sizes="100vw">
+        <img [src]="opt.fallback" [alt]="treatment.title" loading="lazy" decoding="async" />
+      </picture>
+    </ng-container>
+
+    <ng-template #simpleImg>
+      <img [src]="treatment.image" [alt]="treatment.title" loading="lazy" decoding="async" />
+    </ng-template>
+
     <div class="overlay">
       <h1 class="treatment-title">{{ treatment.title }}</h1>
       <p class="subtitle">Signature Care. Scientific Precision. Total Wellness.</p>

@@ -37,10 +37,22 @@
                     class="lux-card lux-card--standard h-full flex flex-col p-0 overflow-hidden hover:-translate-y-2 transition-transform duration-500">
                     <!-- Image Area -->
                     <div class="relative h-64 bg-black/40 overflow-hidden">
-                        <img [src]="machine.image" [alt]="machine.name"
-                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                            onerror="this.src='assets/machines/placeholder_fallback.jpg'">
-                        <!-- Fallback handled here or in component -->
+                        <ng-container *ngIf="machine.optimized as opt; else fallbackImage">
+                            <picture>
+                                <source *ngIf="opt.avifSrcset" [attr.type]="'image/avif'" [attr.srcset]="opt.avifSrcset"
+                                    sizes="(max-width: 768px) 100vw, 33vw">
+                                <source *ngIf="opt.webpSrcset" [attr.type]="'image/webp'" [attr.srcset]="opt.webpSrcset"
+                                    sizes="(max-width: 768px) 100vw, 33vw">
+                                <img [src]="opt.fallback" [alt]="machine.name" loading="lazy" decoding="async"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                                    onerror="this.src='assets/machines/placeholder_fallback.jpg'">
+                            </picture>
+                        </ng-container>
+                        <ng-template #fallbackImage>
+                            <img [src]="machine.image" [alt]="machine.name" loading="lazy" decoding="async"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                                onerror="this.src='assets/machines/placeholder_fallback.jpg'">
+                        </ng-template>
 
                         <!-- Category Badge -->
                         <div
