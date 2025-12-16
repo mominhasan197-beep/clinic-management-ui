@@ -1,0 +1,39 @@
+<div class="min-h-screen bg-surface flex items-center justify-center p-4">
+    <div class="bg-primary-light p-8 rounded-xl shadow-2xl w-full max-w-md border border-white/10">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-serif font-bold text-off-white mb-2">Super Admin</h1>
+            <p class="text-gold-foil">Restricted Access</p>
+        </div>
+
+        <form (ngSubmit)="login()" class="space-y-6">
+            <div>
+                <label class="block text-gray-400 mb-2 font-medium">Username</label>
+                <input type="text" [(ngModel)]="username" name="username"
+                    class="w-full bg-surface/50 border border-white/20 rounded-lg px-4 py-3 text-off-white focus:outline-none focus:border-accent transition-colors"
+                    placeholder="Enter admin username" required>
+            </div>
+
+            <div>
+                <label class="block text-gray-400 mb-2 font-medium">Password</label>
+                <input type="password" [(ngModel)]="password" name="password"
+                    class="w-full bg-surface/50 border border-white/20 rounded-lg px-4 py-3 text-off-white focus:outline-none focus:border-accent transition-colors"
+                    placeholder="Enter password" required>
+            </div>
+
+            <div *ngIf="errorMessage"
+                class="p-3 bg-red-900/50 border border-red-500/50 rounded-lg text-red-200 text-sm">
+                {{ errorMessage }}
+            </div>
+
+            <button type="submit" [disabled]="isLoading"
+                class="w-full bg-gradient-gold text-primary font-bold py-3 rounded-lg hover:shadow-gold-glow transition-all duration-300 disabled:opacity-50">
+                {{ isLoading ? 'Authenticating...' : 'Login to Dashboard' }}
+            </button>
+        </form>
+
+        <div class="mt-6 text-center">
+            <a routerLink="/doctor-login" class="text-gray-500 hover:text-accent text-sm">Are you a Doctor? Login
+                here</a>
+        </div>
+    </div>
+</div>

@@ -31,6 +31,12 @@ import { DoctorDashboardComponent } from './pages/doctor-dashboard/doctor-dashbo
 import { PatientSearchComponent } from './pages/patient-search/patient-search.component';
 import { PatientHistoryComponent } from './pages/patient-history/patient-history.component';
 import { PatientDetailsComponent } from './pages/patient-details/patient-details.component';
+import { LocationNagpadaComponent } from './pages/locations/location-nagpada/location-nagpada.component';
+import { LocationBhiwandiComponent } from './pages/locations/location-bhiwandi/location-bhiwandi.component';
+import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { MachinesAvailableComponent } from './pages/machines-available/machines-available.component';
+import { LocationsComponent } from './pages/locations/locations.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,6 +55,12 @@ const routes: Routes = [
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
   { path: 'patient-search', component: PatientSearchComponent },
   { path: 'patient-history', component: PatientHistoryComponent },
+  { path: 'locations', component: LocationsComponent },
+  { path: 'locations/nagpada', component: LocationNagpadaComponent },
+  { path: 'locations/bhiwandi', component: LocationBhiwandiComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin/dashboard', component: AdminDashboardComponent },
+  { path: 'machines-available', component: MachinesAvailableComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,0 +1,52 @@
+<div class="min-h-screen pt-24 pb-12 bg-primary relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
+        <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-off-white mb-4">Our <span
+                    class="text-gold-foil drop-shadow-sm">Locations</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">Visit us at one of our premium facilities for expert care and
+                rehabilitation.</p>
+        </div>
+
+        <!-- Locations Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div *ngFor="let location of locations; let i = index"
+                class="card-glass group hover:border-accent/40 transition-all duration-300 transform hover:-translate-y-1 p-8 flex flex-col items-center text-center"
+                data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+
+                <!-- Location Icon -->
+                <div
+                    class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                    <span class="text-3xl">📍</span>
+                </div>
+
+                <!-- Name -->
+                <h3 class="text-2xl font-serif font-bold text-off-white mb-4 group-hover:text-accent transition-colors">
+                    {{ location.name }}
+                </h3>
+
+                <!-- Address -->
+                <div class="text-gray-400 leading-relaxed mb-8 flex-grow">
+                    <p *ngFor="let line of location.address">{{ line }}</p>
+                </div>
+
+                <!-- Button -->
+                <a [href]="location.googleMapsUrl" target="_blank" rel="noopener noreferrer"
+                    class="btn-primary inline-flex items-center gap-2 group-hover:scale-105 transition-transform">
+                    <span>View on Google Maps</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

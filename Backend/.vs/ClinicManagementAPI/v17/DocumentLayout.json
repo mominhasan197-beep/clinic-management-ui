@@ -1,29 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\salim bhai\\new 2\\Practice\\Backend\\",
+  "WorkspaceRootPath": "D:\\Project\\Angular\\Test\\Practice\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:services\\doctorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\repository\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\repository\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:repository\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|f:\\salim bhai\\new 2\\practice\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,19 +38,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T05:55:14.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "DoctorService.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Services\\DoctorService.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\DoctorService.cs",
               "RelativeDocumentMoniker": "Services\\DoctorService.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Services\\DoctorService.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\DoctorService.cs",
               "RelativeToolTip": "Services\\DoctorService.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAcwDsAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -54,24 +91,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DoctorController.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Controllers\\DoctorController.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\DoctorController.cs",
               "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Controllers\\DoctorController.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\DoctorController.cs",
               "RelativeToolTip": "Controllers\\DoctorController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAiwBEAAAAdAAAAAAAAAA==",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAYwEkAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-14T06:02:55.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PatientRepository.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Repository\\PatientRepository.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Repository\\PatientRepository.cs",
               "RelativeDocumentMoniker": "Repository\\PatientRepository.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Repository\\PatientRepository.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Repository\\PatientRepository.cs",
               "RelativeToolTip": "Repository\\PatientRepository.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAAewLEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -79,11 +116,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PatientController.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Controllers\\PatientController.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\PatientController.cs",
               "RelativeDocumentMoniker": "Controllers\\PatientController.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Controllers\\PatientController.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\PatientController.cs",
               "RelativeToolTip": "Controllers\\PatientController.cs",
               "ViewState": "AQIAAHQAAAAAAAAAAAAIwIIAAABWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -91,11 +128,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "AppointmentService.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Services\\AppointmentService.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\AppointmentService.cs",
               "RelativeDocumentMoniker": "Services\\AppointmentService.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Services\\AppointmentService.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\AppointmentService.cs",
               "RelativeToolTip": "Services\\AppointmentService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -103,11 +140,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
-              "DocumentMoniker": "F:\\salim bhai\\new 2\\Practice\\Backend\\Program.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "F:\\salim bhai\\new 2\\Practice\\Backend\\Program.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

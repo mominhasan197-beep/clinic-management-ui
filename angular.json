@@ -24,7 +24,9 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/animations",
-              "src/_redirects"
+              "src/_redirects",
+              "src/sitemap.xml",
+              "src/robots.txt"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",

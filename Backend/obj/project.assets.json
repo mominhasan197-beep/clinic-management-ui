@@ -2316,31 +2316,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\momin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Hasan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\salim bhai\\new 2\\Practice\\Backend\\ClinicManagementAPI.csproj",
+      "projectUniqueName": "D:\\Project\\Angular\\Test\\Practice\\Backend\\ClinicManagementAPI.csproj",
       "projectName": "ClinicManagementAPI",
-      "projectPath": "F:\\salim bhai\\new 2\\Practice\\Backend\\ClinicManagementAPI.csproj",
-      "packagesPath": "C:\\Users\\momin\\.nuget\\packages\\",
-      "outputPath": "F:\\salim bhai\\new 2\\Practice\\Backend\\obj\\",
+      "projectPath": "D:\\Project\\Angular\\Test\\Practice\\Backend\\ClinicManagementAPI.csproj",
+      "packagesPath": "C:\\Users\\Hasan\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\Angular\\Test\\Practice\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\momin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hasan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2358,8 +2361,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -2409,7 +2411,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

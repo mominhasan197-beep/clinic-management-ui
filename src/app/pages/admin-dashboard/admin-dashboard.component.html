@@ -1,0 +1,205 @@
+<div class="min-h-screen bg-surface flex flex-col">
+    <!-- Top Bar -->
+    <header class="bg-primary-light border-b border-white/10 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded bg-gradient-gold flex items-center justify-center text-primary font-bold">
+                SA
+            </div>
+            <h1 class="text-xl font-serif text-off-white">Super Admin <span class="text-gray-500">Dashboard</span></h1>
+        </div>
+        <div class="flex items-center gap-6">
+            <span class="text-gray-400">Welcome, Admin</span>
+            <button (click)="logout()" class="text-red-400 hover:text-red-300 transition-colors">Logout</button>
+        </div>
+    </header>
+
+    <div class="flex-grow flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 bg-primary-light/50 border-r border-white/10 p-4">
+            <nav class="space-y-2">
+                <button (click)="switchTab('overview')" [class.bg-accent]="activeTab === 'overview'"
+                    [class.text-primary]="activeTab === 'overview'" [class.text-gray-400]="activeTab !== 'overview'"
+                    class="w-full text-left px-4 py-3 rounded-lg transition-all font-medium">
+                    📊 Overview
+                </button>
+                <button (click)="switchTab('appointments')" [class.bg-accent]="activeTab === 'appointments'"
+                    [class.text-primary]="activeTab === 'appointments'"
+                    [class.text-gray-400]="activeTab !== 'appointments'"
+                    class="w-full text-left px-4 py-3 rounded-lg transition-all font-medium">
+                    📅 Appointments
+                </button>
+                <button (click)="switchTab('patients')" [class.bg-accent]="activeTab === 'patients'"
+                    [class.text-primary]="activeTab === 'patients'" [class.text-gray-400]="activeTab !== 'patients'"
+                    class="w-full text-left px-4 py-3 rounded-lg transition-all font-medium">
+                    👥 Patients
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="flex-grow p-8 overflow-y-auto">
+
+            <!-- OVERVIEW TAB -->
+            <div *ngIf="activeTab === 'overview' && stats" class="space-y-8 animate-fade-in">
+                <h2 class="text-2xl font-serif text-accent mb-6">Global Analytics</h2>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="p-6 bg-primary-light rounded-xl border border-white/10">
+                        <p class="text-gray-400 text-sm mb-1">Total Appointments</p>
+                        <p class="text-3xl font-bold text-off-white">{{ stats.totalAppointments }}</p>
+                    </div>
+                    <div class="p-6 bg-primary-light rounded-xl border border-white/10">
+                        <p class="text-gray-400 text-sm mb-1">Today</p>
+                        <p class="text-3xl font-bold text-accent">{{ stats.todayAppointments }}</p>
+                    </div>
+                    <div class="p-6 bg-primary-light rounded-xl border border-white/10">
+                        <p class="text-gray-400 text-sm mb-1">This Week</p>
+                        <p class="text-3xl font-bold text-off-white">{{ stats.thisWeekAppointments }}</p>
+                    </div>
+                    <div class="p-6 bg-primary-light rounded-xl border border-white/10">
+                        <p class="text-gray-400 text-sm mb-1">This Month</p>
+                        <p class="text-3xl font-bold text-off-white">{{ stats.thisMonthAppointments }}</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Doctor Stats -->
+                    <div class="bg-primary-light p-6 rounded-xl border border-white/10">
+                        <h3 class="text-lg font-bold text-off-white mb-4">Appointments by Doctor</h3>
+                        <div class="space-y-4">
+                            <div *ngFor="let item of stats.appointmentsPerDoctor"
+                                class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-gray-300">{{ item.doctorName }}</span>
+                                <span class="bg-accent/20 text-accent px-2 py-1 rounded text-sm font-bold">{{ item.count
+                                    }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Stats -->
+                    <div class="bg-primary-light p-6 rounded-xl border border-white/10">
+                        <h3 class="text-lg font-bold text-off-white mb-4">Appointments by Location</h3>
+                        <div class="space-y-4">
+                            <div *ngFor="let item of stats.appointmentsPerLocation"
+                                class="flex justify-between items-center border-b border-white/5 pb-2">
+                                <span class="text-gray-300">{{ item.locationName }}</span>
+                                <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-sm font-bold">{{
+                                    item.count }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APPOINTMENTS TAB -->
+            <div *ngIf="activeTab === 'appointments'" class="space-y-6 animate-fade-in">
+                <h2 class="text-2xl font-serif text-accent mb-4">All Appointments</h2>
+
+                <!-- Filters -->
+                <div
+                    class="grid grid-cols-1 md:grid-cols-5 gap-4 bg-primary-light p-4 rounded-xl border border-white/10">
+                    <input type="text" [(ngModel)]="filterDoctor" placeholder="Filter by Doctor" class="input-dark">
+                    <input type="text" [(ngModel)]="filterLocation" placeholder="Filter by Location" class="input-dark">
+                    <select [(ngModel)]="filterStatus" class="input-dark">
+                        <option value="">All Status</option>
+                        <option value="Upcoming">Upcoming</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                    <input type="date" [(ngModel)]="filterDateStart" class="input-dark">
+                    <input type="date" [(ngModel)]="filterDateEnd" class="input-dark">
+                    <button (click)="loadAppointments()" class="btn-primary md:col-span-1">Apply Filters</button>
+                </div>
+
+                <!-- Table -->
+                <div class="overflow-x-auto bg-primary-light rounded-xl border border-white/10">
+                    <table class="w-full">
+                        <thead class="bg-black/20 text-gray-400 text-left">
+                            <tr>
+                                <th class="p-4">Ref #</th>
+                                <th class="p-4">Patient</th>
+                                <th class="p-4">Doctor</th>
+                                <th class="p-4">Date/Time</th>
+                                <th class="p-4">Location</th>
+                                <th class="p-4">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr *ngFor="let apt of appointments" class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 font-mono text-sm text-gray-500">{{ apt.referenceNumber }}</td>
+                                <td class="p-4">
+                                    <div class="font-bold text-off-white">{{ apt.patientName }}</div>
+                                    <div class="text-xs text-gray-400">{{ apt.mobile }}</div>
+                                </td>
+                                <td class="p-4 text-gray-300">{{ apt.doctorName }}</td>
+                                <td class="p-4 text-gray-300">{{ apt.appointmentDate }} <br> <span
+                                        class="text-xs opacity-70">{{ apt.appointmentTime }}</span></td>
+                                <td class="p-4">
+                                    <span class="bg-blue-900/40 text-blue-300 px-2 py-1 rounded text-xs">{{
+                                        apt.locationName }}</span>
+                                </td>
+                                <td class="p-4">
+                                    <span [ngClass]="{
+                    'text-green-400': apt.status === 'Completed',
+                    'text-yellow-400': apt.status === 'Upcoming',
+                    'text-red-400': apt.status === 'Cancelled'
+                  }">{{ apt.status }}</span>
+                                </td>
+                            </tr>
+                            <tr *ngIf="appointments.length === 0">
+                                <td colspan="6" class="p-8 text-center text-gray-500">No appointments found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PATIENTS TAB -->
+            <div *ngIf="activeTab === 'patients'" class="space-y-6 animate-fade-in">
+                <h2 class="text-2xl font-serif text-accent mb-4">Patient Records</h2>
+
+                <div class="flex gap-4 mb-4">
+                    <input type="text" [(ngModel)]="searchPatient" placeholder="Search by Name or Mobile"
+                        class="input-dark flex-grow max-w-md">
+                    <button (click)="loadPatients()" class="btn-primary">Search</button>
+                </div>
+
+                <div class="overflow-x-auto bg-primary-light rounded-xl border border-white/10">
+                    <table class="w-full">
+                        <thead class="bg-black/20 text-gray-400 text-left">
+                            <tr>
+                                <th class="p-4">Name</th>
+                                <th class="p-4">Age/Gender</th>
+                                <th class="p-4">Mobile</th>
+                                <th class="p-4">Email</th>
+                                <th class="p-4">Address</th>
+                                <th class="p-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr *ngFor="let p of patients" class="hover:bg-white/5 transition-colors">
+                                <td class="p-4 font-bold text-off-white">{{ p.name }}</td>
+                                <td class="p-4 text-gray-400">{{ p.age }} / {{ p.gender }}</td>
+                                <td class="p-4 text-gray-400">{{ p.mobile }}</td>
+                                <td class="p-4 text-gray-400">{{ p.email }}</td>
+                                <td class="p-4 text-gray-400">{{ p.address }}</td>
+                                <td class="p-4">
+                                    <!-- Placeholder for PDF download -->
+                                    <button class="text-accent underline text-sm">History</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<style>
+    .input-dark {
+        @apply w-full bg-surface/50 border border-white/20 rounded-lg px-4 py-2 text-off-white focus:outline-none focus:border-accent transition-colors;
+    }
+</style>

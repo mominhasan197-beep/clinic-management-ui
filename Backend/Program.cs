@@ -13,15 +13,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IDbContext, DbContext>();
 
 // Register Repositories
+// Register Repositories
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
 builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 
 // Register Services
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IPdfService, PdfService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 // Configure CORS - Must be very permissive to avoid issues
 builder.Services.AddCors(options =>

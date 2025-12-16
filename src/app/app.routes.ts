@@ -10,6 +10,11 @@ import { PatientHistoryComponent } from './pages/patient-history/patient-history
 import { DoctorLoginComponent } from './pages/doctor-login/doctor-login.component';
 import { DoctorDashboardComponent } from './pages/doctor-dashboard/doctor-dashboard.component';
 import { PatientDetailsComponent } from './pages/patient-details/patient-details.component';
+import { LocationNagpadaComponent } from './pages/locations/location-nagpada/location-nagpada.component';
+import { LocationBhiwandiComponent } from './pages/locations/location-bhiwandi/location-bhiwandi.component';
+import { AdminLoginComponent } from './pages/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
+import { MachinesAvailableComponent } from './pages/machines-available/machines-available.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,5 +27,10 @@ export const routes: Routes = [
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
   { path: 'patient-details', component: PatientDetailsComponent },
+  { path: 'locations/nagpada', component: LocationNagpadaComponent },
+  { path: 'locations/bhiwandi', component: LocationBhiwandiComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin/dashboard', component: AdminDashboardComponent },
+  { path: 'machines-available', component: MachinesAvailableComponent },
   { path: '**', redirectTo: '' }
 ];

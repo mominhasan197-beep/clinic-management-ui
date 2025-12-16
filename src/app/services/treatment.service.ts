@@ -7,159 +7,166 @@ import { Treatment } from '../models/treatment.model';
 })
 export class TreatmentService {
   private treatments: Treatment[] = [
+    // Advanced Rehabilitation Programs
     {
       id: 1,
-      title: 'Neuro Rehabilitation',
+      title: 'Advance Neuro Rehabilitation',
       slug: 'neuro-rehabilitation',
-      category: 'Neurological',
-      description: 'Restore independence and confidence with our specialized neuro rehab programs. We support recovery from stroke, spinal cord injuries, and Parkinson\'s disease using evidence-based therapies that improve mobility, coordination, and daily functioning.',
-      benefits: [
-        'Improved mobility and coordination',
-        'Enhanced daily functioning',
-        'Stroke recovery support',
-        'Spinal cord injury rehabilitation'
-      ],
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop&q=80'
+      category: 'Rehabilitation',
+      description: 'Specialized care for neurological conditions including stroke, spinal cord injury, and Parkinson’s. We focus on neuroplasticity and functional recovery.',
+      benefits: ['Stroke & Paralysis recovery', 'Balance & coordination training', 'Spinal cord injury support', 'Parkinson’s management'],
+      image: 'assets/treatments/Advance-Neuro-Rehabilitation.png'
     },
     {
       id: 2,
-      title: 'Orthopedic Rehabilitation',
+      title: 'Advance Orthopedic Rehabilitation',
       slug: 'orthopedic-rehabilitation',
-      category: 'Orthopedic',
-      description: 'Recover faster and move better with our orthopedic rehab services. From fractures to joint replacements, we focus on pain relief, joint strength, and restoring full mobility—so you can return to your daily life with confidence.',
-      benefits: [
-        'Pain relief',
-        'Restored mobility',
-        'Strengthened muscles and joints',
-        'Post-surgery recovery'
-      ],
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=600&fit=crop&q=80'
+      category: 'Rehabilitation',
+      description: 'Comprehensive rehab for fractures, joint replacements, and musculoskeletal surgeries. Restore range of motion, strength, and function.',
+      benefits: ['Post-surgical recovery', 'Fracture management', 'Joint mobility', 'Strength building'],
+      image: 'assets/treatments/Advance-Orthopedic-Rehabilitation.png'
     },
     {
       id: 3,
-      title: 'Sports Rehabilitation',
+      title: 'Advance Sports Rehabilitation',
       slug: 'sports-rehabilitation',
-      category: 'Sports',
-      description: 'Bounce back stronger with our expert sports rehab. Whether you\'re an athlete or weekend warrior, we help you heal from injuries, enhance performance, and prevent future setbacks through tailored, sport-specific physiotherapy.',
-      benefits: [
-        'Sports injury recovery',
-        'Performance enhancement',
-        'Injury prevention',
-        'Strength and flexibility restoration'
-      ],
-      image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop&q=80'
+      category: 'Rehabilitation',
+      description: 'Elite-level care for sports injuries. From ACL rehab to muscle strains, we help athletes return to play stronger and safer.',
+      benefits: ['ACL & Ligament recovery', 'Muscle strain treatment', 'Return-to-sport testing', 'Performance enhancement'],
+      image: 'assets/treatments/Advance-Sports-Rehabilitation.png'
     },
     {
       id: 4,
-      title: 'Cardiac and Chest Rehabilitation',
+      title: 'Advance Cardiac & Chest Rehabilitation',
       slug: 'cardiac-chest-rehabilitation',
-      category: 'Cardiac',
-      description: 'Breathe better, live stronger—your heart and lungs in sync. Boost your respiratory health and overall wellbeing with trusted physiotherapy. Our expert guidance helps enhance circulation, increase energy, and support your path to recovery.',
-      benefits: [
-        'Improved cardiovascular health',
-        'Enhanced respiratory function',
-        'Increased stamina',
-        'Better quality of life'
-      ],
-      image: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&h=600&fit=crop&q=80'
+      category: 'Rehabilitation',
+      description: 'Expert respiratory and cardiac support for post-op recovery and chronic conditions. Improve lung function and cardiovascular endurance.',
+      benefits: ['Post-CABG recovery', 'COPD management', 'Improved endurance', 'Heart health monitoring'],
+      image: 'assets/treatments/Advance-Cardiac-&-Chest-Rehabilitation.png'
     },
     {
       id: 5,
-      title: 'Pediatric Rehabilitation',
+      title: 'Advance Pediatric Rehabilitation',
       slug: 'pediatric-rehabilitation',
-      category: 'Pediatric',
-      description: 'Helping little ones move forward—one milestone at a time. Supporting children\'s growth and development through tailored therapies that encourage strength, coordination, and confidence.',
-      benefits: [
-        'Developmental support',
-        'Improved coordination',
-        'Enhanced strength',
-        'Confidence building'
-      ],
-      image: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&h=600&fit=crop&q=80'
+      category: 'Rehabilitation',
+      description: 'Compassionate therapy for children with developmental delays, CP, and congenital conditions. We make therapy fun and effective.',
+      benefits: ['Developmental milestones', 'Cerebral Palsy care', 'Motor skills training', 'Strength & coordination'],
+      image: 'assets/treatments/Advance-Pediatric-Rehabilitation.png' // Utilizing the therapy setting image
     },
     {
       id: 6,
-      title: 'Pain Management',
-      slug: 'pain-management',
-      category: 'Pain Relief',
-      description: 'Targeted relief for lasting comfort and better living. Focused therapies designed to reduce discomfort and improve daily function. Experience personalized care that promotes healing, restores mobility, and enhances overall well-being.',
-      benefits: [
-        'Chronic pain relief',
-        'Improved mobility',
-        'Enhanced quality of life',
-        'Non-invasive treatment'
-      ],
-      image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop&q=80'
+      title: 'All Types of Paralysis Rehabilitation',
+      slug: 'paralysis-rehabilitation',
+      category: 'Rehabilitation',
+      description: 'Dedicated programs for hemiplegia, paraplegia, and quadriplegia. We use advanced techniques to maximize independence.',
+      benefits: ['Gait training', 'Muscle re-education', 'Spasticity management', 'Functional independence'],
+      image: 'assets/treatments/All-Types-of-Paralysis-Rehabilitation.png'
     },
+
+    // Pain & Functional Recovery
     {
       id: 7,
-      title: 'Pilates (Muscle Activation & Re-education)',
-      slug: 'pilates',
-      category: 'Fitness',
-      description: 'Activate, align, and move with mindful precision. Engage your body through controlled movements that improve strength, balance, and posture. Enhance flexibility and coordination with focused exercises.',
-      benefits: [
-        'Improved strength and balance',
-        'Better posture',
-        'Enhanced flexibility',
-        'Core muscle activation'
-      ],
-      image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&h=600&fit=crop&q=80'
+      title: 'Advance Pain Management',
+      slug: 'pain-management',
+      category: 'Pain Relief',
+      description: 'Multi-modal approach to chronic and acute pain. We treat the root cause using manual therapy, modalities, and exercises.',
+      benefits: ['Chronic back/neck pain', 'Arthritis relief', 'Sciatica treatment', 'Myofascial release'],
+      image: 'assets/treatments/Advance-Pain-Management.png'
     },
     {
       id: 8,
-      title: 'Personalised Weight Loss Program',
-      slug: 'weight-loss-program',
-      category: 'Wellness',
-      description: 'Lose weight the right way—with expert physiotherapy support. Achieve your goals through tailored exercise plans and ongoing guidance. Benefit from safe, sustainable strategies that boost metabolism and improve fitness.',
-      benefits: [
-        'Safe weight loss',
-        'Improved metabolism',
-        'Enhanced fitness',
-        'Personalized exercise plans'
-      ],
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80'
+      title: 'Exercise & Movement Therapy',
+      slug: 'movement-therapy',
+      category: 'Pain Relief',
+      description: 'Restoring natural movement patterns through corrective exercises. Ideal for posture correction and chronic stiffness.',
+      benefits: ['Posture correction', 'Flexibility improvement', 'Movement efficiency', 'Injury prevention'],
+      image: 'assets/treatments/Exercise-&-Movement-Therapy.png'
     },
+
+    // Exercise & Special Programs
     {
       id: 9,
-      title: 'Personalised Fitness Plan',
-      slug: 'fitness-plan',
-      category: 'Fitness',
-      description: 'Custom fitness plans built around your goals and body. Focused on your well-being, our tailored physiotherapy and fitness plans enhance strength, flexibility, and endurance.',
-      benefits: [
-        'Customized fitness routines',
-        'Improved strength and endurance',
-        'Enhanced flexibility',
-        'Sustainable results'
-      ],
-      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop&q=80'
+      title: 'Pilates (Muscle Activation)',
+      slug: 'pilates',
+      category: 'Special Programs',
+      description: 'Clinical Pilates for core stability, spinal alignment, and muscle re-education. Perfect for back pain and postural issues.',
+      benefits: ['Core strengthening', 'Spine alignment', 'Muscle toning', 'Flexibility'],
+      image: 'assets/treatments/Pilates-(Muscle-Activation).png'
     },
     {
       id: 10,
-      title: 'Antenatal and Postnatal Exercises',
-      slug: 'antenatal-postnatal-exercises',
+      title: 'Antenatal & Postnatal Exercises',
+      slug: 'antenatal-postnatal',
       category: 'Women\'s Health',
-      description: 'Specialized exercise programs to support mothers before and after childbirth. Safe, effective routines that strengthen core muscles, improve posture, and promote recovery.',
-      benefits: [
-        'Core muscle strengthening',
-        'Improved posture',
-        'Faster recovery',
-        'Safe for mother and baby'
-      ],
-      image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&h=600&fit=crop&q=80'
+      description: 'Safe, guided exercises for expectant and new mothers. Relieve back pain, strengthen pelvic floor, and prepare for labor.',
+      benefits: ['Pregnancy pain relief', 'Pelvic floor strength', 'Diastasis recti recovery', 'Safe fitness'],
+      image: 'assets/treatments/Antenatal-&-postnatal-Exercises.png'
     },
     {
       id: 11,
-      title: 'Kegel Exercises for Pelvic Floor',
+      title: 'Kegel Exercises',
       slug: 'kegel-exercises',
       category: 'Women\'s Health',
-      description: 'Strengthen your pelvic floor with guided Kegel exercises. These targeted routines help improve bladder control, support core stability, and enhance quality of life.',
-      benefits: [
-        'Improved bladder control',
-        'Enhanced core stability',
-        'Better quality of life',
-        'Post-childbirth recovery'
-      ],
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80'
+      description: 'Evidence-based pelvic floor training for incontinence and organ prolapse prevention. Discreet and effective.',
+      benefits: ['Bladder control', 'Core stability', 'Prolapse prevention', 'Post-childbirth recovery'],
+      image: 'assets/treatments/Kegel-Exercises.png'
+    },
+    {
+      id: 12,
+      title: 'Exercises for Diabetic Patients',
+      slug: 'diabetic-exercises',
+      category: 'Special Programs',
+      description: 'Medically supervised exercise plans to help manage blood sugar levels, improve circulation, and prevent neuropathy.',
+      benefits: ['Blood sugar control', 'Weight management', 'Circulation improvement', 'Neuropathy prevention'],
+      image: 'assets/treatments/Exercises_for_Diabetic_Patients.png'
+    },
+
+    // Fitness & Lifestyle
+    {
+      id: 13,
+      title: 'Personalised Weight Loss Program',
+      slug: 'weight-loss',
+      category: 'Fitness',
+      description: 'Science-backed weight loss strategies combining physiotherapy, exercise, and lifestyle modification.',
+      benefits: ['Metabolic boost', 'Sustainable fat loss', 'Joint-friendly cardio', 'Muscle retention'],
+      image: 'assets/treatments/Personalised-Weight-Loss-Program.png'
+    },
+    {
+      id: 14,
+      title: 'Personalised Fitness Plan',
+      slug: 'fitness-plan',
+      category: 'Fitness',
+      description: 'Customized workout routines designed by physiotherapists to meet your specific health goals safely.',
+      benefits: ['Goal-specific training', 'Injury-free workouts', 'Endurance building', 'Functional strength'],
+      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop&q=80'
+    },
+    // Recovery & Wellness
+    {
+      id: 15,
+      title: 'Ice Bath Therapy',
+      slug: 'ice-bath-therapy',
+      category: 'Recovery & Wellness',
+      description: 'Accelerate muscle recovery and reduce inflammation with professional cold immersion therapy. Ideal for athletes and post-workout recovery.',
+      benefits: ['Reduced inflammation', 'Faster muscle recovery', 'Improved circulation', 'Pain relief'],
+      image: 'assets/treatments/IceBath.png'
+    },
+    {
+      id: 16,
+      title: 'Sauna Therapy',
+      slug: 'sauna-therapy',
+      category: 'Recovery & Wellness',
+      description: 'Detoxify and relax with our premium sauna sessions. Improves cardiovascular health, skin condition, and stress levels.',
+      benefits: ['Detoxification', 'Stress relief', 'Cardiovascular support', 'Skin rejuvenation'],
+      image: 'assets/treatments/Sauna_Therapy.png'
+    },
+    {
+      id: 17,
+      title: 'Steam Shower Therapy',
+      slug: 'steam-shower',
+      category: 'Recovery & Wellness',
+      description: 'Rejuvenating steam therapy to open airways, cleanse skin, and promote deep relaxation.',
+      benefits: ['Respiratory clear-up', 'Pore cleansing', 'Muscle relaxation', 'Joint stiffness relief'],
+      image: 'assets/treatments/Steam_shower.png'
     }
   ];
 

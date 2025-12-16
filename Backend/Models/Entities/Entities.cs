@@ -93,4 +93,14 @@ namespace ClinicManagementAPI.Models.Entities
         public DateTime CreatedOn { get; set; }
         public DateTime? ModifiedOn { get; set; }
     }
+
+    public class SuperAdmin
+    {
+        public int AdminId { get; set; }
+        public string Username { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public bool IsActive { get; set; } = true;
+        public DateTime CreatedOn { get; set; }
+        public DateTime? LastLogin { get; set; }
+    }
 }
