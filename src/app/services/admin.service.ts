@@ -42,12 +42,17 @@ export class AdminService {
         if (filters.status) params = params.set('status', filters.status);
         if (filters.startDate) params = params.set('startDate', filters.startDate);
         if (filters.endDate) params = params.set('endDate', filters.endDate);
+        if (filters.patientId) params = params.set('patientId', filters.patientId);
+        if (filters.searchTerm) params = params.set('searchTerm', filters.searchTerm);
 
         return this.http.get<any>(`${this.apiUrl}/appointments`, { params });
     }
 
-    getAllPatients(search?: string): Observable<any> {
-        let params = new HttpParams();
+    getAllPatients(search?: string, page: number = 1, pageSize: number = 10): Observable<any> {
+        let params = new HttpParams()
+            .set('page', page.toString())
+            .set('pageSize', pageSize.toString());
+
         if (search) params = params.set('search', search);
         return this.http.get<any>(`${this.apiUrl}/patients`, { params });
     }

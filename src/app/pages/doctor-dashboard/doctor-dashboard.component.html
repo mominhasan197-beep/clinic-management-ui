@@ -293,8 +293,9 @@
         <!-- Edit Form Modal (Floating) -->
         <div *ngIf="editingAppointment" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
             data-aos="fade-in">
-            <div class="lux-card lux-card--standard w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-                <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+            <div class="lux-card lux-card--standard w-full max-w-2xl max-h-[90vh] flex flex-col !p-0">
+                <!-- Header -->
+                <div class="flex items-center justify-between p-6 border-b border-white/10 shrink-0">
                     <h3 class="lux-card__heading">Update Appointment</h3>
                     <button (click)="cancelEdit()" class="text-gray-400 hover:text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -304,61 +305,70 @@
                     </button>
                 </div>
 
-                <div class="mb-4 bg-accent/5 p-4 rounded border border-accent/10">
-                    <div class="flex flex-col sm:flex-row justify-between gap-2 text-sm text-gray-300">
-                        <p><span class="text-accent font-semibold">Patient:</span> {{ editingAppointment.patientName }}
-                        </p>
-                        <p><span class="text-accent font-semibold">Date:</span> {{ editingAppointment.appointmentDate ?
-                            (editingAppointment.appointmentDate | date:'MMM dd, yyyy') : (selectedDate | date:'MMM dd,
-                            yyyy') }} at {{ editingAppointment.appointmentTime }}</p>
+                <!-- Scrollable Content -->
+                <div class="p-6 overflow-y-auto custom-scrollbar">
+                    <div class="mb-4 bg-accent/5 p-4 rounded border border-accent/10">
+                        <div class="flex flex-col sm:flex-row justify-between gap-2 text-sm text-gray-300">
+                            <p><span class="text-accent font-semibold">Patient:</span> {{ editingAppointment.patientName
+                                }}
+                            </p>
+                            <p><span class="text-accent font-semibold">Date:</span> {{
+                                editingAppointment.appointmentDate ?
+                                (editingAppointment.appointmentDate | date:'MMM dd, yyyy') : (selectedDate | date:'MMM
+                                dd,
+                                yyyy') }} at {{ editingAppointment.appointmentTime }}</p>
+                        </div>
                     </div>
+
+                    <form [formGroup]="editForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Status</label>
+                            <select formControlName="status"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none">
+                                <option value="Upcoming">Upcoming</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Fees (₹)</label>
+                            <input type="number" step="0.01" formControlName="fees"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm text-gray-400 mb-1">Diagnosis / Issue</label>
+                            <input type="text" formControlName="diagnosis" placeholder="Enter diagnosis"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm text-gray-400 mb-1">Treatment Given</label>
+                            <textarea rows="2" formControlName="treatment" placeholder="Enter treatment details"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm text-gray-400 mb-1">Doctor Notes (Internal)</label>
+                            <textarea rows="3" formControlName="doctorNotes" placeholder="Private notes for the doctor"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm text-gray-400 mb-1">Patient Remarks (Visible on History)</label>
+                            <textarea rows="2" formControlName="remarks" placeholder="Remarks for the patient"
+                                class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
+                        </div>
+                    </form>
                 </div>
 
-                <form [formGroup]="editForm" (ngSubmit)="saveEdit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Status</label>
-                        <select formControlName="status"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none">
-                            <option value="Upcoming">Upcoming</option>
-                            <option value="Confirmed">Confirmed</option>
-                            <option value="Completed">Completed</option>
-                            <option value="Cancelled">Cancelled</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm text-gray-400 mb-1">Fees (₹)</label>
-                        <input type="number" step="0.01" formControlName="fees"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm text-gray-400 mb-1">Diagnosis / Issue</label>
-                        <input type="text" formControlName="diagnosis" placeholder="Enter diagnosis"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none" />
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm text-gray-400 mb-1">Treatment Given</label>
-                        <textarea rows="2" formControlName="treatment" placeholder="Enter treatment details"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm text-gray-400 mb-1">Doctor Notes (Internal)</label>
-                        <textarea rows="3" formControlName="doctorNotes" placeholder="Private notes for the doctor"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-sm text-gray-400 mb-1">Patient Remarks (Visible on History)</label>
-                        <textarea rows="2" formControlName="remarks" placeholder="Remarks for the patient"
-                            class="w-full bg-surface border border-white/10 rounded p-2 text-off-white focus:border-accent outline-none"></textarea>
-                    </div>
-                    <div class="md:col-span-2 flex justify-end gap-3 mt-4 pt-4 border-t border-white/10">
-                        <button type="button" (click)="cancelEdit()"
-                            class="px-4 py-2 border border-white/10 rounded text-gray-300 hover:text-off-white hover:bg-white/5 transition-colors">Cancel</button>
-                        <button type="submit" [disabled]="isSaving"
-                            class="px-6 py-2 bg-gradient-gold text-primary font-bold rounded disabled:opacity-50 hover:shadow-lg transition-shadow">
-                            {{ isSaving ? 'Saving...' : 'Save Changes' }}
-                        </button>
-                    </div>
-                </form>
+                <!-- Sticky Footer -->
+                <div
+                    class="p-6 border-t border-white/10 shrink-0 bg-surface/95 backdrop-blur flex justify-end gap-3 rounded-b-lg">
+                    <button type="button" (click)="cancelEdit()"
+                        class="px-4 py-2 border border-white/10 rounded text-gray-300 hover:text-off-white hover:bg-white/5 transition-colors">Cancel</button>
+                    <button type="button" (click)="saveEdit()" [disabled]="isSaving"
+                        class="px-6 py-2 bg-gradient-gold text-primary font-bold rounded disabled:opacity-50 hover:shadow-lg transition-shadow">
+                        {{ isSaving ? 'Saving...' : 'Save Changes' }}
+                    </button>
+                </div>
             </div>
         </div>
     </div>

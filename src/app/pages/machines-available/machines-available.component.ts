@@ -11,9 +11,6 @@ interface Machine {
     optimized?: any;
 }
 
-
-
-
 @Component({
     selector: 'app-machines-available',
     standalone: true,
@@ -23,15 +20,23 @@ interface Machine {
 })
 export class MachinesAvailableComponent implements OnInit {
     activeCategory: string = 'All';
-
     categories = ['All', 'Therapy', 'Rehab', 'Cupping', 'Fitness', 'Neuro'];
+
+    // Mapping for section titles in "All" view
+    categoryTitles: { [key: string]: string } = {
+        'Therapy': 'Therapy & Rehabilitation Machines',
+        'Rehab': 'Advanced Recovery & Robotics',
+        'Cupping': 'Traditional & Smart Cupping',
+        'Fitness': 'Fitness & Specialized Equipment',
+        'Neuro': 'Neurological & Special Care'
+    };
 
     machines: Machine[] = [
         // Therapy Machines
         {
             name: 'Ultrasound Therapy',
             description: 'Uses sound waves to penetrate deep tissues, reducing pain and inflammation while promoting tissue healing.',
-            image: 'assets/machines/ultrasound.png', // Generated
+            image: 'assets/machines/ultrasound.png',
             category: 'Therapy'
         },
         {
@@ -93,13 +98,13 @@ export class MachinesAvailableComponent implements OnInit {
         {
             name: 'Robotic Hand Rehab',
             description: 'Advanced robotic assistance to restore hand function and finger mobility after stroke or injury.',
-            image: 'assets/machines/robotic_hand.png', // Generated
+            image: 'assets/machines/robotic_hand.png',
             category: 'Rehab'
         },
         {
             name: 'Spinal Decompression Bed',
             description: 'Non-surgical computerized traction for severe back and neck pain relief.',
-            image: 'assets/machines/spinal_decompression.png', // Generated
+            image: 'assets/machines/spinal_decompression.png',
             category: 'Rehab'
         },
         {
@@ -159,7 +164,7 @@ export class MachinesAvailableComponent implements OnInit {
             description: 'Deep Vein Thrombosis prevention therapy to improve circulation in legs.',
             image: 'assets/machines/DVT-Machine.png',
             category: 'Fitness'
-        },
+        },        
 
         // Neuro
         {
@@ -183,6 +188,7 @@ export class MachinesAvailableComponent implements OnInit {
     ];
 
     filteredMachines: Machine[] = [];
+    groupedMachines: { category: string, title: string, machines: Machine[] }[] = [];
 
     constructor(private seoService: SeoService, private imageOptimizer: ImageOptimizerService) { }
 
@@ -211,8 +217,16 @@ export class MachinesAvailableComponent implements OnInit {
     filterMachines() {
         if (this.activeCategory === 'All') {
             this.filteredMachines = this.machines;
+            // Create groups
+            const categories = ['Therapy', 'Rehab', 'Cupping', 'Fitness', 'Neuro'];
+            this.groupedMachines = categories.map(cat => ({
+                category: cat,
+                title: this.categoryTitles[cat] || cat,
+                machines: this.machines.filter(m => m.category === cat)
+            })).filter(g => g.machines.length > 0);
         } else {
             this.filteredMachines = this.machines.filter(m => m.category === this.activeCategory);
+            this.groupedMachines = [];
         }
     }
 }

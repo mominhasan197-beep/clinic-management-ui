@@ -60,22 +60,26 @@ namespace ClinicManagementAPI.Repository
             stats.AppointmentsPerDoctor = (await connection.QueryAsync<DoctorAppointmentCountDto>(queryDoctor)).ToList();
 
             // Per Location - Assuming hardcoded strings or Location table join if LocationName is stored
+            // Per Location
             var queryLocation = @"
-                SELECT LocationName, COUNT(AppointmentId) as Count
-                FROM Appointments
-                GROUP BY LocationName";
+                SELECT l.LocationName, COUNT(a.AppointmentId) as Count
+                FROM Appointments a
+                JOIN Locations l ON a.LocationId = l.LocationId
+                GROUP BY l.LocationName";
             stats.AppointmentsPerLocation = (await connection.QueryAsync<LocationAppointmentCountDto>(queryLocation)).ToList();
 
             return stats;
         }
 
-        public async Task<IEnumerable<AppointmentDto>> GetAllAppointmentsAsync(string? doctorName, string? location, string? status, DateTime? startDate, DateTime? endDate)
+        public async Task<IEnumerable<AppointmentDto>> GetAllAppointmentsAsync(string? doctorName, string? location, string? status, DateTime? startDate, DateTime? endDate, int? patientId = null, string? searchTerm = null)
         {
             using var connection = _dbContext.CreateConnection();
             var sql = @"
-                SELECT a.*, p.Name as PatientName, p.Age, p.Gender, p.Mobile, p.Email
+                SELECT a.*, p.Name as PatientName, p.Age, p.Gender, p.Mobile, p.Email, l.LocationName, d.Name as DoctorName
                 FROM Appointments a
                 JOIN Patients p ON a.PatientId = p.PatientId
+                JOIN Locations l ON a.LocationId = l.LocationId
+                JOIN Doctors d ON a.DoctorId = d.DoctorId
                 WHERE 1=1";
 
             var parameters = new DynamicParameters();
@@ -91,7 +95,7 @@ namespace ClinicManagementAPI.Repository
 
             if (!string.IsNullOrEmpty(location))
             {
-                sql += " AND a.LocationName LIKE @Location";
+                sql += " AND l.LocationName LIKE @Location";
                 parameters.Add("@Location", $"%{location}%");
             }
 
@@ -103,7 +107,6 @@ namespace ClinicManagementAPI.Repository
 
             if (startDate.HasValue)
             {
-                sql += " AND CAST(a.AppointmentDate AS DATE) >= @StartDate";
                 parameters.Add("@StartDate", startDate.Value.Date);
             }
 
@@ -111,6 +114,18 @@ namespace ClinicManagementAPI.Repository
             {
                 sql += " AND CAST(a.AppointmentDate AS DATE) <= @EndDate";
                 parameters.Add("@EndDate", endDate.Value.Date);
+            }
+
+            if (patientId.HasValue)
+            {
+                sql += " AND a.PatientId = @PatientId";
+                parameters.Add("@PatientId", patientId.Value);
+            }
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                sql += " AND (p.Name LIKE @SearchTerm OR a.ReferenceNumber LIKE @SearchTerm)";
+                parameters.Add("@SearchTerm", $"%{searchTerm}%");
             }
 
             sql += " ORDER BY a.AppointmentDate DESC, a.AppointmentTime DESC";
@@ -127,6 +142,7 @@ namespace ClinicManagementAPI.Repository
                 Gender = a.Gender,
                 Mobile = a.Mobile,
                 Email = a.Email,
+                DoctorName = a.DoctorName,
                 AppointmentDate = ((DateTime)a.AppointmentDate).ToString("yyyy-MM-dd"),
                 AppointmentTime = ((TimeSpan)a.AppointmentTime).ToString(@"hh\:mm"),
                 LocationName = a.LocationName,
@@ -139,21 +155,56 @@ namespace ClinicManagementAPI.Repository
             });
         }
 
-        public async Task<IEnumerable<Patient>> GetAllPatientsAsync(string? searchTerm)
+        public async Task<(IEnumerable<dynamic> Patients, int TotalCount)> GetAllPatientsAsync(string? searchTerm, int page, int pageSize)
         {
             using var connection = _dbContext.CreateConnection();
-            var sql = "SELECT * FROM Patients WHERE 1=1";
+            var sql = @"
+                SELECT 
+                    p.PatientId,
+                    p.Name,
+                    p.Age,
+                    p.Gender,
+                    p.Mobile as Mobile,
+                    p.Email,
+                    p.BloodGroup,
+                    (SELECT COUNT(*) FROM Appointments a WHERE a.PatientId = p.PatientId) as TotalVisits,
+                    (SELECT TOP 1 AppointmentDate FROM Appointments a WHERE a.PatientId = p.PatientId ORDER BY AppointmentDate DESC) as LastVisit
+                FROM Patients p 
+                WHERE 1=1";
+            
+            var countSql = "SELECT COUNT(*) FROM Patients p WHERE 1=1";
+
             var parameters = new DynamicParameters();
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                sql += " AND (Name LIKE @Search OR Mobile LIKE @Search)";
+                var filter = " AND (p.Name LIKE @Search OR p.Mobile LIKE @Search)";
+                sql += filter;
+                countSql += filter;
                 parameters.Add("@Search", $"%{searchTerm}%");
             }
             
-            sql += " ORDER BY Name";
+            sql += " ORDER BY p.Name OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
+            parameters.Add("@Offset", (page - 1) * pageSize);
+            parameters.Add("@PageSize", pageSize);
 
-            return await connection.QueryAsync<Patient>(sql, parameters);
+            var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
+            var result = await connection.QueryAsync<dynamic>(sql, parameters);
+
+            var patients = result.Select(p => new 
+            {
+                p.PatientId,
+                p.Name,
+                p.Age,
+                p.Gender,
+                p.Mobile,
+                p.Email,
+                p.BloodGroup,
+                TotalVisits = (int)p.TotalVisits,
+                LastVisit = p.LastVisit != null ? ((DateTime)p.LastVisit).ToString("yyyy-MM-dd") : "N/A"
+            });
+
+            return (patients, totalCount);
         }
     }
 }

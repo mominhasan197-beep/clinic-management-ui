@@ -2,6 +2,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using ClinicManagementAPI.Models.Responses;
+using ClinicManagementAPI.Models.DTOs;
 
 namespace ClinicManagementAPI.Services
 {
@@ -21,98 +22,31 @@ namespace ClinicManagementAPI.Services
 
         public byte[] GeneratePatientHistoryPdf(PatientHistoryResponse patientHistory)
         {
-            var document = Document.Create(container =>
+             var document = Document.Create(container =>
             {
                 container.Page(page =>
                 {
                     page.Size(PageSizes.A4);
                     page.Margin(2, Unit.Centimetre);
                     page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(11));
+                    page.DefaultTextStyle(x => x.FontSize(10).FontFamily(Fonts.SegoeUI));
 
-                    page.Header()
-                        .Text("Patient Medical History")
-                        .SemiBold().FontSize(20).FontColor(Colors.Blue.Medium);
-
+                    page.Header().Element(ComposeHeader);
+                    
                     page.Content()
                         .PaddingVertical(1, Unit.Centimetre)
                         .Column(x =>
                         {
                             x.Spacing(20);
-
-                            // Patient Details
-                            x.Item().Text("Patient Information").SemiBold().FontSize(16);
-                            x.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
                             
-                            if (patientHistory.Patient != null)
-                            {
-                                x.Item().Row(row =>
-                                {
-                                    row.RelativeItem().Text($"Name: {patientHistory.Patient.Name}");
-                                    row.RelativeItem().Text($"Age: {patientHistory.Patient.Age}");
-                                });
-                                x.Item().Row(row =>
-                                {
-                                    row.RelativeItem().Text($"Mobile: {patientHistory.Patient.Mobile}");
-                                    row.RelativeItem().Text($"Blood Group: {patientHistory.Patient.BloodGroup}");
-                                });
-                            }
+                            // Patient Details Box
+                            x.Item().Element(c => ComposePatientInfoBox(c, patientHistory.Patient));
 
-                            // Visit History
-                            x.Item().PaddingTop(20).Text("Visit History").SemiBold().FontSize(16);
-                            x.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
-
-                            x.Item().Table(table =>
-                            {
-                                table.ColumnsDefinition(columns =>
-                                {
-                                    columns.ConstantColumn(80);
-                                    columns.ConstantColumn(60);
-                                    columns.RelativeColumn();
-                                    columns.RelativeColumn();
-                                    columns.RelativeColumn();
-                                    columns.RelativeColumn();
-                                });
-
-                                table.Header(header =>
-                                {
-                                    header.Cell().Element(CellStyle).Text("Date");
-                                    header.Cell().Element(CellStyle).Text("Time");
-                                    header.Cell().Element(CellStyle).Text("Doctor");
-                                    header.Cell().Element(CellStyle).Text("Diagnosis");
-                                    header.Cell().Element(CellStyle).Text("Treatment");
-                                    header.Cell().Element(CellStyle).Text("Notes");
-
-                                    static IContainer CellStyle(IContainer container)
-                                    {
-                                        return container.DefaultTextStyle(x => x.SemiBold()).PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Black);
-                                    }
-                                });
-
-                                foreach (var visit in patientHistory.History)
-                                {
-                                    table.Cell().Element(CellStyle).Text(visit.VisitDate);
-                                    table.Cell().Element(CellStyle).Text(visit.VisitTime);
-                                    table.Cell().Element(CellStyle).Text(visit.DoctorName);
-                                    table.Cell().Element(CellStyle).Text(visit.Diagnosis ?? "-");
-                                    table.Cell().Element(CellStyle).Text(visit.Treatment ?? "-");
-                                    table.Cell().Element(CellStyle).Text(visit.Notes ?? "-");
-
-                                    static IContainer CellStyle(IContainer container)
-                                    {
-                                        return container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
-                                    }
-                                }
-                            });
+                            // Table
+                            x.Item().Element(c => ComposeHistoryTable(c, patientHistory.History));
                         });
 
-                    page.Footer()
-                        .AlignCenter()
-                        .Text(x =>
-                        {
-                            x.Span("Generated on ");
-                            x.Span(DateTime.Now.ToString("dd MMM yyyy HH:mm")).SemiBold();
-                        });
+                    page.Footer().Element(ComposeFooter);
                 });
             });
 
@@ -128,96 +62,277 @@ namespace ClinicManagementAPI.Services
                     page.Size(PageSizes.A4);
                     page.Margin(2, Unit.Centimetre);
                     page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(11));
+                    page.DefaultTextStyle(x => x.FontSize(10).FontFamily(Fonts.SegoeUI));
 
-                    page.Header()
-                        .Text("Patient Appointment History")
-                        .SemiBold().FontSize(20).FontColor(Colors.Blue.Medium);
+                    page.Header().Element(ComposeHeader);
 
                     page.Content()
                         .PaddingVertical(1, Unit.Centimetre)
                         .Column(x =>
                         {
-                            x.Spacing(20);
+                            x.Spacing(25);
 
-                            // Patient
-                            x.Item().Text("Patient Information").SemiBold().FontSize(16);
-                            x.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
+                            // Patient Box
+                            x.Item().Element(c => ComposePatientInfoBox(c, history.Patient));
 
-                            if (history.Patient != null)
-                            {
-                                x.Item().Row(row => {
-                                    row.RelativeItem().Text($"Name: {history.Patient.Name}");
-                                    row.RelativeItem().Text($"Mobile: {history.Patient.Mobile}");
-                                });
-                                x.Item().Row(row => {
-                                    row.RelativeItem().Text($"Email: {history.Patient.Email ?? "-"}");
-                                    row.RelativeItem().Text($"Age: {history.Patient.Age?.ToString() ?? "-"}");
-                                });
-                            }
+                            // Title for Table Section
+                            x.Item().Text("Appointment History").FontSize(14).SemiBold().FontColor(Colors.Grey.Darken3);
 
-                            // Appointments
-                            x.Item().PaddingTop(20).Text("Appointments").SemiBold().FontSize(16);
-                            x.Item().LineHorizontal(1).LineColor(Colors.Grey.Lighten2);
-
-                            x.Item().Table(table =>
-                            {
-                                table.ColumnsDefinition(columns =>
-                                {
-                                    columns.ConstantColumn(70); // Date
-                                    columns.ConstantColumn(55); // Time
-                                    columns.RelativeColumn();   // Doctor
-                                    columns.RelativeColumn();   // Location
-                                    columns.RelativeColumn();   // Diagnosis
-                                    columns.RelativeColumn();   // Treatment
-                                    columns.ConstantColumn(60); // Fees
-                                });
-                                
-                                table.Header(header =>
-                                {
-                                    header.Cell().Element(CellStyle).Text("Date");
-                                    header.Cell().Element(CellStyle).Text("Time");
-                                    header.Cell().Element(CellStyle).Text("Doctor");
-                                    header.Cell().Element(CellStyle).Text("Location");
-                                    header.Cell().Element(CellStyle).Text("Diagnosis");
-                                    header.Cell().Element(CellStyle).Text("Treatment");
-                                    header.Cell().Element(CellStyle).Text("Fees");
-                                    
-                                    static IContainer CellStyle(IContainer container)
-                                    {
-                                        return container.DefaultTextStyle(x => x.SemiBold()).PaddingVertical(5).BorderBottom(1).BorderColor(Colors.Black);
-                                    }
-                                });
-
-                                foreach (var app in history.Appointments)
-                                {
-                                    table.Cell().Element(CellStyle).Text(app.AppointmentDate);
-                                    table.Cell().Element(CellStyle).Text(app.AppointmentTime);
-                                    table.Cell().Element(CellStyle).Text(app.DoctorName);
-                                    table.Cell().Element(CellStyle).Text(app.LocationName);
-                                    table.Cell().Element(CellStyle).Text(app.Diagnosis ?? "-");
-                                    table.Cell().Element(CellStyle).Text(app.Treatment ?? "-");
-                                    table.Cell().Element(CellStyle).Text(app.Fees?.ToString("C") ?? "-");
-
-                                    static IContainer CellStyle(IContainer container)
-                                    {
-                                        return container.BorderBottom(1).BorderColor(Colors.Grey.Lighten2).PaddingVertical(5);
-                                    }
-                                }
-                            });
+                            // Table
+                            x.Item().Element(c => ComposeAppointmentTable(c, history.Appointments));
                         });
-                        
-                    page.Footer()
-                        .AlignCenter()
-                        .Text(x =>
-                        {
-                            x.Span("Generated on ");
-                            x.Span(DateTime.Now.ToString("dd MMM yyyy HH:mm")).SemiBold();
-                        });
+
+                    page.Footer().Element(ComposeFooter);
                 });
             });
 
             return document.GeneratePdf();
+        }
+
+        // --- Component Composition Methods ---
+
+        void ComposeHeader(IContainer container)
+        {
+            container.Row(row =>
+            {
+                row.RelativeItem().Column(column =>
+                {
+                    column.Item().Text("Clinic Management System").FontSize(20).SemiBold().FontColor(Colors.Blue.Darken2);
+                    column.Item().Text("Official Medical Record").FontSize(10).FontColor(Colors.Grey.Medium);
+                });
+
+                row.ConstantItem(100).AlignRight().Text(DateTime.Now.ToString("dd MMM yyyy")).SemiBold().FontColor(Colors.Grey.Darken1);
+            });
+        }
+
+        void ComposeFooter(IContainer container)
+        {
+            container
+                .BorderTop(1)
+                .BorderColor(Colors.Grey.Lighten2)
+                .PaddingTop(10)
+                .Row(row =>
+                {
+                    row.RelativeItem().Text(x =>
+                    {
+                        x.Span("Generated by Clinic Management System").FontColor(Colors.Grey.Medium);
+                    });
+                    
+                    row.RelativeItem().AlignRight().Text(x =>
+                    {
+                        x.CurrentPageNumber();
+                        x.Span(" / ");
+                        x.TotalPages();
+                    });
+                });
+        }
+
+        // Overload 1: For PatientDto
+        void ComposePatientInfoBox(IContainer container, PatientDto? patient)
+        {
+            if (patient == null) return;
+
+            container
+                .Background(Colors.Grey.Lighten5)
+                .Padding(15)
+                .Border(1)
+                .BorderColor(Colors.Grey.Lighten3)
+                .Row(row => 
+                {
+                    row.RelativeItem().Column(col => 
+                    {
+                        col.Item().Text("Patient Details").FontSize(12).SemiBold().FontColor(Colors.Grey.Darken3).Underline();
+                        col.Item().PaddingTop(5).Text(t => 
+                        {
+                            t.Span("Name: ").SemiBold();
+                            t.Span(patient.Name);
+                        });
+                        col.Item().Text(t =>
+                        {
+                            t.Span("Age: ").SemiBold();
+                            t.Span(patient.Age?.ToString() ?? "N/A");
+                        });
+                    });
+
+                    row.RelativeItem().Column(col =>
+                    {
+                        col.Item().Text(""); // Spacer
+                        col.Item().PaddingTop(5).Text(t =>
+                        {
+                            t.Span("Mobile: ").SemiBold();
+                            t.Span(patient.Mobile);
+                        });
+                        col.Item().Text(t =>
+                        {
+                            t.Span("Email: ").SemiBold();
+                            t.Span(patient.Email ?? "N/A");
+                        });
+                    });
+                });
+        }
+
+        // Overload 2: For PatientDetailsResponse
+        void ComposePatientInfoBox(IContainer container, PatientDetailsResponse? patient)
+        {
+            if (patient == null) return;
+
+            container
+                .Background(Colors.Grey.Lighten5)
+                .Padding(15)
+                .Border(1)
+                .BorderColor(Colors.Grey.Lighten3)
+                .Row(row => 
+                {
+                    row.RelativeItem().Column(col => 
+                    {
+                        col.Item().Text("Patient Details").FontSize(12).SemiBold().FontColor(Colors.Grey.Darken3).Underline();
+                        col.Item().PaddingTop(5).Text(t => 
+                        {
+                            t.Span("Name: ").SemiBold();
+                            t.Span(patient.Name);
+                        });
+                        col.Item().Text(t =>
+                        {
+                            t.Span("Age: ").SemiBold();
+                            t.Span(patient.Age?.ToString() ?? "N/A");
+                        });
+                    });
+
+                    row.RelativeItem().Column(col =>
+                    {
+                        col.Item().Text(""); // Spacer
+                        col.Item().PaddingTop(5).Text(t =>
+                        {
+                            t.Span("Mobile: ").SemiBold();
+                            t.Span(patient.Mobile);
+                        });
+                        col.Item().Text(t =>
+                        {
+                            t.Span("Email: ").SemiBold();
+                            t.Span(patient.Email ?? "N/A");
+                        });
+                    });
+                });
+        }
+
+        void ComposeAppointmentTable(IContainer container, List<AppointmentDto> appointments)
+        {
+            container.Table(table =>
+            {
+                table.ColumnsDefinition(columns =>
+                {
+                    columns.ConstantColumn(70); // Date
+                    columns.ConstantColumn(50); // Time
+                    columns.RelativeColumn(2);  // Doctor
+                    columns.RelativeColumn(2);  // Location
+                    columns.RelativeColumn(2);  // Diagnosis
+                    columns.RelativeColumn(2);  // Treatment
+                    columns.ConstantColumn(70); // Fees
+                });
+
+                table.Header(header =>
+                {
+                    header.Cell().Element(HeaderCellStyle).Text("Date");
+                    header.Cell().Element(HeaderCellStyle).Text("Time");
+                    header.Cell().Element(HeaderCellStyle).Text("Doctor");
+                    header.Cell().Element(HeaderCellStyle).Text("Location");
+                    header.Cell().Element(HeaderCellStyle).Text("Diagnosis");
+                    header.Cell().Element(HeaderCellStyle).Text("Treatment");
+                    header.Cell().Element(HeaderCellStyle).AlignRight().Text("Fees");
+
+                    static IContainer HeaderCellStyle(IContainer container)
+                    {
+                        return container
+                            .Background(Colors.Blue.Darken2)
+                            .PaddingVertical(8)
+                            .PaddingHorizontal(4)
+                            .DefaultTextStyle(x => x.SemiBold().FontColor(Colors.White));
+                    }
+                });
+
+                var indianCulture = new System.Globalization.CultureInfo("en-IN");
+
+                foreach (var (app, index) in appointments.Select((x, i) => (x, i)))
+                {
+                    var bgColor = index % 2 == 0 ? Colors.White : Colors.Grey.Lighten5;
+
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.AppointmentDate);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.AppointmentTime);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.DoctorName);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.LocationName);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.Diagnosis ?? "-");
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(app.Treatment ?? "-");
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).AlignRight()
+                        .Text(app.Fees?.ToString("C", indianCulture) ?? "-").SemiBold();
+                }
+
+                static IContainer BodyCellStyle(IContainer container, string bgColor)
+                {
+                    return container
+                        .Background(bgColor)
+                        .BorderBottom(1)
+                        .BorderColor(Colors.Grey.Lighten3)
+                        .PaddingVertical(8)
+                        .PaddingHorizontal(4);
+                }
+            });
+        }
+
+        void ComposeHistoryTable(IContainer container, List<PatientHistoryDto> history)
+        {
+             container.Table(table =>
+            {
+                table.ColumnsDefinition(columns =>
+                {
+                    columns.ConstantColumn(80);
+                    columns.ConstantColumn(60);
+                    columns.RelativeColumn();
+                    columns.RelativeColumn();
+                    columns.RelativeColumn();
+                    columns.RelativeColumn();
+                });
+
+                table.Header(header =>
+                {
+                    header.Cell().Element(HeaderCellStyle).Text("Date");
+                    header.Cell().Element(HeaderCellStyle).Text("Time");
+                    header.Cell().Element(HeaderCellStyle).Text("Doctor");
+                    header.Cell().Element(HeaderCellStyle).Text("Diagnosis");
+                    header.Cell().Element(HeaderCellStyle).Text("Treatment");
+                    header.Cell().Element(HeaderCellStyle).Text("Notes");
+
+                     static IContainer HeaderCellStyle(IContainer container)
+                    {
+                        return container
+                            .Background(Colors.Blue.Darken2)
+                            .PaddingVertical(8)
+                            .PaddingHorizontal(4)
+                            .DefaultTextStyle(x => x.SemiBold().FontColor(Colors.White));
+                    }
+                });
+
+                foreach (var (visit, index) in history.Select((x, i) => (x, i)))
+                {
+                    var bgColor = index % 2 == 0 ? Colors.White : Colors.Grey.Lighten5;
+                    
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.VisitDate);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.VisitTime);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.DoctorName);
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.Diagnosis ?? "-");
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.Treatment ?? "-");
+                    table.Cell().Element(c => BodyCellStyle(c, bgColor)).Text(visit.Notes ?? "-");
+
+                    static IContainer BodyCellStyle(IContainer container, string bgColor)
+                    {
+                         return container
+                            .Background(bgColor)
+                            .BorderBottom(1)
+                            .BorderColor(Colors.Grey.Lighten3)
+                            .PaddingVertical(8)
+                            .PaddingHorizontal(4);
+                    }
+                }
+            });
         }
     }
 }

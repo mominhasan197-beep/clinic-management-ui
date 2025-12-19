@@ -1,72 +1,84 @@
-<div class="min-h-screen pt-24 pb-12 bg-primary relative overflow-hidden">
-  <!-- Background Elements -->
-  <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
-    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"></div>
-  </div>
+<div class="min-h-screen treatments-bg text-off-white">
+  <!-- Hero Section -->
+  <header class="relative pt-32 pb-24 overflow-hidden border-b border-white/5">
+    <!-- Gold Glow Effects -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-accent/5 blur-[120px] rounded-full"></div>
 
-  <div class="container mx-auto px-6 relative z-10">
-    <!-- Treatments Section -->
-    <section class="mb-20">
-      <div class="text-center mb-16" data-aos="fade-up">
-        <h1 class="text-4xl md:text-5xl font-serif font-bold text-off-white mb-4">Treatments We <span
-            class="text-gold-foil drop-shadow-sm">Offer</span></h1>
-        <p class="text-gray-400 max-w-2xl mx-auto">Advanced therapeutic solutions tailored to your recovery needs.</p>
+    <div class="container mx-auto px-6 relative z-10 text-center">
+      <h1 class="hero-title text-5xl md:text-7xl font-bold mb-8 text-white">
+        <span
+          class="block text-accent/60 text-sm md:text-lg uppercase tracking-[0.5em] font-sans mb-6 font-light">Advanced
+          Clinical Care</span>
+        TREATMENTS
+      </h1>
+      <div class="w-32 h-[1px] bg-gradient-gold mx-auto mb-10 opacity-60"></div>
+      <p class="hero-subtitle text-lg md:text-xl text-gray-light max-w-3xl mx-auto leading-relaxed">
+        Expert therapeutic solutions tailored to your recovery journey.
+        Combining clinical excellence with state-of-the-art medical technology.
+      </p>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-6 relative z-10 py-24">
+    <!-- Treatments by Category -->
+    <div *ngFor="let group of objectKeys(groupedTreatments)" class="mb-32 animate-fade-in">
+      <!-- Group Header -->
+      <div class="section-header">
+        <div class="section-line"></div>
+        <h2 class="section-title">{{ group }}</h2>
+        <div class="section-line"></div>
       </div>
 
-      <div *ngFor="let group of objectKeys(groupedTreatments)" class="mb-20">
-        <h2 class="text-3xl font-serif font-bold text-accent mb-8 border-b border-white/10 pb-4" data-aos="fade-right">
-          {{ group }}
-        </h2>
+      <!-- Treatments Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div *ngFor="let treatment of groupedTreatments[group]; let i = index"
+          class="treatment-card group animate-fade-up" [attr.data-aos-delay]="i * 100">
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let treatment of groupedTreatments[group]; let i = index"
-            class="card-glass group overflow-hidden p-0 block h-full hover:border-accent/40 transition-all duration-300 transform hover:-translate-y-1"
-            data-aos="fade-up" [attr.data-aos-delay]="i * 100">
-
-            <div class="relative h-56 overflow-hidden">
-              <!-- Optimized picture: use AVIF/WebP variants when available, otherwise fallback to original -->
+          <!-- Image Section - Using aspect-ratio container to prevent cropping of 1:1 images -->
+          <div class="treatment-image-container">
+            <div class="treatment-image-inner">
               <ng-container *ngIf="treatment.optimized as opt; else fallbackImage">
                 <picture>
-                  <source *ngIf="opt.avifSrcset" [attr.type]="'image/avif'" [attr.srcset]="opt.avifSrcset" sizes="(max-width: 768px) 100vw, 33vw">
-                  <source *ngIf="opt.webpSrcset" [attr.type]="'image/webp'" [attr.srcset]="opt.webpSrcset" sizes="(max-width: 768px) 100vw, 33vw">
-                  <img [src]="opt.fallback" [alt]="treatment.title" loading="lazy" decoding="async"
-                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  <source *ngIf="opt.avifSrcset" [attr.type]="'image/avif'" [attr.srcset]="opt.avifSrcset">
+                  <source *ngIf="opt.webpSrcset" [attr.type]="'image/webp'" [attr.srcset]="opt.webpSrcset">
+                  <img [src]="opt.fallback" [alt]="treatment.title" loading="lazy" class="treatment-image"
                     onerror="this.src='assets/images/clinic.png'" />
                 </picture>
               </ng-container>
               <ng-template #fallbackImage>
-                <img [src]="treatment.image" [alt]="treatment.title" loading="lazy" decoding="async"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                <img [src]="treatment.image" [alt]="treatment.title" loading="lazy" class="treatment-image"
                   onerror="this.src='assets/images/clinic.png'" />
               </ng-template>
 
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300">
-              </div>
-              <div
-                class="absolute top-4 right-4 bg-accent/90 text-primary text-xs font-bold px-3 py-1 rounded-sm uppercase tracking-wider shadow-lg">
-                {{ treatment.category }}
-              </div>
+              <!-- Subtle Grading Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-40"></div>
             </div>
+          </div>
 
-            <div class="p-6 relative">
-              <h3 class="text-xl font-serif font-bold text-off-white mb-3 group-hover:text-accent transition-colors">
-                {{ treatment.title }}
-              </h3>
-              <p class="text-gray-400 text-sm leading-relaxed mb-6 border-b border-white/5 pb-4">{{
-                treatment.description }}</p>
+          <!-- Content Section -->
+          <div class="treatment-content">
+            <h3 class="treatment-title">
+              {{ treatment.title }}
+            </h3>
+            <p class="treatment-description">
+              {{ treatment.description }}
+            </p>
 
-              <div class="space-y-2">
-                <div *ngFor="let benefit of treatment.benefits.slice(0, 3)" class="flex items-start gap-2">
-                  <span class="text-accent text-sm mt-0.5">●</span>
-                  <span class="text-gray-400 text-sm">{{ benefit }}</span>
-                </div>
+            <div class="mt-auto space-y-3">
+              <div *ngFor="let benefit of treatment.benefits.slice(0, 3)" class="benefit-item">
+                <span class="bullet">●</span>
+                <span class="text">{{ benefit }}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <!-- Footer Decor -->
+  <div class="py-24 text-center opacity-20 pointer-events-none">
+    <div class="w-24 h-px bg-gradient-gold mx-auto mb-6"></div>
+    <div class="hero-title text-[8px] tracking-[0.5em] uppercase text-accent font-bold">Compassionate Recovery</div>
   </div>
 </div>

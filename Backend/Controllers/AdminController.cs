@@ -47,9 +47,11 @@ namespace ClinicManagementAPI.Controllers
             [FromQuery] string? location,
             [FromQuery] string? status,
             [FromQuery] DateTime? startDate,
-            [FromQuery] DateTime? endDate)
+            [FromQuery] DateTime? endDate,
+            [FromQuery] int? patientId,
+            [FromQuery] string? searchTerm)
         {
-            var appointments = await _adminService.GetAllAppointmentsAsync(doctorName, location, status, startDate, endDate);
+            var appointments = await _adminService.GetAllAppointmentsAsync(doctorName, location, status, startDate, endDate, patientId, searchTerm);
             return Ok(new ApiResponse<IEnumerable<AppointmentDto>>
             {
                 Success = true,
@@ -59,13 +61,19 @@ namespace ClinicManagementAPI.Controllers
         }
 
         [HttpGet("patients")]
-        public async Task<IActionResult> GetAllPatients([FromQuery] string? search)
+        public async Task<IActionResult> GetAllPatients([FromQuery] string? search, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
         {
-            var patients = await _adminService.GetAllPatientsAsync(search);
-            return Ok(new ApiResponse<IEnumerable<dynamic>> // Using dynamic to return list easily, or Patient entity
+            var (patients, totalCount) = await _adminService.GetAllPatientsAsync(search, page, pageSize);
+            return Ok(new ApiResponse<dynamic>
             {
                 Success = true,
-                Data = patients,
+                Data = new 
+                {
+                    Items = patients,
+                    TotalCount = totalCount,
+                    Page = page,
+                    PageSize = pageSize
+                },
                 Message = "Patients retrieved"
             });
         }

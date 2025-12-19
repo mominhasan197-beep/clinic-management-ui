@@ -1,97 +1,110 @@
-<div class="min-h-screen bg-surface">
+<!-- Link to external CSS -->
+<link rel="stylesheet" href="./machines.css">
+
+<div class="min-h-screen machines-bg text-off-white">
     <!-- Hero Section -->
-    <section class="relative py-24 bg-primary-light overflow-hidden">
-        <div
-            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent pointer-events-none">
+    <header class="relative pt-32 pb-24 overflow-hidden border-b border-white/5">
+        <!-- Gold Glow Effects -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-accent/5 blur-[120px] rounded-full">
         </div>
+
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-serif font-bold text-off-white mb-6 animate-fade-in-up">
-                Advanced Technology for <span class="text-gold-foil">Faster Recovery</span>
+            <h1 class="hero-title text-5xl md:text-7xl font-bold mb-8 text-white">
+                <span
+                    class="block text-accent/60 text-sm md:text-lg uppercase tracking-[0.5em] font-sans mb-6 font-light">Elite
+                    Clinical Technology</span>
+                MACHINES
             </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-100">
-                We combine expert hands-on care with world-class medical equipment to ensure you get the best possible
-                treatment outcomes.
+            <div class="w-32 h-[1px] bg-gradient-gold mx-auto mb-10 opacity-60"></div>
+            <p
+                class="text-lg md:text-xl text-gray-light max-w-3xl mx-auto leading-relaxed font-light font-sans tracking-wide">
+                Where clinical expertise meets cutting-edge innovation. Explore our hand-picked selection of
+                state-of-the-art physiotherapy equipment designed for maximum recovery potential.
             </p>
         </div>
-    </section>
+    </header>
 
-    <!-- Filter Navigation -->
-    <div class="sticky top-20 z-40 bg-surface/95 backdrop-blur-md border-b border-white/5 py-4">
+    <!-- Navigation / Categories -->
+    <nav class="sticky top-20 z-50 bg-primary/40 backdrop-blur-2xl border-b border-white/5 py-6">
         <div class="container mx-auto px-6 overflow-x-auto">
-            <div class="flex gap-2 min-w-max justify-center md:flex-wrap">
+            <div class="flex gap-10 min-w-max justify-center">
                 <button *ngFor="let cat of categories" (click)="setCategory(cat)"
-                    class="px-6 py-2 rounded-full border transition-all duration-300 text-sm font-medium tracking-wide"
-                    [ngClass]="activeCategory === cat ? 'bg-accent text-primary border-accent shadow-lg shadow-accent/20' : 'border-white/20 text-gray-400 hover:text-off-white hover:border-white/40'">
+                    class="nav-btn transition-all duration-500 text-[10px] font-semibold tracking-[0.3em] uppercase relative group pb-1"
+                    [ngClass]="activeCategory === cat ? 'text-accent' : 'text-gray-light/60 hover:text-white'">
                     {{ cat }}
+                    <span class="absolute bottom-0 left-0 h-[1px] bg-accent transition-all duration-500"
+                        [style.width]="activeCategory === cat ? '100%' : '0'"
+                        [class.group-hover:w-full]="activeCategory !== cat"></span>
                 </button>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <!-- Machines Grid -->
-    <section class="py-16 container mx-auto px-6 min-h-[600px]">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+    <!-- Main Content Grid -->
+    <main class="py-24 container mx-auto px-6">
 
-            <div *ngFor="let machine of filteredMachines" class="group h-full">
-                <div
-                    class="lux-card lux-card--standard h-full flex flex-col p-0 overflow-hidden hover:-translate-y-2 transition-transform duration-500">
-                    <!-- Image Area -->
-                    <div class="relative h-64 bg-black/40 overflow-hidden">
-                        <ng-container *ngIf="machine.optimized as opt; else fallbackImage">
-                            <picture>
-                                <source *ngIf="opt.avifSrcset" [attr.type]="'image/avif'" [attr.srcset]="opt.avifSrcset"
-                                    sizes="(max-width: 768px) 100vw, 33vw">
-                                <source *ngIf="opt.webpSrcset" [attr.type]="'image/webp'" [attr.srcset]="opt.webpSrcset"
-                                    sizes="(max-width: 768px) 100vw, 33vw">
-                                <img [src]="opt.fallback" [alt]="machine.name" loading="lazy" decoding="async"
-                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+        <!-- Grouped Categories (Show All View) -->
+        <ng-container *ngIf="activeCategory === 'All'; else filteredView">
+            <div *ngFor="let group of groupedMachines" class="mb-32 animate-fade-in">
+                <!-- Group Header -->
+                <div class="section-header">
+                    <div class="section-line"></div>
+                    <h2 class="section-title">{{ group.title }}</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Group Grid -->
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-10">
+                    <div *ngFor="let machine of group.machines" class="machine-card group">
+                        <!-- Horizontal Layout: Image Left -->
+                        <div class="machine-card-image-outer">
+                            <div class="machine-card-image-inner">
+                                <img [src]="machine.image" [alt]="machine.name" class="machine-card-image"
                                     onerror="this.src='assets/machines/placeholder_fallback.jpg'">
-                            </picture>
-                        </ng-container>
-                        <ng-template #fallbackImage>
-                            <img [src]="machine.image" [alt]="machine.name" loading="lazy" decoding="async"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100"
-                                onerror="this.src='assets/machines/placeholder_fallback.jpg'">
-                        </ng-template>
-
-                        <!-- Category Badge -->
-                        <div
-                            class="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1 rounded text-xs font-bold text-accent border border-accent/20">
-                            {{ machine.category }}
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Content Area -->
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h3
-                            class="text-xl font-serif font-bold text-off-white mb-3 group-hover:text-accent transition-colors">
-                            {{ machine.name }}
-                        </h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
-                            {{ machine.description }}
-                        </p>
-
-                        <div class="pt-4 mt-auto border-t border-white/5 flex items-center justify-between">
-                            <span class="text-xs text-gray-500 font-medium tracking-wider">PREMIUM EQUIPMENT</span>
-                            <button
-                                class="w-8 h-8 rounded-full bg-white/5 hover:bg-accent hover:text-primary flex items-center justify-center transition-colors text-gray-400">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7" />
-                                </svg>
-                            </button>
+                        <!-- Horizontal Layout: Content Right -->
+                        <div class="machine-card-content">
+                            <h3 class="machine-card-title">{{ machine.name }}</h3>
+                            <p class="machine-card-description">{{ machine.description }}</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </ng-container>
 
-        </div>
+        <!-- Filtered View (Single Category) -->
+        <ng-template #filteredView>
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-10 animate-fade-in">
+                <div *ngFor="let machine of filteredMachines" class="machine-card group">
+                    <div class="machine-card-image-outer">
+                        <div class="machine-card-image-inner">
+                            <img [src]="machine.image" [alt]="machine.name" class="machine-card-image"
+                                onerror="this.src='assets/machines/placeholder_fallback.jpg'">
+                        </div>
+                    </div>
+                    <div class="machine-card-content">
+                        <h3 class="machine-card-title">{{ machine.name }}</h3>
+                        <p class="machine-card-description">{{ machine.description }}</p>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Empty State -->
-        <div *ngIf="filteredMachines.length === 0" class="text-center py-20 text-gray-500">
-            <p>No machines found in this category.</p>
-        </div>
-    </section>
+            <!-- Empty State -->
+            <div *ngIf="filteredMachines.length === 0" class="text-center py-24">
+                <h3 class="text-2xl font-serif text-accent/60 italic tracking-widest uppercase">Collection Unavailable
+                </h3>
+                <button (click)="setCategory('All')"
+                    class="mt-8 text-[10px] font-bold tracking-[0.3em] uppercase border-b border-accent/40 py-2 hover:border-accent transition-all">Back
+                    to Gallery</button>
+            </div>
+        </ng-template>
 
+    </main>
+
+    <!-- Footer Accents -->
+    <div class="py-24 text-center opacity-20 pointer-events-none">
+        <div class="w-24 h-px bg-gradient-gold mx-auto mb-6"></div>
+        <div class="hero-title text-[8px] tracking-[0.5em] uppercase text-accent font-bold">Standard of Excellence</div>
+    </div>
 </div>

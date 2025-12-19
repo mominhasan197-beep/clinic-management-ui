@@ -54,14 +54,14 @@ namespace ClinicManagementAPI.Services
             return await _adminRepository.GetGlobalStatsAsync();
         }
 
-        public async Task<IEnumerable<AppointmentDto>> GetAllAppointmentsAsync(string? doctorName, string? location, string? status, DateTime? startDate, DateTime? endDate)
+        public async Task<IEnumerable<AppointmentDto>> GetAllAppointmentsAsync(string? doctorName, string? location, string? status, DateTime? startDate, DateTime? endDate, int? patientId = null, string? searchTerm = null)
         {
-            return await _adminRepository.GetAllAppointmentsAsync(doctorName, location, status, startDate, endDate);
+            return await _adminRepository.GetAllAppointmentsAsync(doctorName, location, status, startDate, endDate, patientId, searchTerm);
         }
 
-        public async Task<IEnumerable<Patient>> GetAllPatientsAsync(string? searchTerm)
+        public async Task<(IEnumerable<dynamic> Patients, int TotalCount)> GetAllPatientsAsync(string? searchTerm, int page = 1, int pageSize = 10)
         {
-            return await _adminRepository.GetAllPatientsAsync(searchTerm);
+            return await _adminRepository.GetAllPatientsAsync(searchTerm, page, pageSize);
         }
     }
 }

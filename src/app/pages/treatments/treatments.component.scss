@@ -1,1 +1,147 @@
-/* Component specific styles can go here if needed. */
+/* Luxury Background & Textures */
+.treatments-bg {
+    background-color: #050505;
+    background-image:
+        radial-gradient(circle at 50% -20%, #1a1a1a 0%, #050505 80%),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    background-blend-mode: overlay;
+    opacity: 1;
+}
+
+/* Section Header Styles */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.section-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #BF953F, transparent);
+    flex-grow: 1;
+    max-width: 150px;
+    opacity: 0.5;
+}
+
+.section-title {
+    @apply text-4xl md:text-5xl font-sans font-bold text-gold-foil text-center tracking-tight;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 4rem;
+    text-transform: none;
+    /* Keep natural case for Outfit */
+}
+
+/* Treatment Card Premium Styles */
+.treatment-card {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(138, 109, 59, 0.3);
+    /* Metallic Border */
+    border-radius: 4px;
+    /* More sophisticated square-ish corners */
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.treatment-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 10px 30px rgba(138, 109, 59, 0.2);
+}
+
+.treatment-image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* Fix for 1:1 images to prevent cropping */
+    padding: 1rem;
+    background: #000;
+}
+
+.treatment-image-inner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(138, 109, 59, 0.2);
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+}
+
+.treatment-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Still cover, but now container matches the image ratio */
+    transition: transform 1.5s ease;
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.treatment-card:hover .treatment-image {
+    transform: scale(1.1);
+    filter: brightness(1) contrast(1.05);
+}
+
+.treatment-content {
+    padding: 2rem;
+    background: linear-gradient(to bottom, rgba(18, 18, 18, 0.98), #080808);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.treatment-title {
+    @apply text-xl font-sans font-bold text-gold-foil tracking-tight;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.treatment-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: #999999;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    opacity: 0.85;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+
+    .bullet {
+        color: #D4AF37;
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+    }
+
+    .text {
+        font-family: 'Outfit', sans-serif;
+        font-size: 0.85rem;
+        color: #888888;
+        font-weight: 400;
+    }
+}
+
+/* Hero Section Refinements */
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    @apply font-bold text-white;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 4px;
+    font-weight: 300;
+}

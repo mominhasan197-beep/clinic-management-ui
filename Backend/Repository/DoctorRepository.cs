@@ -175,13 +175,35 @@ namespace ClinicManagementAPI.Repository
         public async Task<IEnumerable<AppointmentDto>> GetAppointmentsByDateAsync(int doctorId, DateTime date)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT * FROM Appointments 
-                WHERE DoctorId = @DoctorId 
-                AND CAST(AppointmentDate AS DATE) = CAST(@Date AS DATE)
-                ORDER BY AppointmentTime";
-
-            return await connection.QueryAsync<AppointmentDto>(query, new { DoctorId = doctorId, Date = date });
+            var parameters = new DynamicParameters();
+            parameters.Add("@DoctorId", doctorId);
+            parameters.Add("@AppointmentDate", date.Date);
+            
+            var appointments = await connection.QueryAsync<dynamic>(
+                "sp_GetAppointmentsForDoctorByDate",
+                parameters,
+                commandType: CommandType.StoredProcedure);
+            
+            return appointments.Select(a => new AppointmentDto
+            {
+                AppointmentId = a.AppointmentId,
+                ReferenceNumber = a.ReferenceNumber,
+                PatientId = a.PatientId,
+                PatientName = a.PatientName,
+                Age = a.Age,
+                Gender = a.Gender,
+                Mobile = a.Mobile,
+                Email = a.Email,
+                AppointmentDate = ((DateTime)a.AppointmentDate).ToString("yyyy-MM-dd"),
+                AppointmentTime = ((TimeSpan)a.AppointmentTime).ToString(@"hh\:mm"),
+                LocationName = a.LocationName,
+                Status = a.Status ?? "Upcoming",
+                Remarks = a.Remarks,
+                Diagnosis = a.Diagnosis,
+                Treatment = a.Treatment,
+                DoctorNotes = a.DoctorNotes,
+                Fees = a.Fees
+            });
         }
 
         public async Task<IEnumerable<AppointmentDto>> GetAppointmentsByMonthAsync(int doctorId, int month, int year)

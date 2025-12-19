@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\repository\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:repository\\adminrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|d:\\project\\angular\\test\\practice\\backend\\controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{95E25EAD-ADEA-4574-BA1D-059CAC957D02}|ClinicManagementAPI.csproj|solutionrelative:controllers\\doctorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,20 +70,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminRepository.cs",
+              "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Repository\\AdminRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\AdminRepository.cs",
+              "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Repository\\AdminRepository.cs",
+              "RelativeToolTip": "Repository\\AdminRepository.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAEwJwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T05:10:15.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AdminController.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
               "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\AdminController.cs",
               "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAIwEEAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-15T05:55:14.811Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DoctorService.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\DoctorService.cs",
               "RelativeDocumentMoniker": "Services\\DoctorService.cs",
@@ -91,20 +108,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DoctorController.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\DoctorController.cs",
               "RelativeDocumentMoniker": "Controllers\\DoctorController.cs",
               "ToolTip": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\DoctorController.cs",
               "RelativeToolTip": "Controllers\\DoctorController.cs",
-              "ViewState": "AQIAAK8AAAAAAAAAAAAYwEkAAAA1AAAA",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAYwLoAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-14T06:02:55.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PatientRepository.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Repository\\PatientRepository.cs",
               "RelativeDocumentMoniker": "Repository\\PatientRepository.cs",
@@ -116,7 +133,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PatientController.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Controllers\\PatientController.cs",
               "RelativeDocumentMoniker": "Controllers\\PatientController.cs",
@@ -128,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AppointmentService.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Services\\AppointmentService.cs",
               "RelativeDocumentMoniker": "Services\\AppointmentService.cs",
@@ -140,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Project\\Angular\\Test\\Practice\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -148,7 +165,8 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-10T11:09:19.45Z"
+              "WhenOpened": "2025-12-10T11:09:19.45Z",
+              "EditorCaption": ""
             }
           ]
         }
