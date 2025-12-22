@@ -50,12 +50,10 @@ namespace ClinicManagementAPI.Repository
         public async Task<Patient?> GetPatientByIdAsync(int patientId)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT PatientId, Name, Age, Gender, Mobile, Email, BloodGroup, Address, CreatedOn
-                FROM Patients
-                WHERE PatientId = @PatientId";
-            
-            return await connection.QueryFirstOrDefaultAsync<Patient>(query, new { PatientId = patientId });
+            return await connection.QueryFirstOrDefaultAsync<Patient>(
+                "sp_Patient_GetById", 
+                new { PatientId = patientId },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<IEnumerable<PatientHistoryDto>> GetPatientHistoryAsync(int patientId)
@@ -68,10 +66,7 @@ namespace ClinicManagementAPI.Repository
                 parameters,
                 commandType: CommandType.StoredProcedure);
             
-            // Skip patient details (first result set)
-            await multi.ReadAsync();
-            
-            // Get history (second result set)
+            await multi.ReadAsync(); // Skip patient details
             var history = await multi.ReadAsync<dynamic>();
             
             return history.Select(h => new PatientHistoryDto
@@ -90,114 +85,77 @@ namespace ClinicManagementAPI.Repository
             });
         }
         
-        public async Task<(PatientDto? patient, IEnumerable<AppointmentDto> appointments)>GetAppointmentHistoryByMobileAsync(string mobile)
-    {
-      using var connection = _dbContext.CreateConnection();
-
-      var sql = @"
-        -- Fetch Patient
-        SELECT TOP 1 *
-        FROM Patients
-        WHERE REPLACE(Mobile, ' ', '') LIKE '%' + @Mobile + '%';
-
-        -- Fetch Appointments
-        SELECT 
-            a.AppointmentId, a.ReferenceNumber, a.Status, a.Remarks,
-            a.AppointmentDate, a.AppointmentTime,
-            a.PatientId,
-            a.Diagnosis, a.Treatment, a.DoctorNotes, a.Fees,
-            p.Name as PatientName, p.Age, p.Mobile, p.Email,
-            d.Name as DoctorName,
-            l.LocationName
-        FROM Appointments a
-        INNER JOIN Patients p ON a.PatientId = p.PatientId
-        INNER JOIN Doctors d ON a.DoctorId = d.DoctorId
-        INNER JOIN Locations l ON a.LocationId = l.LocationId
-        WHERE REPLACE(p.Mobile, ' ', '') LIKE '%' + @Mobile + '%'
-        ORDER BY a.AppointmentDate DESC, a.AppointmentTime DESC;
-    ";
-
-      using var multi = await connection.QueryMultipleAsync(sql, new { Mobile = mobile });
-
-      // -------------------------
-      // Patient Mapping
-      // -------------------------
-      // -------------------------
-      // Patient Mapping
-      // -------------------------
-      var patientRaw = await multi.ReadFirstOrDefaultAsync<dynamic>();
-
-      PatientDto? patient = null;
-
-      if (patientRaw != null)
-      {
-        patient = new PatientDto
+        public async Task<(PatientDto? patient, IEnumerable<AppointmentDto> appointments)> GetAppointmentHistoryByMobileAsync(string mobile)
         {
-          PatientId = patientRaw.PatientId != null ? Convert.ToInt32(patientRaw.PatientId) : 0,
-          Name = patientRaw.Name != null ? Convert.ToString(patientRaw.Name) : string.Empty,
-          Age = patientRaw.Age != null ? Convert.ToInt32(patientRaw.Age) : (int?)null,
-          Gender = patientRaw.Gender != null ? Convert.ToString(patientRaw.Gender) : null,
-          Mobile = patientRaw.Mobile != null ? Convert.ToString(patientRaw.Mobile) : string.Empty,
-          Email = patientRaw.Email != null ? Convert.ToString(patientRaw.Email) : null,
-          BloodGroup = patientRaw.BloodGroup != null ? Convert.ToString(patientRaw.BloodGroup) : null
-        };
-      }
+            using var connection = _dbContext.CreateConnection();
+            using var multi = await connection.QueryMultipleAsync(
+                "sp_Patient_GetAppointmentHistoryByMobile", 
+                new { Mobile = mobile },
+                commandType: CommandType.StoredProcedure);
 
-      // -------------------------
-      // Appointment Mapping
-      // -------------------------
-      var appointmentRaw = await multi.ReadAsync<dynamic>();
-      var appointments = new List<AppointmentDto>();
+            var patientRaw = await multi.ReadFirstOrDefaultAsync<dynamic>();
+            PatientDto? patient = null;
 
-      foreach (var a in appointmentRaw)
-      {
-        var dto = new AppointmentDto();
-
-        // Safer mapping using Convert to handle potential type mismatches
-        try 
-        {
-             dto.AppointmentId = a.AppointmentId != null ? Convert.ToInt32(a.AppointmentId) : 0;
-             dto.ReferenceNumber = a.ReferenceNumber != null ? Convert.ToString(a.ReferenceNumber) : string.Empty;
-             dto.PatientId = a.PatientId != null ? Convert.ToInt32(a.PatientId) : 0;
-             dto.Status = a.Status != null ? Convert.ToString(a.Status) : string.Empty;
-             dto.Remarks = a.Remarks != null ? Convert.ToString(a.Remarks) : null;
-             dto.Diagnosis = a.Diagnosis != null ? Convert.ToString(a.Diagnosis) : null;
-             dto.Treatment = a.Treatment != null ? Convert.ToString(a.Treatment) : null;
-             dto.DoctorNotes = a.DoctorNotes != null ? Convert.ToString(a.DoctorNotes) : null;
-             dto.Fees = a.Fees != null ? Convert.ToDecimal(a.Fees) : (decimal?)null;
-             dto.PatientName = a.PatientName != null ? Convert.ToString(a.PatientName) : string.Empty;
-             dto.Age = a.Age != null ? Convert.ToInt32(a.Age) : (int?)null;
-             dto.Mobile = a.Mobile != null ? Convert.ToString(a.Mobile) : string.Empty;
-             dto.Email = a.Email != null ? Convert.ToString(a.Email) : null;
-             dto.DoctorName = a.DoctorName != null ? Convert.ToString(a.DoctorName) : string.Empty;
-             dto.LocationName = a.LocationName != null ? Convert.ToString(a.LocationName) : string.Empty;
-
-            // Date Parsing
-            if (a.AppointmentDate != null)
+            if (patientRaw != null)
             {
-                if (a.AppointmentDate is DateTime dt) dto.AppointmentDate = dt.ToString("yyyy-MM-dd");
-                else if (DateTime.TryParse(Convert.ToString(a.AppointmentDate), out DateTime dtParse)) dto.AppointmentDate = dtParse.ToString("yyyy-MM-dd");
+                patient = new PatientDto
+                {
+                    PatientId = patientRaw.PatientId != null ? Convert.ToInt32(patientRaw.PatientId) : 0,
+                    Name = patientRaw.Name != null ? Convert.ToString(patientRaw.Name) : string.Empty,
+                    Age = patientRaw.Age != null ? Convert.ToInt32(patientRaw.Age) : (int?)null,
+                    Gender = patientRaw.Gender != null ? Convert.ToString(patientRaw.Gender) : null,
+                    Mobile = patientRaw.Mobile != null ? Convert.ToString(patientRaw.Mobile) : string.Empty,
+                    Email = patientRaw.Email != null ? Convert.ToString(patientRaw.Email) : null,
+                    BloodGroup = patientRaw.BloodGroup != null ? Convert.ToString(patientRaw.BloodGroup) : null
+                };
             }
 
-            // Time Parsing
-            if (a.AppointmentTime != null)
+            var appointmentRaw = await multi.ReadAsync<dynamic>();
+            var appointments = new List<AppointmentDto>();
+
+            foreach (var a in appointmentRaw)
             {
-                if (a.AppointmentTime is TimeSpan ts) dto.AppointmentTime = ts.ToString(@"hh\:mm");
-                else if (a.AppointmentTime is DateTime dt) dto.AppointmentTime = dt.ToString("HH:mm");
-                else if (TimeSpan.TryParse(Convert.ToString(a.AppointmentTime), out TimeSpan tsParse)) dto.AppointmentTime = tsParse.ToString(@"hh\:mm");
+                try 
+                {
+                    var dto = new AppointmentDto
+                    {
+                        AppointmentId = a.AppointmentId != null ? Convert.ToInt32(a.AppointmentId) : 0,
+                        ReferenceNumber = a.ReferenceNumber != null ? Convert.ToString(a.ReferenceNumber) : string.Empty,
+                        PatientId = a.PatientId != null ? Convert.ToInt32(a.PatientId) : 0,
+                        Status = a.Status != null ? Convert.ToString(a.Status) : string.Empty,
+                        Remarks = a.Remarks != null ? Convert.ToString(a.Remarks) : null,
+                        Diagnosis = a.Diagnosis != null ? Convert.ToString(a.Diagnosis) : null,
+                        Treatment = a.Treatment != null ? Convert.ToString(a.Treatment) : null,
+                        DoctorNotes = a.DoctorNotes != null ? Convert.ToString(a.DoctorNotes) : null,
+                        Fees = a.Fees != null ? Convert.ToDecimal(a.Fees) : (decimal?)null,
+                        PatientName = a.PatientName != null ? Convert.ToString(a.PatientName) : string.Empty,
+                        Age = a.Age != null ? Convert.ToInt32(a.Age) : (int?)null,
+                        Mobile = a.Mobile != null ? Convert.ToString(a.Mobile) : string.Empty,
+                        Email = a.Email != null ? Convert.ToString(a.Email) : null,
+                        DoctorName = a.DoctorName != null ? Convert.ToString(a.DoctorName) : string.Empty,
+                        LocationName = a.LocationName != null ? Convert.ToString(a.LocationName) : string.Empty
+                    };
+
+                    if (a.AppointmentDate != null)
+                    {
+                        if (a.AppointmentDate is DateTime dt) dto.AppointmentDate = dt.ToString("yyyy-MM-dd");
+                        else if (DateTime.TryParse(Convert.ToString(a.AppointmentDate), out DateTime dtParse)) dto.AppointmentDate = dtParse.ToString("yyyy-MM-dd");
+                    }
+
+                    if (a.AppointmentTime != null)
+                    {
+                        if (a.AppointmentTime is TimeSpan ts) dto.AppointmentTime = ts.ToString(@"hh\:mm");
+                        else if (a.AppointmentTime is DateTime dt) dto.AppointmentTime = dt.ToString("HH:mm");
+                        else if (TimeSpan.TryParse(Convert.ToString(a.AppointmentTime), out TimeSpan tsParse)) dto.AppointmentTime = tsParse.ToString(@"hh\:mm");
+                    }
+
+                    appointments.Add(dto);
+                }
+                catch { continue; }
             }
 
-            appointments.Add(dto);
+            return (patient, appointments);
         }
-        catch
-        {
-             // If a single row fails, skip it instead of crashing the entire request
-             continue;
-        }
-      }
-
-      return (patient, appointments);
-    }
 
   }
 }

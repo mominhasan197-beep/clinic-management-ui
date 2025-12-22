@@ -29,23 +29,19 @@ namespace ClinicManagementAPI.Repository
         public async Task<DoctorLogin?> GetDoctorLoginAsync(string username)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT LoginId, DoctorId, Username, PasswordHash, LastLogin, CreatedOn, ModifiedOn
-                FROM DoctorsLogin
-                WHERE LOWER(Username) = LOWER(@Username)";
-            
-            return await connection.QueryFirstOrDefaultAsync<DoctorLogin>(query, new { Username = username });
+            return await connection.QueryFirstOrDefaultAsync<DoctorLogin>(
+                "sp_Doctor_GetLogin", 
+                new { Username = username },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<Doctor?> GetDoctorByIdAsync(int doctorId)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT DoctorId, Name, Qualifications, Specializations, Experience, Email, Phone, IsActive, CreatedOn
-                FROM Doctors
-                WHERE DoctorId = @DoctorId";
-            
-            return await connection.QueryFirstOrDefaultAsync<Doctor>(query, new { DoctorId = doctorId });
+            return await connection.QueryFirstOrDefaultAsync<Doctor>(
+                "sp_Doctor_GetById", 
+                new { DoctorId = doctorId },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<DashboardStatsDto> GetDashboardStatsAsync(int doctorId)
@@ -53,8 +49,6 @@ namespace ClinicManagementAPI.Repository
             using var connection = _dbContext.CreateConnection();
             var parameters = new { DoctorId = doctorId };
             
-            // The stored procedure returns TodayCount, WeekCount, MonthCount, YearCount
-            // We need to map them to Today, ThisWeek, ThisMonth, ThisYear
             var result = await connection.QueryFirstOrDefaultAsync<dynamic>(
                 "sp_GetDashboardStats",
                 parameters,
@@ -74,18 +68,12 @@ namespace ClinicManagementAPI.Repository
             };
         }
 
-        public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorAsync(int doctorId, string period)
+        public async Task<IEnumerable<AppointmentDto>> GetAppointmentsAsync(int doctorId, string period)
         {
             using var connection = _dbContext.CreateConnection();
-            var parameters = new DynamicParameters();
-            parameters.Add("@DoctorId", doctorId);
-            parameters.Add("@Period", period);
-            parameters.Add("@StartDate", dbType: DbType.Date, direction: ParameterDirection.Output);
-            parameters.Add("@EndDate", dbType: DbType.Date, direction: ParameterDirection.Output);
-            
             var appointments = await connection.QueryAsync<dynamic>(
-                "sp_GetAppointmentsForDoctor",
-                parameters,
+                "sp_Doctor_GetAppointments",
+                new { DoctorId = doctorId, Period = period.ToLower() },
                 commandType: CommandType.StoredProcedure);
             
             return appointments.Select(a => new AppointmentDto
@@ -110,74 +98,10 @@ namespace ClinicManagementAPI.Repository
             });
         }
 
-        public async Task<IEnumerable<AppointmentDto>> GetAppointmentsForDoctorByDateAsync(int doctorId, DateTime appointmentDate)
-        {
-            using var connection = _dbContext.CreateConnection();
-            var parameters = new DynamicParameters();
-            parameters.Add("@DoctorId", doctorId);
-            parameters.Add("@AppointmentDate", appointmentDate.Date);
-            
-            var appointments = await connection.QueryAsync<dynamic>(
-                "sp_GetAppointmentsForDoctorByDate",
-                parameters,
-                commandType: CommandType.StoredProcedure);
-            
-            return appointments.Select(a => new AppointmentDto
-            {
-                AppointmentId = a.AppointmentId,
-                ReferenceNumber = a.ReferenceNumber,
-                PatientId = a.PatientId,
-                PatientName = a.PatientName,
-                Age = a.Age,
-                Gender = a.Gender,
-                Mobile = a.Mobile,
-                Email = a.Email,
-                AppointmentDate = ((DateTime)a.AppointmentDate).ToString("yyyy-MM-dd"),
-                AppointmentTime = ((TimeSpan)a.AppointmentTime).ToString(@"hh\:mm"),
-                LocationName = a.LocationName,
-                Status = a.Status ?? "Upcoming",
-                Remarks = a.Remarks,
-                Diagnosis = a.Diagnosis,
-                Treatment = a.Treatment,
-                DoctorNotes = a.DoctorNotes,
-                Fees = a.Fees
-            });
-        }
-
-        public async Task<IEnumerable<AppointmentDto>> GetAppointmentsAsync(int doctorId, string period)
-        {
-            using var connection = _dbContext.CreateConnection();
-            string query = period.ToLower() switch
-            {
-                "today" => @"
-                    SELECT * FROM Appointments 
-                    WHERE DoctorId = @DoctorId 
-                    AND CAST(AppointmentDate AS DATE) = CAST(GETDATE() AS DATE)
-                    ORDER BY AppointmentTime",
-                "week" => @"
-                    SELECT * FROM Appointments 
-                    WHERE DoctorId = @DoctorId 
-                    AND AppointmentDate >= CAST(GETDATE() AS DATE)
-                    AND AppointmentDate <= DATEADD(day, 7, CAST(GETDATE() AS DATE))
-                    ORDER BY AppointmentDate, AppointmentTime",
-                "month" => @"
-                    SELECT * FROM Appointments 
-                    WHERE DoctorId = @DoctorId 
-                    AND MONTH(AppointmentDate) = MONTH(GETDATE())
-                    AND YEAR(AppointmentDate) = YEAR(GETDATE())
-                    ORDER BY AppointmentDate, AppointmentTime",
-                _ => "SELECT * FROM Appointments WHERE DoctorId = @DoctorId ORDER BY AppointmentDate DESC"
-            };
-
-            return await connection.QueryAsync<AppointmentDto>(query, new { DoctorId = doctorId });
-        }
-
         public async Task<IEnumerable<AppointmentDto>> GetAppointmentsByDateAsync(int doctorId, DateTime date)
         {
             using var connection = _dbContext.CreateConnection();
-            var parameters = new DynamicParameters();
-            parameters.Add("@DoctorId", doctorId);
-            parameters.Add("@AppointmentDate", date.Date);
+            var parameters = new { DoctorId = doctorId, AppointmentDate = date.Date };
             
             var appointments = await connection.QueryAsync<dynamic>(
                 "sp_GetAppointmentsForDoctorByDate",
@@ -209,29 +133,40 @@ namespace ClinicManagementAPI.Repository
         public async Task<IEnumerable<AppointmentDto>> GetAppointmentsByMonthAsync(int doctorId, int month, int year)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT 
-                    AppointmentId, ReferenceNumber, PatientId, PatientName, Age, Gender, Mobile, Email,
-                    AppointmentDate, AppointmentTime, LocationName, Status, Remarks, Diagnosis, Treatment,
-                    DoctorNotes, Fees
-                FROM Appointments 
-                WHERE DoctorId = @DoctorId 
-                AND MONTH(AppointmentDate) = @Month
-                AND YEAR(AppointmentDate) = @Year
-                ORDER BY AppointmentDate, AppointmentTime";
+            var appointments = await connection.QueryAsync<dynamic>(
+                "sp_Doctor_GetAppointmentsByMonth",
+                new { DoctorId = doctorId, Month = month, Year = year },
+                commandType: CommandType.StoredProcedure);
 
-            return await connection.QueryAsync<AppointmentDto>(query, new { DoctorId = doctorId, Month = month, Year = year });
+            return appointments.Select(a => new AppointmentDto
+            {
+                AppointmentId = a.AppointmentId,
+                ReferenceNumber = a.ReferenceNumber,
+                PatientId = a.PatientId,
+                PatientName = a.PatientName,
+                Age = a.Age,
+                Gender = a.Gender,
+                Mobile = a.Mobile,
+                Email = a.Email,
+                AppointmentDate = ((DateTime)a.AppointmentDate).ToString("yyyy-MM-dd"),
+                AppointmentTime = ((TimeSpan)a.AppointmentTime).ToString(@"hh\:mm"),
+                LocationName = a.LocationName,
+                Status = a.Status,
+                Remarks = a.Remarks,
+                Diagnosis = a.Diagnosis,
+                Treatment = a.Treatment,
+                DoctorNotes = a.DoctorNotes,
+                Fees = a.Fees
+            });
         }
 
         public async Task UpdateLastLoginAsync(int doctorId)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                UPDATE DoctorsLogin
-                SET LastLogin = GETDATE()
-                WHERE DoctorId = @DoctorId";
-            
-            await connection.ExecuteAsync(query, new { DoctorId = doctorId });
+            await connection.ExecuteAsync(
+                "sp_Doctor_UpdateLastLogin", 
+                new { DoctorId = doctorId },
+                commandType: CommandType.StoredProcedure);
         }
     }
 }

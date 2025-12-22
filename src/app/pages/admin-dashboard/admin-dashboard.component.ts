@@ -1,13 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AdminService, DashboardStats } from '../../services/admin.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-admin-dashboard',
     standalone: true,
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, RouterLink],
     templateUrl: './admin-dashboard.component.html',
     styles: []
 })
@@ -91,27 +91,34 @@ export class AdminDashboardComponent implements OnInit {
         this.adminService.getAllPatients(this.searchPatient, this.currentPage, this.pageSize).subscribe({
             next: (res) => {
                 if (res && res.success && res.data) {
-                    // Update state synchronously
-                    this.totalItems = res.data.totalCount || 0;
+                    const data = res.data;
+                    // API might return TotalCount or totalCount
+                    this.totalItems = data.totalCount ?? data.TotalCount ?? 0;
                     this.totalPages = this.pageSize > 0 ? Math.ceil(this.totalItems / this.pageSize) : 0;
 
-                    if (Array.isArray(res.data.items)) {
-                        this.patients = res.data.items.map((p: any) => ({
-                            patientId: p.patientId || p.PatientId,
-                            name: p.name || p.Name,
-                            age: p.age || p.Age,
-                            gender: p.gender || p.Gender,
-                            mobile: p.mobile || p.Mobile,
-                            email: p.email || p.Email,
-                            lastVisit: p.lastVisit || p.LastVisit,
-                            totalVisits: p.totalVisits || p.TotalVisits
-                        })).filter((p: any) => p.patientId); // Basic filter to ensure valid objects
+                    const items = data.items ?? data.Items ?? [];
+                    if (Array.isArray(items)) {
+                        this.patients = items.map((p: any) => ({
+                            patientId: p.patientId ?? p.PatientId,
+                            name: p.name ?? p.Name ?? 'Unknown',
+                            age: p.age ?? p.Age ?? 0,
+                            gender: p.gender ?? p.Gender ?? 'N/A',
+                            mobile: p.mobile ?? p.Mobile ?? 'N/A',
+                            email: p.email ?? p.Email ?? '',
+                            lastVisit: p.lastVisit ?? p.LastVisit,
+                            totalVisits: p.totalVisits ?? p.TotalVisits ?? 0
+                        })).filter((p: any) => p.patientId !== undefined && p.patientId !== null);
                     } else {
                         this.patients = [];
                     }
 
-                    console.log('Patients Loaded:', this.patients.length, 'Total Items:', this.totalItems, 'Current Page:', this.currentPage);
-                    this.cdr.detectChanges(); // Force UI update
+                    console.log('Patients Handled:', {
+                        frontendCount: this.patients.length,
+                        apiItemCount: items.length,
+                        totalItems: this.totalItems,
+                        page: this.currentPage
+                    });
+                    this.cdr.detectChanges();
                 } else {
                     console.error('Failed to load patients:', res);
                 }

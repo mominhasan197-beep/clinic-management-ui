@@ -18,31 +18,32 @@ namespace ClinicManagementAPI.Repository
         public async Task<SuperAdmin?> GetAdminByUsernameAsync(string username)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = "SELECT * FROM SuperAdmins WHERE Username = @Username";
-            return await connection.QueryFirstOrDefaultAsync<SuperAdmin>(query, new { Username = username });
+            return await connection.QueryFirstOrDefaultAsync<SuperAdmin>(
+                "sp_Admin_GetByUsername", 
+                new { Username = username },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task UpdateLastLoginAsync(int adminId)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = "UPDATE SuperAdmins SET LastLogin = GETDATE() WHERE AdminId = @AdminId";
-            await connection.ExecuteAsync(query, new { AdminId = adminId });
+            await connection.ExecuteAsync(
+                "sp_Admin_UpdateLastLogin", 
+                new { AdminId = adminId },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<AdminDashboardStatsDto> GetGlobalStatsAsync()
         {
             using var connection = _dbContext.CreateConnection();
+            using var multi = await connection.QueryMultipleAsync(
+                "sp_Admin_GetGlobalStats",
+                commandType: CommandType.StoredProcedure);
+
             var stats = new AdminDashboardStatsDto();
 
-            // Total Counts
-            var queryTotal = @"
-                SELECT 
-                    (SELECT COUNT(*) FROM Appointments) as Total,
-                    (SELECT COUNT(*) FROM Appointments WHERE CAST(AppointmentDate AS DATE) = CAST(GETDATE() AS DATE)) as Today,
-                    (SELECT COUNT(*) FROM Appointments WHERE AppointmentDate >= DATEADD(day, -7, GETDATE())) as Week,
-                    (SELECT COUNT(*) FROM Appointments WHERE MONTH(AppointmentDate) = MONTH(GETDATE()) AND YEAR(AppointmentDate) = YEAR(GETDATE())) as Month";
-            
-            var counts = await connection.QueryFirstOrDefaultAsync<dynamic>(queryTotal);
+            // Result Set 1: Total Counts
+            var counts = await multi.ReadFirstOrDefaultAsync<dynamic>();
             if (counts != null)
             {
                 stats.TotalAppointments = counts.Total;
@@ -51,22 +52,11 @@ namespace ClinicManagementAPI.Repository
                 stats.ThisMonthAppointments = counts.Month;
             }
 
-            // Per Doctor
-            var queryDoctor = @"
-                SELECT d.Name as DoctorName, COUNT(a.AppointmentId) as Count
-                FROM Appointments a
-                JOIN Doctors d ON a.DoctorId = d.DoctorId
-                GROUP BY d.Name";
-            stats.AppointmentsPerDoctor = (await connection.QueryAsync<DoctorAppointmentCountDto>(queryDoctor)).ToList();
+            // Result Set 2: Per Doctor
+            stats.AppointmentsPerDoctor = (await multi.ReadAsync<DoctorAppointmentCountDto>()).ToList();
 
-            // Per Location - Assuming hardcoded strings or Location table join if LocationName is stored
-            // Per Location
-            var queryLocation = @"
-                SELECT l.LocationName, COUNT(a.AppointmentId) as Count
-                FROM Appointments a
-                JOIN Locations l ON a.LocationId = l.LocationId
-                GROUP BY l.LocationName";
-            stats.AppointmentsPerLocation = (await connection.QueryAsync<LocationAppointmentCountDto>(queryLocation)).ToList();
+            // Result Set 3: Per Location
+            stats.AppointmentsPerLocation = (await multi.ReadAsync<LocationAppointmentCountDto>()).ToList();
 
             return stats;
         }
@@ -74,63 +64,19 @@ namespace ClinicManagementAPI.Repository
         public async Task<IEnumerable<AppointmentDto>> GetAllAppointmentsAsync(string? doctorName, string? location, string? status, DateTime? startDate, DateTime? endDate, int? patientId = null, string? searchTerm = null)
         {
             using var connection = _dbContext.CreateConnection();
-            var sql = @"
-                SELECT a.*, p.Name as PatientName, p.Age, p.Gender, p.Mobile, p.Email, l.LocationName, d.Name as DoctorName
-                FROM Appointments a
-                JOIN Patients p ON a.PatientId = p.PatientId
-                JOIN Locations l ON a.LocationId = l.LocationId
-                JOIN Doctors d ON a.DoctorId = d.DoctorId
-                WHERE 1=1";
-
             var parameters = new DynamicParameters();
+            parameters.Add("@DoctorName", doctorName);
+            parameters.Add("@Location", location);
+            parameters.Add("@Status", status);
+            parameters.Add("@StartDate", startDate?.Date);
+            parameters.Add("@EndDate", endDate?.Date);
+            parameters.Add("@PatientId", patientId);
+            parameters.Add("@SearchTerm", searchTerm);
 
-            if (!string.IsNullOrEmpty(doctorName))
-            {
-                // Assuming we join Doctor table or filter by ID, but requirement says filter by Doctor. 
-                // Since AppointmentDto has string DoctorName usually mapped, but Appointment Entity has DoctorId.
-                // We'll filter via Join for accuracy.
-                sql += " AND a.DoctorId IN (SELECT DoctorId FROM Doctors WHERE Name LIKE @DoctorName)";
-                parameters.Add("@DoctorName", $"%{doctorName}%");
-            }
-
-            if (!string.IsNullOrEmpty(location))
-            {
-                sql += " AND l.LocationName LIKE @Location";
-                parameters.Add("@Location", $"%{location}%");
-            }
-
-            if (!string.IsNullOrEmpty(status))
-            {
-                sql += " AND a.Status = @Status";
-                parameters.Add("@Status", status);
-            }
-
-            if (startDate.HasValue)
-            {
-                parameters.Add("@StartDate", startDate.Value.Date);
-            }
-
-            if (endDate.HasValue)
-            {
-                sql += " AND CAST(a.AppointmentDate AS DATE) <= @EndDate";
-                parameters.Add("@EndDate", endDate.Value.Date);
-            }
-
-            if (patientId.HasValue)
-            {
-                sql += " AND a.PatientId = @PatientId";
-                parameters.Add("@PatientId", patientId.Value);
-            }
-
-            if (!string.IsNullOrEmpty(searchTerm))
-            {
-                sql += " AND (p.Name LIKE @SearchTerm OR a.ReferenceNumber LIKE @SearchTerm)";
-                parameters.Add("@SearchTerm", $"%{searchTerm}%");
-            }
-
-            sql += " ORDER BY a.AppointmentDate DESC, a.AppointmentTime DESC";
-
-            var result = await connection.QueryAsync<dynamic>(sql, parameters);
+            var result = await connection.QueryAsync<dynamic>(
+                "sp_Admin_GetAllAppointments", 
+                parameters,
+                commandType: CommandType.StoredProcedure);
             
             return result.Select(a => new AppointmentDto
             {
@@ -158,38 +104,18 @@ namespace ClinicManagementAPI.Repository
         public async Task<(IEnumerable<dynamic> Patients, int TotalCount)> GetAllPatientsAsync(string? searchTerm, int page, int pageSize)
         {
             using var connection = _dbContext.CreateConnection();
-            var sql = @"
-                SELECT 
-                    p.PatientId,
-                    p.Name,
-                    p.Age,
-                    p.Gender,
-                    p.Mobile as Mobile,
-                    p.Email,
-                    p.BloodGroup,
-                    (SELECT COUNT(*) FROM Appointments a WHERE a.PatientId = p.PatientId) as TotalVisits,
-                    (SELECT TOP 1 AppointmentDate FROM Appointments a WHERE a.PatientId = p.PatientId ORDER BY AppointmentDate DESC) as LastVisit
-                FROM Patients p 
-                WHERE 1=1";
-            
-            var countSql = "SELECT COUNT(*) FROM Patients p WHERE 1=1";
-
             var parameters = new DynamicParameters();
-
-            if (!string.IsNullOrEmpty(searchTerm))
-            {
-                var filter = " AND (p.Name LIKE @Search OR p.Mobile LIKE @Search)";
-                sql += filter;
-                countSql += filter;
-                parameters.Add("@Search", $"%{searchTerm}%");
-            }
-            
-            sql += " ORDER BY p.Name OFFSET @Offset ROWS FETCH NEXT @PageSize ROWS ONLY";
-            parameters.Add("@Offset", (page - 1) * pageSize);
+            parameters.Add("@SearchTerm", searchTerm);
+            parameters.Add("@Page", page);
             parameters.Add("@PageSize", pageSize);
 
-            var totalCount = await connection.ExecuteScalarAsync<int>(countSql, parameters);
-            var result = await connection.QueryAsync<dynamic>(sql, parameters);
+            using var multi = await connection.QueryMultipleAsync(
+                "sp_Admin_GetAllPatients", 
+                parameters,
+                commandType: CommandType.StoredProcedure);
+
+            var totalCount = await multi.ReadFirstAsync<int>();
+            var result = await multi.ReadAsync<dynamic>();
 
             var patients = result.Select(p => new 
             {

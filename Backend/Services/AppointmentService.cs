@@ -59,30 +59,47 @@ namespace ClinicManagementAPI.Services
             var slots = new List<TimeSlotDto>();
             int slotIdCounter = 1;
 
-            foreach (var avail in availability)
-            {
-                var startTime = avail.StartTime;
-                var endTime = avail.EndTime;
+      foreach (var avail in availability)
+      {
+        var startTime = avail.StartTime; // TimeSpan
+        var endTime = avail.EndTime;     // TimeSpan
 
-                var currentTime = startTime;
-                while (currentTime < endTime)
-                {
-                    var isBooked = bookedSlots.Any(b => b == currentTime);
-                    
-                    slots.Add(new TimeSlotDto
-                    {
-                        Time = currentTime.ToString(@"hh\:mm"),
-                        IsAvailable = !isBooked,
-                        SlotId = slotIdCounter++,
-                        Remaining = isBooked ? 0 : 1,
-                        Reason = isBooked ? "Booked" : null
-                    });
+        var slotDuration = TimeSpan.FromMinutes(
+            avail.SlotDuration > 0 ? avail.SlotDuration : 30
+        );
 
-                    currentTime = currentTime.Add(TimeSpan.FromMinutes(avail.SlotDuration > 0 ? avail.SlotDuration : 30));
-                }
-            }
+        // ✅ BUSINESS FIX: If EndTime < StartTime, assume PM (add 12 hours)
+        if (endTime < startTime)
+        {
+          endTime = endTime.Add(TimeSpan.FromHours(12));
+        }
 
-            var availableSlots = slots.Where(s => s.IsAvailable).ToList();
+        var currentTime = startTime;
+
+        while (currentTime < endTime)
+        {
+          var isBooked = bookedSlots.Any(b => b == currentTime);
+
+          // 12-hour display
+          var displayTime = DateTime.Today
+              .Add(currentTime)
+              .ToString("hh:mm tt");
+
+          slots.Add(new TimeSlotDto
+          {
+            Time = displayTime,
+            IsAvailable = !isBooked,
+            SlotId = slotIdCounter++,
+            Remaining = isBooked ? 0 : 1,
+            Reason = isBooked ? "Booked" : null
+          });
+
+          currentTime = currentTime.Add(slotDuration);
+        }
+      }
+
+
+      var availableSlots = slots.Where(s => s.IsAvailable).ToList();
 
             return new AvailableSlotsDto
             {

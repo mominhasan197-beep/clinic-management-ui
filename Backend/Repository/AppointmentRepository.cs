@@ -30,45 +30,27 @@ namespace ClinicManagementAPI.Repository
         public async Task<IEnumerable<Location>> GetLocationsAsync()
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT LocationId, LocationName, Address, City, State, Phone, AvailableHours, IsActive
-                FROM Locations
-                WHERE IsActive = 1";
-            
-            return await connection.QueryAsync<Location>(query);
+            return await connection.QueryAsync<Location>(
+                "sp_Appointment_GetLocations",
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<IEnumerable<Doctor>> GetDoctorsByLocationAsync(int locationId)
         {
             using var connection = _dbContext.CreateConnection();
-            var parameters = new { LocationId = locationId };
-            
             return await connection.QueryAsync<Doctor>(
                 "sp_GetDoctorsByLocation",
-                parameters,
+                new { LocationId = locationId },
                 commandType: CommandType.StoredProcedure);
         }
 
         public async Task<(IEnumerable<DoctorAvailability> availability, IEnumerable<TimeSpan> bookedSlots)> GetAvailableSlotsAsync(int doctorId, int locationId, DateTime date)
         {
             using var connection = _dbContext.CreateConnection();
-            var sqlAvailability = @"
-                SELECT * FROM DoctorAvailability 
-                WHERE DoctorId = @DoctorId 
-                  AND LocationId = @LocationId 
-                  AND IsActive = 1";
-            
-            var sqlBooked = @"
-                SELECT AppointmentTime 
-                FROM Appointments 
-                WHERE DoctorId = @DoctorId 
-                  AND LocationId = @LocationId 
-                  AND CAST(AppointmentDate AS DATE) = CAST(@Date AS DATE) 
-                  AND Status != 'Cancelled'";
-
             using var multi = await connection.QueryMultipleAsync(
-                $"{sqlAvailability}; {sqlBooked}", 
-                new { DoctorId = doctorId, LocationId = locationId, Date = date });
+                "sp_Appointment_GetAvailableSlots", 
+                new { DoctorId = doctorId, LocationId = locationId, Date = date },
+                commandType: CommandType.StoredProcedure);
             
             var availabilityRaw = await multi.ReadAsync<dynamic>();
             var availability = new List<DoctorAvailability>();
@@ -105,7 +87,7 @@ namespace ClinicManagementAPI.Repository
 
                 availability.Add(avail);
             }
-            // Handle booked slots mapping safely
+
             var bookedRaw = await multi.ReadAsync<dynamic>();
             var bookedSlots = new List<TimeSpan>();
             foreach (var item in bookedRaw)
@@ -153,39 +135,28 @@ namespace ClinicManagementAPI.Repository
         public async Task<Appointment?> GetAppointmentByIdAsync(int appointmentId)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                SELECT AppointmentId, ReferenceNumber, PatientId, DoctorId, LocationId,
-                       AppointmentDate, AppointmentTime, Status, Remarks, Diagnosis, Treatment, DoctorNotes, Fees, CreatedOn
-                FROM Appointments
-                WHERE AppointmentId = @AppointmentId";
-            
-            return await connection.QueryFirstOrDefaultAsync<Appointment>(query, new { AppointmentId = appointmentId });
+            return await connection.QueryFirstOrDefaultAsync<Appointment>(
+                "sp_Appointment_GetById", 
+                new { Id = appointmentId },
+                commandType: CommandType.StoredProcedure);
         }
 
         public async Task<bool> UpdateAppointmentAsync(int appointmentId, string? status, string? remarks, string? diagnosis, string? treatment, string? doctorNotes, decimal? fees)
         {
             using var connection = _dbContext.CreateConnection();
-            var query = @"
-                UPDATE Appointments
-                SET
-                    Status = COALESCE(@Status, Status),
-                    Remarks = COALESCE(@Remarks, Remarks),
-                    Diagnosis = COALESCE(@Diagnosis, Diagnosis),
-                    Treatment = COALESCE(@Treatment, Treatment),
-                    DoctorNotes = COALESCE(@DoctorNotes, DoctorNotes),
-                    Fees = COALESCE(@Fees, Fees)
-                WHERE AppointmentId = @AppointmentId";
-
-            var rows = await connection.ExecuteAsync(query, new
-            {
-                AppointmentId = appointmentId,
-                Status = status,
-                Remarks = remarks,
-                Diagnosis = diagnosis,
-                Treatment = treatment,
-                DoctorNotes = doctorNotes,
-                Fees = fees
-            });
+            var rows = await connection.ExecuteAsync(
+                "sp_Appointment_Update", 
+                new
+                {
+                    AppointmentId = appointmentId,
+                    Status = status,
+                    Remarks = remarks,
+                    Diagnosis = diagnosis,
+                    Treatment = treatment,
+                    DoctorNotes = doctorNotes,
+                    Fees = fees
+                },
+                commandType: CommandType.StoredProcedure);
 
             return rows > 0;
         }

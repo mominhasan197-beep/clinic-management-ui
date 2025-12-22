@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'physio-clinic';
-  isMenuOpen: boolean = false; // renamed for clarity
+  isMenuOpen: boolean = false;
+
+  constructor(private router: Router) { }
+
+  isAdminRoute(): boolean {
+    return this.router.url.startsWith('/admin');
+  }
 
   // Toggle hamburger menu
   toggleMenu() {

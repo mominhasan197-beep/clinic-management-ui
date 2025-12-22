@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ClinicApiService } from '../../services/clinic-api.service';
 import { BookAppointmentRequest, Location, Doctor } from '../../models/api.models';
 import { Router } from '@angular/router';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-book-appointment',
   templateUrl: './book-appointment.component.html',
   styleUrls: ['./book-appointment.component.scss']
 })
-export class BookAppointmentComponent implements OnInit {
+export class BookAppointmentComponent implements OnInit, AfterViewInit {
   currentStep = 1;
   locations: Location[] = [];
   doctors: Doctor[] = [];
@@ -36,10 +37,7 @@ export class BookAppointmentComponent implements OnInit {
     this.bookingForm = this.fb.group({
       patientName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
       age: ['', [Validators.required, Validators.min(0), Validators.max(120), Validators.pattern(/^[0-9]*$/)]],
-      mobile: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]],
-      email: ['', [Validators.email]],
-      bloodGroup: [''],
-      remarks: ['', [Validators.pattern(/^[a-zA-Z0-9\s.,!?()-]*$/)]]
+      mobile: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]]
     });
 
     const today = new Date();
@@ -48,6 +46,13 @@ export class BookAppointmentComponent implements OnInit {
 
   ngOnInit() {
     this.loadLocations();
+  }
+
+  ngAfterViewInit() {
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
   }
 
   loadLocations() {
@@ -183,9 +188,6 @@ export class BookAppointmentComponent implements OnInit {
       patientName: this.bookingForm.value.patientName,
       age: Number(this.bookingForm.value.age),
       mobile: this.bookingForm.value.mobile,
-      email: this.bookingForm.value.email,
-      bloodGroup: this.bookingForm.value.bloodGroup,
-      remarks: this.bookingForm.value.remarks,
       locationId: Number(this.selectedLocation.locationId),
       doctorId: Number(this.selectedDoctor.doctorId),
       appointmentDate: this.selectedDate,
